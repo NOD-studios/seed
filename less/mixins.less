@@ -1,0 +1,21 @@
+.font(@family) {
+  font-family: @family;
+}
+
+.background-cover(@image) {
+  background: url(@image) no-repeat center center fixed; background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@image, sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@image, sizingMethod='scale')";
+}
+
+.no-trespassing() {
+  margin: 0; padding: 0;
+}
+
+.logo() {
+  .font(@riesling); font-weight: normal;
+}
+
+.vertical-align(@position: center) {
+  display: flex; align-items: @position;
+}

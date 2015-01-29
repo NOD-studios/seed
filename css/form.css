@@ -1,0 +1,24 @@
+.form * {
+  font-size: 3vmin;
+  line-height: 4vmin;
+}
+.form .simform {
+  top: -1.6em;
+  width: 85vw;
+}
+.form .simform .questions input {
+  margin-top: .6em;
+}
+.form .simform .questions li.current > span label,
+.form .simform .questions .no-js .questions li > span label {
+  color: #ccc;
+}
+.form .simform .controls .number {
+  font-size: .4em;
+}
+.form .simform .controls .next {
+  bottom: 2.2em;
+}
+.form .simform ol:before {
+  background: rgba(0, 0, 0, 0.02);
+}

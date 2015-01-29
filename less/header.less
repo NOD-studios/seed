@@ -1,0 +1,18 @@
+@import "variables";
+@import "mixins";
+
+header {
+  h1 {
+    .logo();
+    .no-trespassing();
+    //font-size: @header-height / 1.8; line-height: @header-height; text-align: center;
+    font-size: @header-height / 1.8;
+    line-height: @header-height / 1.8;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .no-trespassing();
+  .vertical-align(center);
+  height: @header-height;
+}

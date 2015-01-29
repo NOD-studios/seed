@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <Furkan Tunalı> -- <Web Developer> -- <JacopKane>
+
+# THANKS
+
+    <NOD Studios>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr,
+    RequireJS, NOD,
+    Less, PHP5,
+    Bower, NodeJS,
+    CanJS, Bootstrap

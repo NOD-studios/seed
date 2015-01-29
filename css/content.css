@@ -1,0 +1,12 @@
+.content {
+  width: 85vw;
+  margin: 0 auto;
+  padding: 1vmin;
+  text-align: center;
+}
+.content p {
+  font-size: 2.4vmin;
+  line-height: 2.4vmin;
+  margin: 1vh 1vw;
+  padding: 0;
+}

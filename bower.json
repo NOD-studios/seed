@@ -1,0 +1,30 @@
+{
+  "name": "NODstrap",
+  "version": "0.0.0",
+  "authors": [
+    "NOD Studios <hey@nod.st>",
+    "Furkan Tunalı <furkan@nod.st>"
+  ],
+  "main": "js/main.js",
+  "license": "MIT",
+  "homepage": "http://nod.st",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery"            : "1.*.*",
+    "requirejs"         : "2.*.*",
+    "bootstrap"         : "3.*.*",
+    "require-less"      : "*",
+    "less.js"           : "*",
+    "require-css"       : "*",
+    "requirejs-plugins" : "*",
+    "normalize.css"     : "*",
+    "canjs"             : "2.*.*"
+  }
+}

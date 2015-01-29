@@ -1,0 +1,17 @@
+header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 10vmax;
+}
+header h1 {
+  font-family: 'rieslingregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 5.55555556vmax;
+  line-height: 5.55555556vmax;
+  text-align: center;
+  margin: 0 auto;
+}

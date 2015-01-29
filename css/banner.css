@@ -1,0 +1,25 @@
+.banner {
+  width: 100vw;
+  height: 40vmax;
+  max-height: 80vmin;
+  display: flex;
+  align-items: center;
+  background: url('../img/banner.png') no-repeat center center fixed;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/banner.png', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@image, sizingMethod='scale')";
+  margin: 0;
+  padding: 0;
+}
+.banner h2 {
+  color: white;
+  line-height: 10vmin;
+  font-size: 10vmin;
+  text-align: center;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+.wf-inactive .banner h2 {
+  display: none;
+}
