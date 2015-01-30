@@ -28,6 +28,10 @@
       'app/less'          : 'app/../../less',
 
       'bootstrap'         : '../bower_components/bootstrap/less',
+      'respond'           : [
+        '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min',
+        '../bower_components/respond/dest/respond.min'
+      ],
       'normalize.css'     : '../bower_components/normalize.css'
     },
     shim        : {
