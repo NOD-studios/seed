@@ -1,4 +1,4 @@
-(function(window, require, define) {
+(function (window, require, define) {
   'use strict';
   return define([
     'app',

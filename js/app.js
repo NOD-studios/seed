@@ -1,4 +1,4 @@
-(function(window, require, define) {
+(function(window) {
   'use strict';
   define([
     'jquery',
@@ -17,13 +17,14 @@
         }
         return window.console.log.apply(window.console, arguments);
       },
-      test            : function(context) {
-        if (context && context.name) {
-          app.log(can
-            .sub('AppModule {appModuleName} loaded.', {
-              appModuleName : context.name
+      get            : function(appModuleName) {
+        var appModule = app[appModuleName] || false;
+        if (appModule && appModule.name) {
+          this.log(can
+            .sub('{appModuleName} loaded.', {
+              'appModuleName' : appModule.name
             }));
-          return true;
+          return appModule;
         }
         return false;
       },
@@ -32,23 +33,24 @@
           return false;
         }
 
-        if (typeof appLoadCallback !== 'function') {
-          appLoadCallback = this.appLoadCallback;
-        }
-
+        var self = this;
         return require([can.sub('app/{appModuleName}', {
-          appModuleName : appModuleName
-        })], function(appModule) {
-          return appLoadCallback(appModuleName, appModule);
+          'appModuleName' : appModuleName
+        })], function(app) {
+          if (typeof appLoadCallback !== 'function') {
+            appLoadCallback = self.appLoadCallback;
+          }
+          return self.appLoadCallback(appModuleName);
         });
       },
-      appLoadCallback : function(appModuleName, appModule) {
-        if (app.test(appModule) !== true) {
+      appLoadCallback : function(appModuleName) {
+        var appModule = app.get(appModuleName);
+        if (appModule === false) {
           app.log(can
             .sub('AppModule {appModuleName} could not loaded.', {
               appModuleName : appModuleName
             }));
-          return false;
+          return true;
         }
 
         if (typeof app[appModuleName].init === 'function') {
@@ -61,11 +63,13 @@
         if ($('.lt-ie9').length) {
           require(['respond']);
         }
-        $.each(AppLoad, function(key, moduleName) {
-          return app.load(moduleName);
+        var self = this;
+        $.each(AppLoad, function(key, appModuleName) {
+          return self.load(appModuleName);
         });
+        return this;
       }
     };
     return app;
   });
-}) (window, window.require, window.define);
+}) (window);

@@ -21,8 +21,8 @@
         '../bower_components/jquery/dist/jquery.min'
       ],
 
-      //'app/img'           : '../img',
-      //'fonts'             : '../fonts',
+      'app/img'           : '../img',
+      //'fonts'           : '../fonts',
 
       'app/css'           : 'app/../../css',
       'app/less'          : 'app/../../less',
@@ -41,10 +41,10 @@
     },
     map         : {
       '*': {
-        'font'     : 'requirejs-plugins/src/font',
-        'text'     : 'requirejs-plugins/lib/text',
-        'less'     : 'require-less/less',
-        'css'      : 'require-css/css.min'
+        'font' : 'requirejs-plugins/src/font',
+        'text' : 'requirejs-plugins/lib/text',
+        'less' : 'require-less/less',
+        'css'  : 'require-css/css.min'
       }
     }
   });
