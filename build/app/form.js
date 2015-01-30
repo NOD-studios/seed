@@ -1,12 +1,13 @@
 (function(window, require, define) {
   'use strict';
   return define([
-    'app'
+    'app',
+    'css!app/css/form'
   ], function(app) {
       app.form = {
         name         : 'app/form',
         init         : function() {}
       };
-      return app.form;
+      return app;
   });
 }) (window, require, define);

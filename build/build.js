@@ -15,21 +15,28 @@
     {
       name    : "app",
       include : [
+        "app/content",
         "app/header",
         "app/banner",
-        "app/content",
-        "app/form",
-        "app/footer"
+        "app/footer",
+        "app/form"
       ]
-      //exclude : ["main"]
     },
     {
       name    : "main",
-      include : ['app']
+      include : [
+        "app/content",
+        "app/header",
+        "app/banner",
+        "app/footer",
+        "app/form",
+        "app"
+      ]
     }
   ],
   paths                   : {
     facebook       : "empty:",
-    jquery         : "empty:"
+    jquery         : "empty:",
+    respond        : "empty:"
   }
 })

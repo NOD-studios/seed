@@ -1,13 +1,14 @@
 (function(window, require, define) {
   'use strict';
   define([
+    'jquery',
     'can/util/string',
     'css!normalize.css/normalize',
     'css!app/css/app'
-  ], function(can) {
+  ], function($, can) {
     var app = app || {
-      name : 'app',
-      log  : function() {
+      name            : 'app',
+      log             : function() {
         if (window.noLog) {
           return false;
         }
@@ -16,7 +17,7 @@
         }
         return window.console.log.apply(window.console, arguments);
       },
-      test : function(context) {
+      test            : function(context) {
         if (context && context.name) {
           app.log(can
             .sub('AppModule {appModuleName} loaded.', {
@@ -26,7 +27,7 @@
         }
         return false;
       },
-      load : function(appModuleName, appLoadCallback) {
+      load            : function(appModuleName, appLoadCallback) {
         if (typeof appModuleName !== 'string') {
           return false;
         }
@@ -55,6 +56,14 @@
         }
 
         return true;
+      },
+      init            : function() {
+        if ($('.lt-ie9').length) {
+          require(['respond']);
+        }
+        $.each(AppLoad, function(key, moduleName) {
+          return app.load(moduleName);
+        });
       }
     };
     return app;

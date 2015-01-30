@@ -1,7 +1,8 @@
 (function(window, require, define) {
   'use strict';
   return define([
-    'app'
+    'app',
+    'css!app/css/content'
   ], function(app) {
       app.content = {
         name : 'app/content',

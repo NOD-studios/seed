@@ -2,7 +2,6 @@
   'use strict';
   return define([
     'app',
-    'css!font-riesling/stylesheet',
     'css!app/css/header'
   ], function(app) {
     app.header = {
