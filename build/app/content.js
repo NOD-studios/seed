@@ -1,13 +1,2 @@
-(function(window, require, define) {
-  'use strict';
-  return define([
-    'app',
-    'css!app/css/content'
-  ], function(app) {
-      app.content = {
-        name : 'app/content',
-        init : function() {}
-      };
-      return app;
-  });
-}) (window, require, define);
+!function(n,t,e){return e(["app","css!app/css/content"],function(n){return n.content={name:"app/content",init:function(){}},n})}(window,require,define);
+//# sourceMappingURL=content.js.map

@@ -1,12 +1,2 @@
-(function(window, require, define) {
-  'use strict';
-  return define([
-    'app',
-    'css!app/css/header'
-  ], function(app) {
-    app.header = {
-      name : 'app/header'
-    };
-    return app;
-  });
-}) (window, require, define);
+!function(e,n,r){return r(["app","css!app/css/header"],function(e){return e.header={name:"app/header",init:function(){}},e})}(window,require,define);
+//# sourceMappingURL=header.js.map

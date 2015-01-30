@@ -21,8 +21,8 @@
         '../bower_components/jquery/dist/jquery.min'
       ],
 
-      'app/img'           : '../img',
-      'fonts'             : '../fonts',
+      //'app/img'           : '../img',
+      //'fonts'             : '../fonts',
 
       'app/css'           : 'app/../../css',
       'app/less'          : 'app/../../less',

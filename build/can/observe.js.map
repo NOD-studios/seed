@@ -1,0 +1,1 @@
+{"version":3,"file":"observe.js","sources":["observe.js.src.js"],"names":["define","can","Observe","Map","startBatch","batch","start","stopBatch","stop","triggerBatch","trigger"],"mappings":"AASAA,QAAQ,mBAAoB,UAAW,WAAY,eAAgB,SAAUC,GAK5E,MAJAA,GAAIC,QAAUD,EAAIE,IAClBF,EAAIC,QAAQE,WAAaH,EAAII,MAAMC,MACnCL,EAAIC,QAAQK,UAAYN,EAAII,MAAMG,KAClCP,EAAIC,QAAQO,aAAeR,EAAII,MAAMK,QAC9BT"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"noext.js","sources":["noext.js.src.js"],"names":["define","QUERY_PARAM","load","name","req","onLoad","toUrl","mod","normalize","indexOf"],"mappings":"AAQAA,UAAU,WAEN,GAAIC,GAAc,OAGlB,QACIC,KAAO,SAASC,EAAMC,EAAKC,GACvBD,GAAKA,EAAIE,MAAMH,IAAQ,SAASI,GAC5BF,EAAOE,MAGfC,UAAY,SAASL,GAIjB,MADAA,IAASA,EAAKM,QAAQ,KAAO,EAAI,IAAM,IAChCN,EAAOF,EAAa"}

@@ -5,7 +5,8 @@
     'css!app/css/header'
   ], function(app) {
     app.header = {
-      name : 'app/header'
+      name : 'app/header',
+      init : function() {}
     };
     return app;
   });
