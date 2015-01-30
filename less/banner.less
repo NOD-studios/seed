@@ -1,20 +1,4 @@
 @import "variables";
 @import "mixins";
 
-.banner {
-  h2 {
-    .wf-inactive & {
-      display: none;
-    }
-    @h2-font: 10vmin;
-    color: white; line-height: @h2-font; font-size: @h2-font; text-align: center;
-    width: 100vw;
-    .no-trespassing();
-  }
-
-  width: 100vw; height: @banner-height; max-height: 80vmin;
-
-  .vertical-align(center);
-  .background-cover('../img/banner.png');
-  .no-trespassing();
-}
+.banner {}

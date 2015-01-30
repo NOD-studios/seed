@@ -1,8 +1,13 @@
 @import "variables";
 @import "mixins";
 
-* { .font(@century-gothic-2); font-size: 1.6vw; line-height: 2.5vw; }
-
-body {
+.app {
   .no-trespassing();
+  .font(@helvetica);
+
+  @import "form";
+  @import "header";
+  @import "banner";
+  @import "footer";
+  @import "content";
 }

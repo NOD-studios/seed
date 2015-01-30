@@ -6,7 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'league\\' => array($baseDir . '/url'),
-    'True\\' => array($vendorDir . '/true/punycode/src'),
-    'League\\Url\\' => array($vendorDir . '/league/url/src'),
 );
