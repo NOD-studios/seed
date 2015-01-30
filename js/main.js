@@ -41,12 +41,16 @@
     },
     map         : {
       '*': {
-        'font' : 'requirejs-plugins/src/font',
-        'text' : 'requirejs-plugins/lib/text',
-        'less' : 'require-less/less',
-        'css'  : 'require-css/css.min'
+        'font'     : 'requirejs-plugins/src/font',
+        'text'     : 'requirejs-plugins/lib/text',
+        'less'     : 'require-less/less',
+        'css'      : 'require-css/css.min'
       }
     }
+  });
+
+  return require(['app'], function(app) {
+    return app.init();
   });
 
 }) (window, window.require);

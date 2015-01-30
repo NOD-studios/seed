@@ -1,12 +1,13 @@
 <?php
-$loader      = require_once 'vendor/autoload.php';
-$title       = 'NODstrap';
-$description = '';
-$localIpList = array('127.0.0.1', '::1');
-$isLocal     = in_array($_SERVER['REMOTE_ADDR'], $localIpList);
-$config      = compact('loader', 'title', 'description', 'isLocal');
-?>
-<!DOCTYPE html>
+
+  $loader      = require_once 'vendor/autoload.php';
+  $title       = 'NODstrap';
+  $description = '';
+  $localIpList = array('127.0.0.1', '::1');
+  $isLocal     = in_array($_SERVER['REMOTE_ADDR'], $localIpList);
+  $config      = compact('loader', 'title', 'description', 'isLocal');
+
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -18,11 +19,10 @@ $config      = compact('loader', 'title', 'description', 'isLocal');
     <meta name="description" content="<?php echo $description; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="author" href="humans.txt" />
-
     <?php $mainJs = $isLocal ? 'js/main' : 'build/main'; ?>
-
     <script type="text/javascript">
-    if (typeof window.require === 'undefined') {
+    var AppLoad = new Array();
+    if (typeof require === 'undefined') {
       var requireScript = document.createElement('script');
       requireScript.setAttribute('type', 'text/javascript');
       requireScript.setAttribute('data-main', '<?php echo $mainJs; ?>');
@@ -30,51 +30,33 @@ $config      = compact('loader', 'title', 'description', 'isLocal');
       document.head.appendChild(requireScript);
     }
     </script>
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <div class="container">
 
       <!-- app/header -->
-      <header>
-        <h1 class="logo">NODstrap</h1>
+      <header class="header">
+        <h1 class="logo"><?php echo $title; ?></h1>
       </header>
-      <script type="text/javascript">
-        require(['app'], function(app) {
-          app.load('header');
-        });
-      </script>
+      <script type="text/javascript">AppLoad.push('header');</script>
       <!--/ app/header -->
 
       <!-- app/banner -->
       <section class="banner"></section>
-      <script type="text/javascript">
-      require(['app'], function(app) {
-        app.load('banner');
-      });</script>
+      <script type="text/javascript">AppLoad.push('banner');</script>
       <!--/ app/banner -->
 
       <!-- app/content -->
       <section class="content"></section>
-      <script type="text/javascript">
-        require(['app'], function(app) {
-          app.load('content');
-        });
-      </script>
+      <script type="text/javascript">AppLoad.push('content');</script>
       <!--/ app/content -->
 
     </div> <!-- /container -->
 
-    <footer class="row">
-      <p>&copy; NODstrap</p>
+    <footer class="footer">
+      <p>&copy; <?php echo $title; ?></p>
     </footer>
-    <script type="text/javascript">
-      require(['app'], function(app) {
-        app.load('footer');
-      });
-    </script>
+    <script type="text/javascript">AppLoad.push('footer');</script>
 
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -85,7 +67,7 @@ $config      = compact('loader', 'title', 'description', 'isLocal');
       ga('send', 'pageview');
     </script>
     <script type="text/javascript">
-      require(['app']);
+
     </script>
   </body>
 </html>
