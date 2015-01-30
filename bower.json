@@ -17,14 +17,15 @@
     "tests"
   ],
   "dependencies": {
-    "jquery"            : "1.*.*",
-    "requirejs"         : "2.*.*",
-    "bootstrap"         : "3.*.*",
-    "require-less"      : "*",
-    "less.js"           : "*",
-    "require-css"       : "*",
-    "requirejs-plugins" : "*",
-    "normalize.css"     : "*",
-    "canjs"             : "2.*.*"
+    "jquery": "1.*.*",
+    "requirejs": "2.*.*",
+    "bootstrap": "3.*.*",
+    "require-less": "*",
+    "less.js": "*",
+    "require-css": "*",
+    "requirejs-plugins": "*",
+    "normalize.css": "*",
+    "canjs": "2.*.*",
+    "respond": "~1.4.2"
   }
 }

@@ -1,4 +1,11 @@
-<?php $loader = require_once 'vendor/autoload.php'; ?>
+<?php
+$loader      = require_once 'vendor/autoload.php';
+$title       = 'NODstrap';
+$description = '';
+$localIpList = array('127.0.0.1', '::1');
+$isLocal     = in_array($_SERVER['REMOTE_ADDR'], $localIpList);
+$config      = compact('loader', 'title', 'description', 'isLocal');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,26 +14,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NODstrap</title>
-    <meta name="description" content="NODstrap">
+    <title><?php echo $title; ?></title>
+    <meta name="description" content="<?php echo $description; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="author" href="humans.txt" />
 
-    <?php
-    $localIpList = array('127.0.0.1', '::1');
-    $mainJs = 'js/main';
-    if (!in_array($_SERVER['REMOTE_ADDR'], $localIpList)) {
-      $mainJs = 'build/main';
+    <?php $mainJs = $isLocal ? 'js/main' : 'build/main'; ?>
+
+    <script type="text/javascript">
+    if (typeof window.require === 'undefined') {
+      var requireScript = document.createElement('script');
+      requireScript.setAttribute('type', 'text/javascript');
+      requireScript.setAttribute('data-main', '<?php echo $mainJs; ?>');
+      requireScript.setAttribute('src', 'vendor/requirejs/require.min.js');
+      document.head.appendChild(requireScript);
     }
-    ?>
-
-    <script data-main="<?php
-      echo $mainJs;
-    ?>" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js" type="text/javascript"></script>
-    <!--
-      <script data-main="js/main" src="bower_components/requirejs/require.js" type="text/javascript"></script>
-    -->
-
+    </script>
     <!--[if lt IE 9]>
       <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
     <![endif]-->
@@ -78,7 +81,7 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-58942643-1', 'auto');
+      ga('create', 'UA-xxxxxxxxx-1', 'auto');
       ga('send', 'pageview');
     </script>
     <script type="text/javascript">

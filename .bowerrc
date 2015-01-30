@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "preinstall": "update.sh",
-    "postinstall": "update.sh"
+    "postinstall": "bash ./update.sh"
   }
 }
