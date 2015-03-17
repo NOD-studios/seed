@@ -1,2 +1,0 @@
-define(["can/util/library","can/map/bubble"],function(e){var n=e.bubble;return e.extend({},n,{childrenOf:function(e,t){e._nestedReference?e._nestedReference.each(function(a,c){a&&a.bind&&n.toParent(a,e,c(),t)}):n._each.apply(this,arguments)}})});
-//# sourceMappingURL=bubble.js.map

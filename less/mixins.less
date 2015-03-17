@@ -1,21 +1,88 @@
-.font(@family) {
+//main: app.less
+
+@import "variables";
+
+.font(@family: @font-helvetica-neue, @font-weight: normal, @line-height: normal) {
   font-family: @family;
+  font-weight: @font-weight;
+  line-height: @line-height;
 }
 
-.background-cover(@image) {
-  background: url(@image) no-repeat center center fixed; background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@image, sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@image, sizingMethod='scale')";
+.vendor(@property, @value) {
+    -webkit-@{property}: @value;
+     -khtml-@{property}: @value;
+       -moz-@{property}: @value;
+        -ms-@{property}: @value;
+         -o-@{property}: @value;
+            @{property}: @value;
+}
+
+.background-attachment(@attachment) {
+  .vendor(background-attachment, @attachment);
+}
+
+.background-size(@size: cover, @position: center center, @repeat: no-repeat) {
+  .vendor(background-size, @size);
+  background-repeat   : @repeat;
+  background-position : @position;
+}
+
+.transform(...) {
+  .vendor(transform, @arguments);
+}
+
+.transition(...) {
+  .vendor(transition, @arguments);
+}
+
+.rotate(@degree) {
+  .transform(rotate(@degree));
+}
+
+.centered(@position: relative, @display: block) {
+  position: @position;
+  top: 50%; left: 50%;
+  display: @display;
+  .transform(translate(-50%, -50%));
 }
 
 .no-trespassing() {
   margin: 0; padding: 0;
 }
 
-.logo() {
-  .font(@helvetica); font-weight: normal;
+.vertical-align(@position: center, @display: flex) {
+  display             : @display;
+  .vendor(align-items, @position);
 }
 
-.vertical-align(@position: center) {
-  display: flex; align-items: @position;
+.force3d() {
+  //backface-visibility : hidden;
+  perspective           : 1000;
+  .vendor(transform, translate3d(0, 0, 0));
+}
+
+.loaded(@class-active: loaded, @class-inactive: loading, @class-loading: loading, @class-loaded: loaded) {
+  &.@{class-loading}, .@{class-inactive} &.@{class-loading} {
+    visibility: hidden;
+    opacity: 0;
+    .transition(opacity .2s @easeOutQuad);
+  }
+  .@{class-active} &.@{class-loaded},
+  .@{class-active} &.@{class-loading}.@{class-loaded},
+  &.@{class-loaded}.@{class-active},
+  &.@{class-active}.@{class-loading}.@{class-loaded} {
+      visibility: visible;
+      opacity: 1;
+  }
+}
+
+.hidden() {
+  &.hidden {
+    display: none;
+    .transition(display .2s @easeOutQuad);
+  }
+}
+
+.box-shadow(...) {
+  .vendor(box-shadow, @arguments);
 }

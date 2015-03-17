@@ -1,2 +1,3 @@
-!function(n,e,o){return o(["app","css!app/css/footer"],function(n){return n.footer={name:"app/footer",init:function(){}},n})}(window,require,define);
+!function(n,e,r){return r(["app","css!app/css/footer"],function(n){return n.footer={name:"app/footer",init:function(){return this}},n})}(window,require,define);
+//# sourceMappingURL=footer.js
 //# sourceMappingURL=footer.js.map

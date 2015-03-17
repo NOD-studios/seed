@@ -1,1 +1,1 @@
-{"version":3,"file":"header.js","sources":["header.js.src.js"],"names":["window","require","define","app","header","name","init"],"mappings":"CAAA,SAAWA,EAAQC,EAASC,GAE1B,MAAOA,IACL,MACA,sBACC,SAASC,GAKV,MAJAA,GAAIC,QACFC,KAAO,aACPC,KAAO,cAEFH,KAEPH,OAAQC,QAASC"}
+{"version":3,"file":"header.js","sources":["header.js.src.js"],"names":["window","require","define","app","header","name","init","this"],"mappings":"CAAA,SAAWA,EAAQC,EAASC,GAE1B,MAAOA,IACL,MAEA,sBACC,SAASC,GAOV,MANAA,GAAIC,QACFC,KAAO,aACPC,KAAO,WACL,MAAOC,QAGJJ,KAEPH,OAAQC,QAASC"}

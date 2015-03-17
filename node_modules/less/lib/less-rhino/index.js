@@ -18,11 +18,11 @@ function formatError(ctx, options) {
         return ctx.stack || ctx.message;
     }
 
-    if (typeof(extract[0]) === 'string') {
+    if (typeof extract[0] === 'string') {
         error.push(stylize((ctx.line - 1) + ' ' + extract[0], 'grey'));
     }
 
-    if (typeof(extract[1]) === 'string') {
+    if (typeof extract[1] === 'string') {
         var errorTxt = ctx.line + ' ';
         if (extract[1]) {
             errorTxt += extract[1].slice(0, ctx.column) +
@@ -32,14 +32,14 @@ function formatError(ctx, options) {
         error.push(errorTxt);
     }
 
-    if (typeof(extract[2]) === 'string') {
+    if (typeof extract[2] === 'string') {
         error.push(stylize((ctx.line + 1) + ' ' + extract[2], 'grey'));
     }
     error = error.join('\n') + stylize('', 'reset') + '\n';
 
     message += stylize(ctx.type + 'Error: ' + ctx.message, 'red');
     if (ctx.filename) {
-     message += stylize(' in ', 'red') + ctx.filename +
+        message += stylize(' in ', 'red') + ctx.filename +
             stylize(' on line ' + ctx.line + ', column ' + (ctx.column + 1) + ':', 'grey');
     }
 
@@ -113,7 +113,7 @@ less.Parser.fileLoader = function (file, currentFileInfo, callback, env) {
     }
 
     var j = file.lastIndexOf('/');
-    if(newFileInfo.relativeUrls && !/^(?:[a-z-]+:|\/)/.test(file) && j != -1) {
+    if (newFileInfo.relativeUrls && !/^(?:[a-z-]+:|\/)/.test(file) && j != -1) {
         var relativeSubDirectory = file.slice(0, j + 1);
         newFileInfo.rootpath = newFileInfo.rootpath + relativeSubDirectory; // append (sub|sup) directory path of imported file
     }
@@ -196,8 +196,12 @@ function writeFile(filename, content) {
         }
 
         match = arg.match(/^--?([a-z][0-9a-z-]*)(?:=(.*))?$/i);
-        if (match) { arg = match[1]; } // was (?:=([^\s]*)), check!
-        else { return arg; }
+        if (match) {
+            arg = match[1];
+        }
+        else {
+            return arg;
+        }
 
         switch (arg) {
             case 'v':
@@ -305,10 +309,10 @@ function writeFile(filename, content) {
             case 'source-map-output-map-file':
                 if (checkArgFunc(arg, match[2])) {
                     options.writeSourceMap = function(sourceMapContent) {
-                         writeFile(match[2], sourceMapContent);
+                        writeFile(match[2], sourceMapContent);
                     };
                 }
-            break;
+                break;
             case 'rp':
             case 'rootpath':
                 if (checkArgFunc(arg, match[2])) {

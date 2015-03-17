@@ -41,12 +41,12 @@ module.exports = function(environment) {
 
             var importedEqualsRoot = fullPath === importManager.rootFilename;
             if (importOptions.optional && e) {
-            callback(null, {rules:[]}, false, null);
+                callback(null, {rules:[]}, false, null);
             }
             else {
-            importManager.files[fullPath] = root;
-            if (e && !importManager.error) { importManager.error = e; }
-            callback(e, root, importedEqualsRoot, fullPath);
+                importManager.files[fullPath] = root;
+                if (e && !importManager.error) { importManager.error = e; }
+                callback(e, root, importedEqualsRoot, fullPath);
             }
         };
 
@@ -81,7 +81,7 @@ module.exports = function(environment) {
             // - If path of imported file is '../mixins.less' and rootpath is 'less/',
             //   then rootpath should become 'less/../'
             newFileInfo.currentDirectory = fileManager.getPath(resolvedFilename);
-            if(newFileInfo.relativeUrls) {
+            if (newFileInfo.relativeUrls) {
                 newFileInfo.rootpath = fileManager.join(
                     (importManager.context.rootpath || ""),
                     fileManager.pathDiff(newFileInfo.currentDirectory, newFileInfo.entryPath));

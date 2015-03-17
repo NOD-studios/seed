@@ -2,8 +2,9 @@
 
 module.exports = function() {
     var path = require('path'),
-        fs = require('fs');
-        copyBom = require('./copy-bom')();
+        fs = require('fs'),
+        copyBom = require('./copy-bom')(),
+        doBomTest = false;
 
     var less = require('../lib/less-node');
     var stylize = require('../lib/less-node/lessc-helper').stylize;
@@ -88,6 +89,23 @@ module.exports = function() {
         });
     }
 
+    function testEmptySourcemap(name, err, compiledLess, doReplacements, sourcemap, baseFolder) {
+        process.stdout.write("- " + path.join(baseFolder, name) + ": ");
+        if (err) {
+            fail("ERROR: " + (err && err.message));
+        } else {
+            var expectedSourcemap = undefined;
+            if ( compiledLess !== "" ) {
+                difference("\nCompiledLess must be empty", "", compiledLess);
+
+            } else if (sourcemap !== expectedSourcemap) {
+                fail("Sourcemap must be undefined");
+            } else {
+                ok('OK');
+            }
+        }
+    }
+
     function testErrors(name, err, compiledLess, doReplacements, sourcemap, baseFolder) {
         fs.readFile(path.join(baseFolder, name) + '.txt', 'utf8', function (e, expectedErr) {
             process.stdout.write("- " + path.join(baseFolder, name) + ": ");
@@ -134,29 +152,32 @@ module.exports = function() {
         }
         totalTests++;
         queue(function() {
-        var isSync = true;
-        toCSS(options, path.join(normalFolder, filenameNoExtension + ".less"), function (err, result) {
-            process.stdout.write("- Test Sync " + filenameNoExtension + ": ");
+            var isSync = true;
+            toCSS(options, path.join(normalFolder, filenameNoExtension + ".less"), function (err, result) {
+                process.stdout.write("- Test Sync " + filenameNoExtension + ": ");
 
-            if (isSync) {
-                ok("OK");
-            } else {
-                fail("Not Sync");
-            }
-            release();
-        });
-        isSync = false;
+                if (isSync) {
+                    ok("OK");
+                } else {
+                    fail("Not Sync");
+                }
+                release();
+            });
+            isSync = false;
         });
     }
 
     function prepBomTest() {
-      copyBom.copyFolderWithBom(normalFolder, bomFolder);
+        copyBom.copyFolderWithBom(normalFolder, bomFolder);
+        doBomTest = true;
     }
 
     function runTestSet(options, foldername, verifyFunction, nameModifier, doReplacements, getFilename) {
         var options2 = options ? JSON.parse(JSON.stringify(options)) : {};
         runTestSetInternal(normalFolder, options, foldername, verifyFunction, nameModifier, doReplacements, getFilename);
-        runTestSetInternal(bomFolder, options2, foldername, verifyFunction, nameModifier, doReplacements, getFilename);
+        if (doBomTest) {
+            runTestSetInternal(bomFolder, options2, foldername, verifyFunction, nameModifier, doReplacements, getFilename);
+        }
     }
 
     function runTestSetNormalOnly(options, foldername, verifyFunction, nameModifier, doReplacements, getFilename) {
@@ -166,12 +187,12 @@ module.exports = function() {
     function runTestSetInternal(baseFolder, options, foldername, verifyFunction, nameModifier, doReplacements, getFilename) {
         foldername = foldername || "";
 
-        if(!doReplacements) {
+        if (!doReplacements) {
             doReplacements = globalReplacements;
         }
 
         function getBasename(file) {
-             return foldername + path.basename(file, '.less');
+            return foldername + path.basename(file, '.less');
         }
 
         fs.readdirSync(path.join(baseFolder, foldername)).forEach(function (file) {
@@ -185,7 +206,7 @@ module.exports = function() {
 
             totalTests++;
 
-            if (options.sourceMap) {
+            if (options.sourceMap && !options.sourceMap.sourceMapFileInline) {
                 options.sourceMapOutputFilename = name + ".css";
                 options.sourceMapBasepath = path.join(process.cwd(), baseFolder);
                 options.sourceMapRootpath = "testweb/";
@@ -224,11 +245,11 @@ module.exports = function() {
                     return;
                 }
                 var css_name = name;
-                if(nameModifier) { css_name = nameModifier(name); }
+                if (nameModifier) { css_name = nameModifier(name); }
                 fs.readFile(path.join('test/css', css_name) + '.css', 'utf8', function (e, css) {
                     process.stdout.write("- " + path.join(baseFolder, css_name) + ": ");
 
-                        css = css && doReplacements(css, path.join(baseFolder, foldername));
+                    css = css && doReplacements(css, path.join(baseFolder, foldername));
                     if (result.css === css) { ok('OK'); }
                     else {
                         difference("FAIL", css, result.css);
@@ -242,12 +263,12 @@ module.exports = function() {
 
     function diff(left, right) {
         require('diff').diffLines(left, right).forEach(function(item) {
-          if(item.added || item.removed) {
-            var text = item.value.replace("\n", String.fromCharCode(182) + "\n").replace('\ufeff', '[[BOM]]');
-              process.stdout.write(stylize(text, item.added ? 'green' : 'red'));
-          } else {
-              process.stdout.write(item.value.replace('\ufeff', '[[BOM]]'));
-          }
+            if (item.added || item.removed) {
+                var text = item.value && item.value.replace("\n", String.fromCharCode(182) + "\n").replace('\ufeff', '[[BOM]]');
+                process.stdout.write(stylize(text, item.added ? 'green' : 'red'));
+            } else {
+                process.stdout.write(item.value && item.value.replace('\ufeff', '[[BOM]]'));
+            }
         });
         process.stdout.write("\n");
     }
@@ -313,7 +334,7 @@ module.exports = function() {
 
         options.paths = options.paths || [];
         if (!contains(options.paths, addPath)) {
-          options.paths.push(addPath);
+            options.paths.push(addPath);
         }
         options.filename = require('path').resolve(process.cwd(), path);
         options.optimization = options.optimization || 0;
@@ -348,6 +369,7 @@ module.exports = function() {
         testSyncronous: testSyncronous,
         testErrors: testErrors,
         testSourcemap: testSourcemap,
+        testEmptySourcemap: testEmptySourcemap,
         testNoOptions: testNoOptions,
         prepBomTest: prepBomTest,
         finished: finished

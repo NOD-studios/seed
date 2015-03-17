@@ -17,7 +17,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "1.*.*",
+    "jquery": "*",
+    "respond": "*",
     "requirejs": "2.*.*",
     "bootstrap": "3.*.*",
     "require-less": "*",
@@ -26,6 +27,6 @@
     "requirejs-plugins": "*",
     "normalize.css": "*",
     "canjs": "2.*.*",
-    "respond": "~1.4.2"
+    "webfontloader": "*"
   }
 }

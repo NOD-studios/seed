@@ -1,5 +1,10 @@
 {
-    "require": {
-      
-    }
+  "name"              : "strap",
+  "minimum-stability" : "dev",
+  "require": {
+      "league/url": "3.*"
+  },
+  "autoload": {
+      "psr-4": {"league\\": "url/"}
+  }
 }

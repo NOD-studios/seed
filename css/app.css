@@ -1,5 +1,26 @@
 .app {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: normal;
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+.app.loading,
+.loading .app.loading {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -khtml-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.loaded .app.loaded,
+.loaded .app.loading.loaded,
+.app.loaded.loaded,
+.app.loaded.loading.loaded {
+  visibility: visible;
+  opacity: 1;
 }

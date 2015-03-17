@@ -1,2 +1,3 @@
-define(["can/util/can"],function(t){var r=Object.prototype.hasOwnProperty,n=function(t){return null!==t&&t==t.window},o=function(t){if(!t||"object"!=typeof t||t.nodeType||n(t))return!1;try{if(t.constructor&&!r.call(t,"constructor")&&!r.call(t.constructor.prototype,"isPrototypeOf"))return!1}catch(o){return!1}var c;for(c in t);return void 0===c||r.call(t,c)};return t.isPlainObject=o,t});
+define(["can/can"],function(){var t=Object.prototype.hasOwnProperty,r=function(t){return null!==t&&t==t.window},n=function(n){if(!n||"object"!=typeof n||n.nodeType||r(n))return!1;try{if(n.constructor&&!t.call(n,"constructor")&&!t.call(n.constructor.prototype,"isPrototypeOf"))return!1}catch(o){return!1}var c;for(c in n);return void 0===c||t.call(n,c)};return can.isPlainObject=n,can});
+//# sourceMappingURL=isplain.js
 //# sourceMappingURL=isplain.js.map

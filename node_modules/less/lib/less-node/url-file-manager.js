@@ -1,7 +1,7 @@
 var isUrlRe = /^(?:https?:)?\/\//i,
     url = require('url'),
     request,
-    PromiseConstructor = typeof Promise === 'undefined' ? require('promise') : Promise,
+    PromiseConstructor,
     AbstractFileManager = require("../less/environment/abstract-file-manager.js"),
     logger = require("../less/logger");
 
@@ -15,6 +15,9 @@ UrlFileManager.prototype.supports = function(filename, currentDirectory, options
 };
 
 UrlFileManager.prototype.loadFile = function(filename, currentDirectory, options, environment) {
+    if (!PromiseConstructor) {
+        PromiseConstructor = typeof Promise === 'undefined' ? require('promise') : Promise;
+    }
     return new PromiseConstructor(function(fulfill, reject) {
         if (request === undefined) {
             try { request = require('request'); }
@@ -43,7 +46,7 @@ UrlFileManager.prototype.loadFile = function(filename, currentDirectory, options
                 return;
             }
             if (!body) {
-                logger.warn('Warning: Empty body (HTTP '+ res.statusCode + ') returned by "' + urlStr + '"');
+                logger.warn('Warning: Empty body (HTTP ' + res.statusCode + ') returned by "' + urlStr + '"');
             }
             fulfill({ contents: body, filename: urlStr });
         });

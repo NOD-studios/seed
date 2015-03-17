@@ -1,2 +1,0 @@
-define(["can/util/can"],function(n){!function(){var t=function(n,t,a){n.addEventListener?n.addEventListener(t,a,!1):n.attachEvent?n.attachEvent("on"+t,a):n["on"+t]=a},a=function(){n.trigger(window,"hashchange")};t(window,"hashchange",a)}()});
-//# sourceMappingURL=hashchange.js.map

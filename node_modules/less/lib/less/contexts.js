@@ -4,7 +4,7 @@ module.exports = contexts;
 var copyFromOriginal = function copyFromOriginal(original, destination, propertiesToCopy) {
     if (!original) { return; }
 
-    for(var i = 0; i < propertiesToCopy.length; i++) {
+    for (var i = 0; i < propertiesToCopy.length; i++) {
         if (original.hasOwnProperty(propertiesToCopy[i])) {
             destination[propertiesToCopy[i]] = original[propertiesToCopy[i]];
         }
@@ -77,7 +77,7 @@ contexts.Eval.prototype.isMathOn = function () {
 };
 
 contexts.Eval.prototype.isPathRelative = function (path) {
-    return !/^(?:[a-z-]+:|\/)/i.test(path);
+    return !/^(?:[a-z-]+:|\/|#)/i.test(path);
 };
 
 contexts.Eval.prototype.normalizePath = function( path ) {

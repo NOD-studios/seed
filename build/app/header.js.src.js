@@ -2,11 +2,14 @@
   
   return define([
     'app',
+    
     'css!app/css/header'
   ], function(app) {
     app.header = {
       name : 'app/header',
-      init : function() {}
+      init : function() {
+        return this;
+      }
     };
     return app;
   });

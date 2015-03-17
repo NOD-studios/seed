@@ -1,15 +1,18 @@
 {
-  "name"            : "NODstrap",
-  "version"         : "1.0.0",
-  "description"     : "",
-  "main"            : "index.php",
-  "dependencies"    : {
-    "less"      : "*",
-    "requirejs" : "2.*.*",
-    "bower"     : "*",
-    "csso"      : "*"
+  "name": "NODstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "dependencies": {
+    "bower": "*",
+    "bower-requirejs": "*",
+    "csso": "*",
+    "less": "*",
+    "requirejs": "2.*.*",
+    "uglify-js": "2.*.*",
+    "watch-less": "*"
   },
-  "devDependencies" : {},
-  "scripts"         : {},
-  "author"          : "NOD Studios <hey@nod.st>"
+  "devDependencies": {},
+  "scripts": {},
+  "author": "NOD Studios <hey@nod.st>"
 }

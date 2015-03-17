@@ -47,7 +47,7 @@ var Parser = function Parser(context, imports, fileInfo) {
         if (result) {
             return result;
         }
-        error(msg || (typeof(arg) === 'string' ? "expected '" + arg + "' got '" + parserInput.currentChar() + "'"
+        error(msg || (typeof arg === 'string' ? "expected '" + arg + "' got '" + parserInput.currentChar() + "'"
                                                : "unexpected token"));
     }
 
@@ -92,17 +92,26 @@ var Parser = function Parser(context, imports, fileInfo) {
         // @param [additionalData] An optional map which can contains vars - a map (key, value) of variables to apply
         //
         parse: function (str, callback, additionalData) {
-            var root, error = null, globalVars, modifyVars, preText = "";
+            var root, error = null, globalVars, modifyVars, ignored, preText = "";
 
             globalVars = (additionalData && additionalData.globalVars) ? Parser.serializeVars(additionalData.globalVars) + '\n' : '';
             modifyVars = (additionalData && additionalData.modifyVars) ? '\n' + Parser.serializeVars(additionalData.modifyVars) : '';
 
-            if (globalVars || (additionalData && additionalData.banner)) {
-                preText = ((additionalData && additionalData.banner) ? additionalData.banner : "") + globalVars;
-                imports.contentsIgnoredChars[fileInfo.filename] = preText.length;
+            if (context.pluginManager) {
+                var preProcessors = context.pluginManager.getPreProcessors();
+                for (var i = 0; i < preProcessors.length; i++) {
+                    str = preProcessors[i].process(str, { context: context, imports: imports, fileInfo: fileInfo });
+                }
             }
 
-            str = str.replace(/\r\n/g, '\n');
+            if (globalVars || (additionalData && additionalData.banner)) {
+                preText = ((additionalData && additionalData.banner) ? additionalData.banner : "") + globalVars;
+                ignored = imports.contentsIgnoredChars;
+                ignored[fileInfo.filename] = ignored[fileInfo.filename] || 0;
+                ignored[fileInfo.filename] += preText.length;
+            }
+
+            str = str.replace(/\r\n?/g, '\n');
             // Remove potential UTF Byte Order Mark
             str = preText + str.replace(/^\uFEFF/, '') + modifyVars;
             imports.contents[fileInfo.filename] = str;
@@ -233,7 +242,7 @@ var Parser = function Parser(context, imports, fileInfo) {
 
                 while (true)
                 {
-                    while(true) {
+                    while (true) {
                         node = this.comment();
                         if (!node) { break; }
                         root.push(node);
@@ -332,7 +341,7 @@ var Parser = function Parser(context, imports, fileInfo) {
 
                     if (nameLC === 'alpha') {
                         alpha = parsers.alpha();
-                        if(alpha) {
+                        if (alpha) {
                             return alpha;
                         }
                     }
@@ -547,8 +556,14 @@ var Parser = function Parser(context, imports, fileInfo) {
                     elements = null;
                     while (! (option = parserInput.$re(/^(all)(?=\s*(\)|,))/))) {
                         e = this.element();
-                        if (!e) { break; }
-                        if (elements) { elements.push(e); } else { elements = [ e ]; }
+                        if (!e) {
+                            break;
+                        }
+                        if (elements) {
+                            elements.push(e);
+                        } else {
+                            elements = [ e ];
+                        }
                     }
 
                     option = option && option[1];
@@ -556,9 +571,12 @@ var Parser = function Parser(context, imports, fileInfo) {
                         error("Missing target selector for :extend().");
                     }
                     extend = new(tree.Extend)(new(tree.Selector)(elements), option, index);
-                    if (extendList) { extendList.push(extend); } else { extendList = [ extend ]; }
-
-                } while(parserInput.$char(","));
+                    if (extendList) {
+                        extendList.push(extend);
+                    } else {
+                        extendList = [ extend ];
+                    }
+                } while (parserInput.$char(","));
 
                 expect(/^\)/);
 
@@ -606,7 +624,11 @@ var Parser = function Parser(context, imports, fileInfo) {
                             break;
                         }
                         elem = new(tree.Element)(c, e, elemIndex, fileInfo);
-                        if (elements) { elements.push(elem); } else { elements = [ elem ]; }
+                        if (elements) {
+                            elements.push(elem);
+                        } else {
+                            elements = [ elem ];
+                        }
                         c = parserInput.$char('>');
                     }
 
@@ -947,11 +969,19 @@ var Parser = function Parser(context, imports, fileInfo) {
                     } else if (condition) {
                         error("CSS guard can only be used at the end of selector");
                     } else if (extendList) {
-                        if (allExtends) { allExtends = allExtends.concat(extendList); } else { allExtends = extendList; }
+                        if (allExtends) {
+                            allExtends = allExtends.concat(extendList);
+                        } else {
+                            allExtends = extendList;
+                        }
                     } else {
                         if (allExtends) { error("Extend can only be used at the end of selector"); }
                         c = parserInput.currentChar();
-                        if (elements) { elements.push(e); } else { elements = [ e ]; }
+                        if (elements) {
+                            elements.push(e);
+                        } else {
+                            elements = [ e ];
+                        }
                         e = null;
                     }
                     if (c === '{' || c === '}' || c === ';' || c === ',' || c === ')') {
@@ -1026,7 +1056,11 @@ var Parser = function Parser(context, imports, fileInfo) {
                     if (!s) {
                         break;
                     }
-                    if (selectors) { selectors.push(s); } else { selectors = [ s ]; }
+                    if (selectors) {
+                        selectors.push(s);
+                    } else {
+                        selectors = [ s ];
+                    }
                     parserInput.commentStore.length = 0;
                     if (s.condition && selectors.length > 1) {
                         error("Guards are only currently allowed on a single selector.");
@@ -1163,11 +1197,11 @@ var Parser = function Parser(context, imports, fileInfo) {
                             case "css":
                                 optionName = "less";
                                 value = false;
-                            break;
+                                break;
                             case "once":
                                 optionName = "multiple";
                                 value = false;
-                            break;
+                                break;
                         }
                         options[optionName] = value;
                         if (! parserInput.$char(',')) { break; }
@@ -1378,7 +1412,7 @@ var Parser = function Parser(context, imports, fileInfo) {
                         expressions.push(e);
                         if (! parserInput.$char(',')) { break; }
                     }
-                } while(e);
+                } while (e);
 
                 if (expressions.length > 0) {
                     return new(tree.Value)(expressions);

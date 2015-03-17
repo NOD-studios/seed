@@ -12,8 +12,8 @@
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr,
-    RequireJS, NOD,
+    jQuery, NODstrap,
+    RequireJS, Bootstrap,
     Less, PHP5,
     Bower, NodeJS,
-    CanJS, Bootstrap
+    CanJS

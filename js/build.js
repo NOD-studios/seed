@@ -17,26 +17,19 @@
       include : [
         "app/content",
         "app/header",
-        "app/banner",
         "app/footer",
+        "app/banner",
+        "app/modal",
+        "app/menu",
         "app/form"
       ]
     },
     {
       name    : "main",
-      include : [
-        "app/content",
-        "app/header",
-        "app/banner",
-        "app/footer",
-        "app/form",
-        "app"
-      ]
+      include : ["app"]
     }
   ],
   paths                   : {
-    facebook : "empty:",
-    jquery   : "empty:",
-    respond  : "empty:"
+    facebook : "empty:"
   }
 })

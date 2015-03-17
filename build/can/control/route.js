@@ -1,2 +1,3 @@
 define(["can/util/library","can/route","can/control"],function(t){return t.Control.processors.route=function(r,n,u,o,e){u=u||"",t.route.routes[u]||("/"===u[0]&&(u=u.substring(1)),t.route(u));var c,i=function(r){if(t.route.attr("route")===u&&(void 0===r.batchNum||r.batchNum!==c)){c=r.batchNum;var n=t.route.attr();delete n.route,t.isFunction(e[o])?e[o](n):e[e[o]](n)}};return t.route.bind("change",i),function(){t.route.unbind("change",i)}},t});
+//# sourceMappingURL=route.js
 //# sourceMappingURL=route.js.map

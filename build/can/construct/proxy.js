@@ -1,2 +1,3 @@
 define(["can/util/library","can/construct"],function(t){var r=t.isFunction,n=t.isArray,o=t.makeArray,a=function(t){var a,e=o(arguments);t=e.shift(),n(t)||(t=[t]),a=this;for(var s=0;s<t.length;s++)if("string"==typeof t[s]&&!r(this[t[s]]))throw"class.js "+(this.fullName||this.Class.fullName)+" does not have a "+t[s]+"method!";return function(){for(var r,s,i=e.concat(o(arguments)),l=t.length,u=0;l>u;u++)s=t[u],s&&(r="string"==typeof s,i=(r?a[s]:s).apply(a,i||[]),l-1>u&&(i=!n(i)||i._use_call?[i]:i));return i}};t.Construct.proxy=t.Construct.prototype.proxy=a;for(var e=[t.Map,t.Control,t.Model],s=0;s<e.length;s++)e[s]&&(e[s].proxy=a);return t});
+//# sourceMappingURL=proxy.js
 //# sourceMappingURL=proxy.js.map

@@ -1,0 +1,18 @@
+.header.loading,
+.loading .header.loading {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -khtml-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.loaded .header.loaded,
+.loaded .header.loading.loaded,
+.header.loaded.loaded,
+.header.loaded.loading.loaded {
+  visibility: visible;
+  opacity: 1;
+}

@@ -2,11 +2,14 @@
   'use strict';
   return define([
     'app',
+
     'css!app/css/banner'
   ], function(app) {
     app.banner = {
       name : 'app/banner',
-      init : function() {}
+      init : function() {
+        return this;
+      }
     };
     return app;
   });

@@ -1,7 +1,12 @@
 var path = require('path'),
     fs = require('./fs'),
-    PromiseConstructor = typeof Promise === 'undefined' ? require('promise') : Promise,
+    PromiseConstructor,
     AbstractFileManager = require("../less/environment/abstract-file-manager.js");
+
+try {
+    PromiseConstructor = typeof Promise === 'undefined' ? require('promise') : Promise;
+} catch(e) {
+}
 
 var FileManager = function() {
 };
@@ -23,7 +28,7 @@ FileManager.prototype.loadFile = function(filename, currentDirectory, options, e
 
     options = options || {};
 
-    if (options.syncImport) {
+    if (options.syncImport || !PromiseConstructor) {
         data = this.loadFileSync(filename, currentDirectory, options, environment, 'utf-8');
         callback(data.error, data);
         return;
@@ -79,7 +84,7 @@ FileManager.prototype.loadFileSync = function(filename, currentDirectory, option
         try {
             fullFilename = filename;
             if (paths[i]) {
-              fullFilename = path.join(paths[i], fullFilename);
+                fullFilename = path.join(paths[i], fullFilename);
             }
             filenamesTried.push(fullFilename);
             fs.statSync(fullFilename);
@@ -95,7 +100,7 @@ FileManager.prototype.loadFileSync = function(filename, currentDirectory, option
     } else {
         data = fs.readFileSync(fullFilename, encoding);
         result = { contents: data, filename: fullFilename};
-     }
+    }
 
     return result;
 };
