@@ -17,7 +17,7 @@
   $mainJs        = 'main.js';
   $webFont       =  array(
     'typekit'  => array('id' => null),
-    'monotype' => array('projectId' => '94e6694c-6914-4848-8cb3-6fb03ba10785')
+    'monotype' => array('projectId' => null)
   );
   $gTrackingId   = 'UA-xxxxxxxxx-1';
   $mainJs        = $isLocal ?
@@ -41,7 +41,8 @@
     <meta name="description" content="<?php echo $description; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script type="text/javascript">
-    var AppLoad   = AppLoad || new Array(),
+    var App,
+        AppLoad   = AppLoad || new Array(),
         AppConfig = JSON.parse('<?php echo json_encode($config, JSON_FORCE_OBJECT); ?>'),
         require   = {
           urlArgs : '<?php echo "v={$version}"; ?>'
@@ -166,6 +167,11 @@
     </script>
     <!--/ app/footer -->
 
+    <script type="text/javascript">
+      require(['app'], function(app) {
+        return App = app.init();
+      });
+    </script>
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
