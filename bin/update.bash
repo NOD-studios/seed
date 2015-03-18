@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Pulling git";
-git pull;
+#git pull;
 echo "Updating npm";
 npm update;
 echo "Updating bower";
