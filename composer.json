@@ -6,5 +6,20 @@
   },
   "autoload"          : {
       "psr-4": {"league\\": "url/"}
+  },
+  "authors": [
+      {
+          "name": "NOD studios",
+          "email": "hey@nod.st",
+          "homepage": "http://nod.st"
+      },
+      {
+          "name": "Furkan Tunalı",
+          "email": "furkan@nod.st",
+          "homepage": "http://furkantunali.com"
+      }
+  ],
+  "support": {
+    "email": "hey@nod.st"
   }
 }

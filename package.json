@@ -1,9 +1,15 @@
 {
-  "name": "NODstrap",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.php",
-  "dependencies": {
+  "name"            : "NODstrap",
+  "description"     : "",
+  "version"         : "1.0.0",
+  "main"            : "index.php",
+  "authors"         : [
+    "NOD studios <hey@nod.st>",
+    "Furkan Tunalı <furkan@nod.st>"
+  ],
+  "private"         : true,
+  "scripts"         : {},
+  "dependencies"    : {
     "bower": "*",
     "bower-requirejs": "*",
     "csso": "*",
@@ -12,7 +18,5 @@
     "uglify-js": "2.*.*",
     "watch-less": "*"
   },
-  "devDependencies": {},
-  "scripts": {},
-  "author": "NOD studios <hey@nod.st>"
+  "devDependencies" : {}
 }
