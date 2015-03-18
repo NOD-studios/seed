@@ -1,5 +1,6 @@
 {
-  "scripts": {
-    "postinstall" : "bash ./update.sh"
+  "directory" : "./vendor",
+  "scripts"   : {
+    "postinstall" : "bash ./bin/update.bash"
   }
 }

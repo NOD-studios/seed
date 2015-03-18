@@ -63,7 +63,6 @@
     <link rel="shortcut icon" href="<?php echo $basePath; ?>/favicon.ico">
     <link rel="apple-touch-icon image_src"
       href="<?php echo $basePath; ?>/apple-touch-icon-precomposed.png">
-    <link rel="author" href="humans.txt" />
 
     <!-- social -->
     <meta itemprop="name" content="<?php echo $title; ?>">
@@ -80,6 +79,37 @@
     <meta property="og:site_name" content="<?php echo $title; ?>" />
     <meta property="fb:page_id" content="765094263578370" />
     <meta property="fb:admins" content="1704931877" />
+
+    <!-- device -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  	<meta name="viewport" content="width=device-width" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- asset -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  	<link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" type="text/css" href="//fast.fonts.net/cssapi/49f56a47-2ad2-44f2-a045-2e3b935f2fda.css"/>
+
+    <link rel="author" href="humans.txt" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
+    <link rel="manifest" href="icon/manifest.json">
   </head>
   <body>
 

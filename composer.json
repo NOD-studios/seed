@@ -1,10 +1,10 @@
 {
-  "name"              : "strap",
+  "name"              : "NODstrap",
   "minimum-stability" : "dev",
-  "require": {
+  "require"           : {
       "league/url": "3.*"
   },
-  "autoload": {
+  "autoload"          : {
       "psr-4": {"league\\": "url/"}
   }
 }
