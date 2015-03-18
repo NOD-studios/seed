@@ -1,7 +1,6 @@
 {
   "name": "NODstrap",
-  "version": "1.0.0",
-  "description": "",
+  "private"    : true,
   "main": "index.php",
   "dependencies": {
     "bower": "*",

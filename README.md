@@ -11,9 +11,9 @@ bash bin/update.bash
 
 #Requirements
 - Git
-- Node.js
-- NPM
 - Composer
+- Node.js
+- npm
 
 ###ToDos
 - More automation with name and build versions
