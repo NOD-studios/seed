@@ -4,20 +4,20 @@
   $description   = 'NOD studios bootstrap';
   $localIpList   = array('127.0.0.1', '::1');
   $url           = League\Url\Url::createFromServer($_SERVER);
-  $baseUrl       = $url->getBaseUrl();
-  $scheme        = $url->getScheme()->__toString();
   $host          = $url->getHost()->__toString();
   $query         = $url->getQuery()->__toString();
+  $scheme        = $url->getScheme()->__toString();
+  $baseUrl       = $url->getBaseUrl();
   $isLocal       = in_array($_SERVER['REMOTE_ADDR'], $localIpList);
   $isLocal       = empty($_REQUEST['isLocal']) ?
     $isLocal : intval($_REQUEST['isLocal']);
   $isLocal       = $isLocal ? true : false;
   $basePath      = '.';
-  $version       = '0.0.0';
+  $version       = '2.0.0';
   $mainJs        = 'main.js';
   $webFont       =  array(
     'typekit'  => array('id' => null),
-    'monotype' => array('projectId' => null)
+    'monotype' => array('projectId' => '94e6694c-6914-4848-8cb3-6fb03ba10785')
   );
   $gTrackingId   = 'UA-xxxxxxxxx-1';
   $mainJs        = $isLocal ?
