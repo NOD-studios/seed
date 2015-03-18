@@ -3,10 +3,10 @@
   require.config({
     waitSeconds: 500,
     paths: {
+      facebook: '//connect.facebook.net/en_US/all',
       propertyParser: '../vendor/requirejs-plugins/src/propertyParser',
       lessc: '../vendor/less.js/dist/less.min',
       normalize: '../vendor/require-css/normalize',
-      facebook: '//connect.facebook.net/en_US/all',
       'app/img': '../img',
       'app/css': 'app/../../css',
       'app/less': 'app/../../less',
