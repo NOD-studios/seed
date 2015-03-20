@@ -2,8 +2,8 @@
 # The humans responsible & technology colophon
 
 # TEAM
-
     <Furkan Tunalı> -- <Web Developer> -- <JacopKane>
+    <Güneş Eser> -- <Web Developer> -- <spielersun>
 
 # THANKS
 

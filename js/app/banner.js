@@ -6,8 +6,9 @@
     'css!app/css/banner'
   ], function(app) {
     app.banner = {
-      name : 'app/banner',
-      init : function() {
+      name            : 'app/banner',
+      selectorElement : '.banner',
+      init            : function() {
         return this;
       }
     };

@@ -6,8 +6,9 @@
     'css!app/css/content'
   ], function(app) {
     app.content = {
-      name : 'app/content',
-      init : function() {
+      name            : 'app/content',
+      selectorElement : '.content',
+      init            : function() {
         return this;
       }
     };

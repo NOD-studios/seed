@@ -39,6 +39,7 @@ can/util/attr.js
 can/event.js
 can/util/each.js
 can/util/inserted.js
+can/util/jquery.js
 can/util/library.js
 can/util/string.js
 normalize.js
@@ -70,6 +71,7 @@ can/util/attr.js
 can/event.js
 can/util/each.js
 can/util/inserted.js
+can/util/jquery.js
 can/util/library.js
 can/util/string.js
 normalize.js

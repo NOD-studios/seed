@@ -6,8 +6,9 @@
     'css!app/css/menu'
   ], function(app) {
     app.menu = {
-      name : 'app/menu',
-      init : function() {
+      name            : 'app/menu',
+      selectorElement : '.menu',
+      init            : function() {
         return this;
       }
     };

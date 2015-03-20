@@ -15,7 +15,7 @@ bash bin/update.bash
 - Node.js
 - npm
 
-###ToDos
+###TODOs
 - More automation with name and build versions
 - Yeoman integration
 - Integration with custom web plugins

@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "league/url",
-            "version": "3.2.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/url.git",
-                "reference": "74ae626949e967fd20511d074835ae6ff67d97ae"
+                "reference": "1c1fb645b5a7de3d7e7bef07e203ec37f6b34847"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/url/zipball/74ae626949e967fd20511d074835ae6ff67d97ae",
-                "reference": "74ae626949e967fd20511d074835ae6ff67d97ae",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/1c1fb645b5a7de3d7e7bef07e203ec37f6b34847",
+                "reference": "1c1fb645b5a7de3d7e7bef07e203ec37f6b34847",
                 "shasum": ""
             },
             "require": {
@@ -52,12 +52,13 @@
                 }
             ],
             "description": "League/url is a lightweight PHP Url manipulating library",
+            "homepage": "http://url.thephpleague.com",
             "keywords": [
                 "parse_url",
                 "php",
                 "url"
             ],
-            "time": "2014-11-27 10:14:00"
+            "time": "2015-03-20 08:35:10"
         },
         {
             "name": "true/punycode",

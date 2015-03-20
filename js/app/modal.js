@@ -5,9 +5,10 @@
 
     'css!app/css/modal'
   ], function(app) {
-    app.menu = {
-      name : 'app/modal',
-      init : function() {
+    app.modal = {
+      name            : 'app/modal',
+      selectorElement : '.modal',
+      init            : function() {
         return this;
       }
     };

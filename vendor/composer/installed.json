@@ -50,17 +50,17 @@
     },
     {
         "name": "league/url",
-        "version": "3.2.1",
-        "version_normalized": "3.2.1.0",
+        "version": "3.3.0",
+        "version_normalized": "3.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/url.git",
-            "reference": "74ae626949e967fd20511d074835ae6ff67d97ae"
+            "reference": "1c1fb645b5a7de3d7e7bef07e203ec37f6b34847"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/url/zipball/74ae626949e967fd20511d074835ae6ff67d97ae",
-            "reference": "74ae626949e967fd20511d074835ae6ff67d97ae",
+            "url": "https://api.github.com/repos/thephpleague/url/zipball/1c1fb645b5a7de3d7e7bef07e203ec37f6b34847",
+            "reference": "1c1fb645b5a7de3d7e7bef07e203ec37f6b34847",
             "shasum": ""
         },
         "require": {
@@ -71,7 +71,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2014-11-27 10:14:00",
+        "time": "2015-03-20 08:35:10",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -97,6 +97,7 @@
             }
         ],
         "description": "League/url is a lightweight PHP Url manipulating library",
+        "homepage": "http://url.thephpleague.com",
         "keywords": [
             "parse_url",
             "php",

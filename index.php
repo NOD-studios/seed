@@ -13,7 +13,7 @@
     $isLocal : intval($_REQUEST['isLocal']);
   $isLocal       = $isLocal ? true : false;
   $basePath      = '.';
-  $version       = '2.0.0';
+  $version       = '0.0.0';
   $mainJs        = 'main.js';
   $webFont       =  array(
     'typekit'  => array('id' => null),
@@ -89,12 +89,6 @@
     <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- asset -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  	<link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  	<link rel="stylesheet" type="text/css" href="//fast.fonts.net/cssapi/49f56a47-2ad2-44f2-a045-2e3b935f2fda.css"/>
-
     <link rel="author" href="humans.txt" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
@@ -151,7 +145,6 @@
 
     <!-- app/modal -->
     <div id="modal" class="modal loading">
-      <p>&copy; <?php echo $title; ?></p>
     </div>
     <script type="text/javascript">
       AppLoad.push('modal');

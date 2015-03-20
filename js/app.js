@@ -4,6 +4,7 @@
     'jquery',
     'can/can',
 
+    'can/util/jquery',
     'can/util/library',
     'can/util/string',
     'css!app/css/app'
@@ -76,15 +77,6 @@
           return returnInit;
         }
         return true;
-      },
-      overflow        : function (toggle) {
-        var self = this;
-        toggle = toggle ? true : false;
-        $(function() {
-          $(self.selectorElement)
-            .css('overflow', toggle ?
-              'visible' : 'hidden');
-        });
       },
       init            : function () {
         var self = this,
