@@ -1,6 +1,10 @@
 # ===== NODstrap.gitignore =====
 build/
 vendor/
+.env
+.env.test
+.env.production
+.env.development
 # ===== End NODstrap.gitignore =====
 
 # ===== Start Bower =====

@@ -1,5 +1,6 @@
 (function (window, require) {
   'use strict';
+  
   require.config({
     waitSeconds: 500,
     paths: {

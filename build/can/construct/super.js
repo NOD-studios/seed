@@ -1,3 +1,0 @@
-define(["can/util/library","can/construct"],function(t){var r=t.isFunction,n=/xyz/.test(function(){return this.xyz})?/\b_super\b/:/.*/,e=["get","set"],i=function(t,r,n){return function(){var e,i=this._super;return this._super=t[r],e=n.apply(this,arguments),this._super=i,e}};return t.Construct._defineProperty=function(n,u,c,s){var o=Object.getOwnPropertyDescriptor(u,c);o&&t.each(e,function(t){r(o[t])&&r(s[t])?s[t]=i(o,t,s[t]):r(s[t])||(s[t]=o[t])}),Object.defineProperty(n,c,s)},t.Construct._overwrite=function(t,e,u,c){t[u]=r(c)&&r(e[u])&&n.test(c)?i(e,u,c):c},t});
-//# sourceMappingURL=super.js
-//# sourceMappingURL=super.js.map

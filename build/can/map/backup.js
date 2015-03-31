@@ -1,3 +1,0 @@
-define(["can/util/library","can/compute","can/map","can/util/object"],function(t){var r=function(t,r){var i={};for(var e in t)i[e]="object"!=typeof t[e]||null===t[e]||t[e]instanceof Date?t[e]:r.attr(e);return i},i=t.Map.prototype.setup;return t.extend(t.Map.prototype,{setup:function(){return this._backupStore=t.compute(),i.apply(this,arguments)},backup:function(){return this._backupStore(this.attr()),this},isDirty:function(r){return this._backupStore()&&!t.Object.same(this.attr(),this._backupStore(),void 0,void 0,void 0,!!r)},restore:function(t){var i=t?this._backupStore():r(this._backupStore(),this);return this.isDirty(t)&&this.attr(i,!0),this}}),t.Map});
-//# sourceMappingURL=backup.js
-//# sourceMappingURL=backup.js.map

@@ -1,3 +1,0 @@
-define(["can/can"],function(e){e.inserted=function(n){n=e.makeArray(n);for(var r,i,t=!1,a=e.$(document.contains?document:document.body),d=0;void 0!==(i=n[d]);d++){if(!t){if(!i.getElementsByTagName)continue;if(!e.has(a,i).length)return;t=!0}if(t&&i.getElementsByTagName){r=e.makeArray(i.getElementsByTagName("*")),e.trigger(i,"inserted",[],!1);for(var o,s=0;void 0!==(o=r[s]);s++)e.trigger(o,"inserted",[],!1)}}},e.appendChild=function(n,r){var i;i=11===r.nodeType?e.makeArray(r.childNodes):[r],n.appendChild(r),e.inserted(i)},e.insertBefore=function(n,r,i){var t;t=11===r.nodeType?e.makeArray(r.childNodes):[r],n.insertBefore(r,i),e.inserted(t)}});
-//# sourceMappingURL=inserted.js
-//# sourceMappingURL=inserted.js.map

@@ -1,25 +1,28 @@
 {
-  "name"              : "NODstrap",
+  "name"              : "nod-studios/nod-strap",
   "minimum-stability" : "dev",
   "require"           : {
-      "league/url": "3.*"
-  },
-  "autoload"          : {
-      "psr-4": {"league\\": "url/"}
+    "league/url"          : "dev-master",
+    "mustache/mustache"   : "dev-master",
+    "nod/nod-environment" : "dev-master"
   },
   "authors": [
       {
-          "name": "NOD studios",
-          "email": "hey@nod.st",
-          "homepage": "http://nod.st"
+          "name"     : "NOD studios",
+          "email"    : "hey@nod.st",
+          "homepage" : "http://nod.st"
       },
       {
-          "name": "Furkan Tunalı",
-          "email": "furkan@nod.st",
-          "homepage": "http://furkantunali.com"
+          "name"     : "Furkan Tunalı",
+          "email"    : "furkan@nod.st",
+          "homepage" : "http://furkantunali.com"
       }
   ],
+  "homepage": "http://nod.st",
   "support": {
     "email": "hey@nod.st"
+  },
+  "require-dev": {
+    "phpdocumentor/phpdocumentor" : "*"
   }
 }

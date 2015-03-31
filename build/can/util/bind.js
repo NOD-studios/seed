@@ -1,3 +1,0 @@
-define(["can/util/library"],function(i){return i.bindAndSetup=function(){return i.addEvent.apply(this,arguments),this._init||(this._bindings?this._bindings++:(this._bindings=1,this._bindsetup&&this._bindsetup())),this},i.unbindAndTeardown=function(){return i.removeEvent.apply(this,arguments),null===this._bindings?this._bindings=0:this._bindings--,!this._bindings&&this._bindteardown&&this._bindteardown(),this},i});
-//# sourceMappingURL=bind.js
-//# sourceMappingURL=bind.js.map

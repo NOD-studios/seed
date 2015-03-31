@@ -3,8 +3,7 @@
 
 # TEAM
     <Furkan Tunalı> -- <Web Developer> -- <JacopKane>
-    <Güneş Eser> -- <Web Developer> -- <spielersun>
-
+    
 # THANKS
 
     <NOD Studios>

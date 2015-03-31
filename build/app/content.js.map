@@ -1,1 +1,0 @@
-{"version":3,"file":"content.js","sources":["content.js.src.js"],"names":["window","require","define","app","content","name","selectorElement","init","this"],"mappings":"CAAA,SAAWA,EAAQC,EAASC,GAE1B,MAAOA,IACL,MAEA,uBACC,SAASC,GAQV,MAPAA,GAAIC,SACFC,KAAkB,cAClBC,gBAAkB,WAClBC,KAAkB,WAChB,MAAOC,QAGJL,KAEPH,OAAQC,QAASC"}

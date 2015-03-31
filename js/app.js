@@ -12,7 +12,7 @@
     var app = app || {
       name            : 'app',
       selectorElement : '.app',
-      config          : window.AppConfig,
+      config          : window.ENV,
       log             : function () {
         if (window.noLog) {
           return false;

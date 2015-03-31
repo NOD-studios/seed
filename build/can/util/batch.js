@@ -1,3 +1,0 @@
-define(["can/can"],function(t){var c=1,a=0,i=[],n=[];t.batch={start:function(t){a++,t&&n.push(t)},stop:function(h,e){if(h?a=0:a--,0===a){var f,r,s=i.slice(0),u=n.slice(0);for(i=[],n=[],t.batch.batchNum=c,c++,e&&t.batch.start(),f=0,r=s.length;r>f;f++)t.dispatch.apply(s[f][0],s[f][1]);for(f=0,r=u.length;f<u.length;f++)u[f]();t.batch.batchNum=void 0}},trigger:function(n,h,e){if(!n._init){if(0===a)return t.dispatch.call(n,h,e);h="string"==typeof h?{type:h}:h,h.batchNum=c,i.push([n,[h,e]])}}}});
-//# sourceMappingURL=batch.js
-//# sourceMappingURL=batch.js.map

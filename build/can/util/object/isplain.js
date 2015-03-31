@@ -1,3 +1,0 @@
-define(["can/can"],function(){var t=Object.prototype.hasOwnProperty,r=function(t){return null!==t&&t==t.window},n=function(n){if(!n||"object"!=typeof n||n.nodeType||r(n))return!1;try{if(n.constructor&&!t.call(n,"constructor")&&!t.call(n.constructor.prototype,"isPrototypeOf"))return!1}catch(o){return!1}var c;for(c in n);return void 0===c||t.call(n,c)};return can.isPlainObject=n,can});
-//# sourceMappingURL=isplain.js
-//# sourceMappingURL=isplain.js.map
