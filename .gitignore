@@ -1,6 +1,7 @@
 # ===== NODstrap.gitignore =====
 build/
 vendor/
+output/
 .env
 .env.test
 .env.production
