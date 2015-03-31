@@ -1338,12 +1338,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "df7da8a5550eb94cb885df6be7ffebe2768c10fd"
+            "reference": "875cfb91e1ffb9a7fda4dddfdbc7ed529e52164a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/df7da8a5550eb94cb885df6be7ffebe2768c10fd",
-            "reference": "df7da8a5550eb94cb885df6be7ffebe2768c10fd",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/875cfb91e1ffb9a7fda4dddfdbc7ed529e52164a",
+            "reference": "875cfb91e1ffb9a7fda4dddfdbc7ed529e52164a",
             "shasum": ""
         },
         "require": {
@@ -1374,7 +1374,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
         },
-        "time": "2015-03-26 18:30:54",
+        "time": "2015-03-31 21:43:29",
         "type": "library",
         "extra": {
             "branch-alias": {
