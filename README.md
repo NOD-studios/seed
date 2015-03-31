@@ -1,4 +1,4 @@
-![NODstrap](/img/logo.strap.png?raw=true "NODstrap")
+![NODstrap](/render/logo.strap.png?raw=true "NODstrap")
 
 NODstrap is a bootstrap for web projects of [NOD studios](http://nod.st)
 
