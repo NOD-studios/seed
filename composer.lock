@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/url.git",
-                "reference": "626402e4488c0ce42e1f1fa20a90a647601e5554"
+                "reference": "ce4778effe81796e5fb8ce56d5801e68a565a774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/url/zipball/626402e4488c0ce42e1f1fa20a90a647601e5554",
-                "reference": "626402e4488c0ce42e1f1fa20a90a647601e5554",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/ce4778effe81796e5fb8ce56d5801e68a565a774",
+                "reference": "ce4778effe81796e5fb8ce56d5801e68a565a774",
                 "shasum": ""
             },
             "require": {
@@ -105,7 +105,7 @@
                 "php",
                 "url"
             ],
-            "time": "2015-03-30 14:58:00"
+            "time": "2015-03-31 15:11:45"
         },
         {
             "name": "markwilson/array-filtering",
@@ -927,12 +927,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "34e298213d2e9c0aa107de000159b88cdb996bac"
+                "reference": "1235d2e2100545e775512f9c88cbb0b680245a24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/34e298213d2e9c0aa107de000159b88cdb996bac",
-                "reference": "34e298213d2e9c0aa107de000159b88cdb996bac",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/1235d2e2100545e775512f9c88cbb0b680245a24",
+                "reference": "1235d2e2100545e775512f9c88cbb0b680245a24",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +985,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2015-03-28 17:07:22"
+            "time": "2015-03-31 16:01:45"
         },
         {
             "name": "kherge/version",
@@ -2411,12 +2411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "9b339e296361ffeb3a0c6abd565ae116dd09837f"
+                "reference": "c6ea1199a89243323315e52fc5610759d05e90fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/9b339e296361ffeb3a0c6abd565ae116dd09837f",
-                "reference": "9b339e296361ffeb3a0c6abd565ae116dd09837f",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/c6ea1199a89243323315e52fc5610759d05e90fb",
+                "reference": "c6ea1199a89243323315e52fc5610759d05e90fb",
                 "shasum": ""
             },
             "require": {
@@ -2461,7 +2461,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2015-03-30 15:59:03"
+            "time": "2015-03-30 22:00:09"
         },
         {
             "name": "symfony/validator",

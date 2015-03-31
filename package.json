@@ -10,13 +10,13 @@
   "private"         : true,
   "scripts"         : {},
   "dependencies"    : {
-    "bower": "*",
-    "bower-requirejs": "*",
-    "csso": "*",
-    "less": "*",
-    "requirejs": "2.*.*",
-    "uglify-js": "2.*.*",
-    "watch-less": "*"
+    "bower"           : "*",
+    "bower-requirejs" : "*",
+    "csso"            : "*",
+    "less"            : "*",
+    "requirejs"       : "*",
+    "uglify-js"       : "*",
+    "watch-less"      : "*"
   },
   "devDependencies" : {}
 }
