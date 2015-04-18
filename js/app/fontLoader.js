@@ -2,11 +2,11 @@
   'use strict';
   return define([
     'app',
-    
+
     'webfontloader'
   ], function(app) {
-    app.font = {
-      name             : 'app/font',
+    app.fontLoader = {
+      name             : 'app/fontLoader',
       selectorElement  : '.app',
       load             : function(config) {
         return WebFont.load(config);

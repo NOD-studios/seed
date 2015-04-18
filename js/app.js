@@ -2,11 +2,12 @@
   'use strict';
   define([
     'jquery',
-    'can/can',
+    'can/util/can',
 
     'can/util/jquery',
     'can/util/library',
     'can/util/string',
+
     'css!app/css/app'
   ], function ($, can) {
     var app = app || {
@@ -14,7 +15,11 @@
       selectorElement : '.app',
       config          : window.ENV,
       log             : function () {
-        if (window.noLog) {
+        if (typeof (window.ENV.DEBUG) !== 'boolean') {
+          window.ENV.DEBUG = JSON.parse(window.ENV.DEBUG.toLowerCase());
+        }
+
+        if (window.ENV.DEBUG === false) {
           return false;
         }
         if (!window.console) {
@@ -26,8 +31,8 @@
         var appModule = app[appModuleName] || false;
         if (appModule && appModule.name && appModule.selectorElement) {
           var $moduleElement = $(appModule.selectorElement);
-          app.log(can.sub("{name} loaded and attached to {selector} {count} time{s}. \
-          ", {
+          app.log(can
+            .sub("{name} loaded and attached to {selector} {count} time{s}.", {
             s        : $moduleElement.length > 1 ? 's' : '',
             name     : appModule.name,
             count    : $moduleElement.length,
@@ -59,7 +64,7 @@
         }
         return $element
           .addClass('loaded')
-          .addClass('loading');
+          .removeClass('loading');
       },
       appLoadCallback : function (appModuleName) {
         var appModule = app.get(appModuleName);
@@ -72,7 +77,9 @@
         if (typeof app[appModuleName].init === 'function') {
           var returnInit = app[appModuleName].init();
           if (app[appModuleName].selectorElement !== 'undefined') {
-            app.loaded(app[appModuleName].selectorElement);
+            var $element = $(app[appModuleName].selectorElement);
+            app[appModuleName].$element = $element;
+            app.loaded($element);
           }
           return returnInit;
         }
@@ -81,16 +88,35 @@
       init            : function () {
         var self = this,
             $element;
-        $element = $(self.selectorElement);
-        if ($('.lt-ie9').length) {
-          require(['respond']);
-        }
-        $.each(AppLoad, function (key, appModuleName) {
-          return self.load(appModuleName);
+
+        $(function() {
+          $element = $(self.selectorElement);
+
+          require(['app/fontLoader'], function(app) {
+            if (!self.config.WF_MONOTYPE) {
+              return app.loaded(self.selectorElement);
+            }
+            app.fontLoader.load({
+              monotype: {
+                projectId : app.config.WF_MONOTYPE
+              }
+            });
+
+            app.loaded(self.selectorElement);
+          });
+
+          if ($('.lt-ie9').length) {
+            require(['respond']);
+          }
+
+          $.each(AppLoad, function (key, appModuleName) {
+            return self.load(appModuleName);
+          });
+
+          $element
+            .removeClass('no-js');
         });
-        this
-          .loaded($element)
-          .removeClass('no-js');
+
         return this;
       }
     };

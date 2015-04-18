@@ -28,7 +28,7 @@ $app->data          = new ArrayObject(array(
     'description' => getenv('INFO_DESCRIPTION'),
     'envJson'     => $app->environment->toJson(),
     'baseUrl'     => (string) $app->url,
-    'host'        => (string) $app->url->getHost()
+    'HOST'        => (string) $app->url->getHost()
 ) + $app->environment->getValues());
 
 //View

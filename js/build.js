@@ -26,7 +26,7 @@
     },
     {
       name    : "main",
-      include : ["app"]
+      exclude : ['app']
     }
   ],
   paths                   : {
