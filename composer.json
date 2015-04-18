@@ -21,8 +21,5 @@
   "homepage": "http://nod.st",
   "support": {
     "email": "hey@nod.st"
-  },
-  "require-dev": {
-    "phpdocumentor/phpdocumentor" : "*"
   }
 }

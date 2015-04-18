@@ -3,10 +3,41 @@
 @import "variables";
 @import "mixins";
 
-.app {
-  .font(@helvetica-neue, 300);
-  .no-trespassing();
-  .loaded();
+// Reset and dependencies
+@import "@{bootstrap}/normalize";
+@import "@{bootstrap}/print";
+@import "@{bootstrap}/glyphicons";
+// Core CSS
+@import "@{bootstrap}/scaffolding";
+@import "@{bootstrap}/type";
+@import "@{bootstrap}/grid";
+@import "@{bootstrap}/tables";
+// Components
+@import "@{bootstrap}/component-animations.less";
 
+.app {
+
+  ul, ol {
+    margin-bottom: 0;
+  }
+  .no-trespassing();
+  .loaded(@active-avenir-next, @inactive-avenir-next);
   font-size: 1em;
+
+  body {
+    .font(@avenir-next, 400);
+    font-size: 1em;
+
+    a {
+      &, &:hover, &:active {
+        color: black;
+        .transition(opacity .6s @easeOutQuad);
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: @color-fourth;
+      }
+    }
+  }
 }
