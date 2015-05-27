@@ -1,31 +1,33 @@
 //main: app.less
 
-@import "variables";
-@import "@{bootstrap}/mixins";
-@import "@{bootstrap}/utilities";
-@import "@{bootstrap}/responsive-utilities";
+@import 'variables';
+@import '@{bootstrap}/mixins';
+@import '@{bootstrap}/utilities';
+@import '@{bootstrap}/responsive-utilities';
 
-.logo(@font-size: 2.174em) {
-  .font(@riesling);
-  font-size: @font-size;
-  text-decoration: none;
-  color: black;
+
+.font(
+  @family      : @font-open-sans,
+  @font-weight : normal,
+  @line-height : normal
+) {
+  font-family : @family;
+  font-weight : @font-weight;
+  line-height : @line-height;
 }
 
-
-.font(@family: @font-helvetica-neue, @font-weight: normal, @line-height: normal) {
-  font-family: @family;
-  font-weight: @font-weight;
-  line-height: @line-height;
+.font-size(@size) {
+  line-height: @size;
+  font-size  : @size;
 }
 
 .vendor(@property, @value) {
-    -webkit-@{property}: @value;
-     -khtml-@{property}: @value;
-       -moz-@{property}: @value;
-        -ms-@{property}: @value;
-         -o-@{property}: @value;
-            @{property}: @value;
+  -webkit-@{property} : @value;
+   -khtml-@{property} : @value;
+     -moz-@{property} : @value;
+      -ms-@{property} : @value;
+       -o-@{property} : @value;
+          @{property} : @value;
 }
 
 .background-attachment(@attachment) {
@@ -34,12 +36,16 @@
 
 .background-size(@size: cover, @position: center center, @repeat: no-repeat) {
   .vendor(background-size, @size);
-  background-repeat   : @repeat;
   background-position : @position;
+  background-repeat   : @repeat;
 }
 
 .transform(...) {
   .vendor(transform, @arguments);
+}
+
+.object-fit(...) {
+  .vendor(object-fit, @arguments);
 }
 
 .transition(...) {
@@ -55,48 +61,74 @@
 }
 
 .centered(@position: relative, @display: block) {
-  position: @position;
-  top: 50%; left: 50%;
-  display: @display;
   .transform(translate(-50%, -50%));
+  position: @position;
+  top     : 50%;
+  left    : 50%;
+  display : @display;
+}
+
+.centered-x(@position: relative) {
+  .transform(translate(-50%, 0));
+  position : @position;
+  left     : 50%;
+}
+
+.centered-y(@position: relative) {
+  .transform(translate(0, -50%));
+  position : @position;
+  top      : 50%;
 }
 
 .no-trespassing() {
-  margin: 0; padding: 0;
+  margin  : 0;
+  padding : 0;
 }
 
 .vertical-align(@position: center, @display: flex) {
-  display             : @display;
   .vendor(align-items, @position);
+  display : @display;
 }
 
 .force3d() {
-  //backface-visibility : hidden;
-  perspective           : 1000;
+  //backface-visibility: hidden;
+  perspective : 1000;
   .vendor(transform, translate3d(0, 0, 0));
 }
 
-.loaded(@class-active: loaded, @class-inactive: loading, @class-loading: loading, @class-loaded: loaded) {
+.loaded(
+  @class-active   : loaded,
+  @class-inactive : loading,
+  @class-loading  : loading,
+  @class-loaded   : loaded
+) {
   &.@{class-loading}, .@{class-inactive} &.@{class-loading} {
-    visibility: hidden; opacity: 0;
-    .transition(opacity .2s @easeOutQuad);
+    .transition(opacity @duration-1 @easeOutQuad);
+    visibility : hidden;
+    opacity    : 0
   }
   .@{class-active} &.@{class-loaded},
   .@{class-active} &.@{class-loading}.@{class-loaded},
   &.@{class-loaded}.@{class-active},
   &.@{class-active}.@{class-loading}.@{class-loaded} {
-      visibility: visible;
-      opacity: 1;
+    visibility : visible;
+    opacity    : 1;
   }
 }
 
 .hidden() {
   &.hidden {
-    display: none;
     .transition(display .2s @easeOutQuad);
+    display: none;
   }
 }
 
 .box-shadow(...) {
   .vendor(box-shadow, @arguments);
+}
+
+.vertical-align() {
+  .transform(translateY(-50%));
+  position : relative;
+  top      : 50%;
 }

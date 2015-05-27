@@ -3,40 +3,38 @@
 @import "variables";
 @import "mixins";
 
-// Reset and dependencies
-@import "@{bootstrap}/normalize";
-@import "@{bootstrap}/print";
-@import "@{bootstrap}/glyphicons";
-// Core CSS
-@import "@{bootstrap}/scaffolding";
-@import "@{bootstrap}/type";
-@import "@{bootstrap}/grid";
-@import "@{bootstrap}/tables";
-// Components
-@import "@{bootstrap}/component-animations.less";
-
 .app {
+  // Reset and dependencies
+  @import "@{bootstrap}/normalize";
+  @import "@{bootstrap}/print";
+  @import "@{bootstrap}/glyphicons";
+  // Core CSS
+  @import "@{bootstrap}/scaffolding";
+  @import "@{bootstrap}/type";
+  @import "@{bootstrap}/grid";
+  @import "@{bootstrap}/tables";
+  // Components
+  @import "@{bootstrap}/component-animations.less";
 
-  ul, ol {
-    margin-bottom: 0;
-  }
   .no-trespassing();
-  .loaded(@active-avenir-next, @inactive-avenir-next);
-  font-size: 1em;
+  .loaded();
+  .font(@open-sans, 400);
+  .font-size(@font-size-0);
 
   body {
-    .font(@avenir-next, 400);
-    font-size: 1em;
-
+    .font-size(@font-size-1);
+    .font(@open-sans, 400);
+    .no-trespassing();
+    color: @color-primary;
     a {
       &, &:hover, &:active {
-        color: black;
-        .transition(opacity .6s @easeOutQuad);
+        .transition(color @duration-2 @easeOutQuad);
         text-decoration: none;
+        color: @color-second;
       }
 
       &:hover {
-        color: @color-fourth;
+        color: @color-third;
       }
     }
   }

@@ -32,7 +32,8 @@
       'Markdown.Converter': '../vendor/requirejs-plugins/lib/Markdown.Converter',
       text: '../vendor/requirejs-plugins/lib/text',
       respond: '../vendor/respond/dest/respond.src',
-      webfontloader: '../vendor/webfontloader/webfontloader'
+      webfontloader: '../vendor/webfontloader/webfontloader',
+      html5shiv: '../vendor/html5shiv/dist/html5shiv'
     },
     shim: {
       facebook: {

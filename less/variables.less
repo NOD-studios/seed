@@ -17,8 +17,8 @@
 //Colors
 @color-primary : black;
 @color-second  : blue;
-@color-third   : gray;
-@color-fourth  : yellow;
+@color-third   : yellow;
+@color-fourth  : gray;
 @color-fifth   : white;
 
 //Easing
@@ -26,4 +26,64 @@
 @easeOutQuint : cubic-bezier(0.23, 1, 0.32, 1);
 @easeOutCubic : cubic-bezier(0.215, 0.61, 0.355, 1);
 
+//main: app.less
+
+//Less Variables
+@bootstrap: '../vendor/bootstrap/less';
+
+@import "@{bootstrap}/variables";
+
+//ActiveFilters
+@active-monotype   : 'mti-active';
+@inactive-monotype : 'mti-inactive';
+@loading-monotype  : 'mti-loading';
+@loaded-monotype   : 'mti-loaded';
+@active-wf         : 'wf-active';
+@inactive-wf       : 'wf-inactive';
+@loading-wf        : 'wf-loading';
+@loaded-wf         : 'wf-loaded';
+
+
+//Dimensions
+
+//Fonts
+@font-font-awesome   : 'FontAwesome';
+@font-helvetica-neue : 'Helvetica Neue', @font-open-sans;
+@font-open-sans      : 'Open Sans', @font-helvetica;
+@font-helvetica      : Helvetica, Arial, sans-serif;
+
+//Font Sizes
+@font-size-0: .625vmin;
+@font-size-1: 1.2vmin;
+@font-size-2: 1.4vmin;
+@font-size-3: 1.6vmin;
+@font-size-4: 1.8vmin;
+@font-size-5: 2vmin;
+@font-size-6: 2.2vmin;
+@font-size-7: 2.4vmin;
+@font-size-8: 4.8vmin;
+@font-size-9: 9.6vmin;
+
+//Easing
+@easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+@easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+@easeOutQuad : cubic-bezier(0.645, 0.045, 0.355, 1);
+
 //Z Indexes
+@zx-1: 10;
+@zx-2: 20;
+@zx-3: 30;
+@zx-4: 40;
+@zx-5: 50;
+
+//Duration
+@duration-1: .2s;
+@duration-2: .6s;
+@duration-3: .8s;
+@duration-4: 1s;
+@duration-5: 1.2s;
+@duration-6: 5.8s;
+
+//Padding
+@padding-1: 1rem;
+@padding-2: 2rem;

@@ -1,4 +1,4 @@
 #NOD-strap
 ###/js
 
-Folder for JavaScript/EcmaScript files.
+Folder for [JavaScript](http://wikipedia.org/wiki/JavaScript) files.

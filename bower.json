@@ -27,6 +27,7 @@
     "requirejs-plugins": "*",
     "normalize.css": "*",
     "canjs": "2.*.*",
-    "webfontloader": "*"
+    "webfontloader": "*",
+    "html5shiv": "~3.7.2"
   }
 }
