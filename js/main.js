@@ -33,7 +33,9 @@
       text: '../vendor/requirejs-plugins/lib/text',
       respond: '../vendor/respond/dest/respond.src',
       webfontloader: '../vendor/webfontloader/webfontloader',
-      html5shiv: '../vendor/html5shiv/dist/html5shiv'
+      html5shiv: '../vendor/html5shiv/dist/html5shiv',
+      fleck: '../vendor/fleck/lib/fleck',
+      'is-boolean': '../vendor/is-boolean/is-boolean'
     },
     shim: {
       facebook: {

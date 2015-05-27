@@ -17,17 +17,20 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "*",
-    "respond": "*",
-    "requirejs": "2.*.*",
-    "bootstrap": "3.*.*",
-    "require-less": "*",
-    "less.js": "*",
-    "require-css": "*",
+    "jquery"           : "*",
+    "respond"          : "*",
+    "require-less"     : "*",
+    "less.js"          : "*",
+    "require-css"      : "*",
     "requirejs-plugins": "*",
-    "normalize.css": "*",
-    "canjs": "2.*.*",
-    "webfontloader": "*",
-    "html5shiv": "~3.7.2"
+    "normalize.css"    : "*",
+    "webfontloader"    : "*",
+    "html5shiv"        : "*",
+    "canjs"            : "2.*.*",
+    "requirejs"        : "2.*.*",
+    "bootstrap"        : "3.*.*",
+    "webfontloader"    : "*",
+    "is-boolean"       : "*",
+    "fleck"            : "*"
   }
 }

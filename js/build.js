@@ -14,15 +14,7 @@
   modules                 : [
     {
       name    : "app",
-      include : [
-        "app/content",
-        "app/header",
-        "app/footer",
-        "app/banner",
-        "app/modal",
-        "app/menu",
-        "app/form"
-      ]
+      include : []
     },
     {
       name    : "main",

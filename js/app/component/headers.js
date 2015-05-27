@@ -6,16 +6,10 @@
 
     'css!app/css/header'
   ], function(app, env) {
-    app.component.Headers = can.Component.extend('app.component.Headers', {
+    app.component.Headers = can.Component.extend({
       tag      : 'header',
-      template : can.view(
-        env.DIR_BASE +
-        env.DIR_TEMPLATE +
-        '/' +
-        this.constructor.name +
-        '.mustache'
-      ),
-      scope: can.$.extend(true, env, {
+      template : can.view('app/mustache/header.mustache'),
+      scope    : can.$.extend(true, env, {
 
       }),
       helpers: {

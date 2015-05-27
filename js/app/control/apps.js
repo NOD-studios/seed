@@ -16,7 +16,7 @@
 
     'css!app/css/app'
   ], function (app, can, isBoolean, $, fleck) {
-    app.control.apps = can.Control.extend('app.control.apps', {
+    app.control.Apps = can.Control.extend('app.control.Apps', {
       defaults     : {
         template : true,
         view     : true,

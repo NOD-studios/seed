@@ -1,22 +1,20 @@
-<div class="container-fluid grid loading" data-grid-item=".grid-item" data-grid-filter=".filter" data-template="false" data-model="false">
+<div class="container-fluid grid loading">
 
   <!-- app.headers -->
   <header class="header loading" data-model="false" data-loaded="false">
     <script type="text/javascript">
-    require(['app', 'app/component/headers'], function(app) {
-      new app.component.headers('.header');
-    });
+    require(['app/component/headers']);
     </script>
   </header>
   <!--/ app.headers -->
 
   <!-- app.footers -->
-  <footer class="footer row loading" data-model="false">
+  <!-- <footer class="footer row loading" data-model="false">
     <script type="text/javascript">
       require(['app', 'app/control/footers'], function(app) {
         new app.footers('.footer');
       });
     </script>
-  </footer>
+  </footer> -->
   <!--/ app.footers -->
 </div>
