@@ -51,24 +51,21 @@
 <link rel="manifest" href="{{ DIR_BASE }}{{ DIR_ICON }}/manifest.json">
 
 <!-- scripts -->
-
-<!--[if lt IE 9]>
-  <script src="{{ DIR_BASE }}{{ DIR_BOWER }}/html5shiv/dist/html5shiv.js"></script>
-<![endif]-->
 <script type="text/javascript">
-  var ENV     = JSON.parse('{{{ envJson }}}'),
+  var app     = {},
+      env     = JSON.parse('{{{ envJson }}}'),
       require = {},
       deferredFonts,
       requireScript;
 </script>
-<script data-main="{{ DIR_BASE }}{{ DIR_JS }}/{{ ASSET_JS }}"
+<script data-main="{{DIR_BASE}}{{DIR_JS}}/main"
   src="{{DIR_BASE}}{{ DIR_VENDOR }}/requirejs/require.min.js"
   type="text/javascript"></script>
 <script type="text/javascript">
   if (typeof require.config === 'undefined') {
     requireScript = document.createElement('script');
     requireScript.setAttribute('type', 'text/javascript');
-    requireScript.setAttribute('data-main', '{{ DIR_BASE }}{{ DIR_JS }}/{{ ASSET_JS }}');
+    requireScript.setAttribute('data-main', '{{DIR_BASE}}{{DIR_JS}}/main');
     requireScript.setAttribute('src', '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js');
     document.head.appendChild(requireScript);
   }

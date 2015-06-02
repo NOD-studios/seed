@@ -288,12 +288,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/url.git",
-            "reference": "63a0af70ead479f47a58f5bfc0d0a32f59911005"
+            "reference": "a8722ad965fee9f827dfc59120b57f414ca43590"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/url/zipball/63a0af70ead479f47a58f5bfc0d0a32f59911005",
-            "reference": "63a0af70ead479f47a58f5bfc0d0a32f59911005",
+            "url": "https://api.github.com/repos/thephpleague/url/zipball/a8722ad965fee9f827dfc59120b57f414ca43590",
+            "reference": "a8722ad965fee9f827dfc59120b57f414ca43590",
             "shasum": ""
         },
         "require": {
@@ -305,7 +305,7 @@
             "phpunit/phpunit": "~4.0",
             "scrutinizer/ocular": "~1.1"
         },
-        "time": "2015-05-27 07:23:36",
+        "time": "2015-06-01 15:32:15",
         "type": "library",
         "extra": {
             "branch-alias": {

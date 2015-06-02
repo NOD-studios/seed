@@ -7,8 +7,8 @@
 
     'can/model'
   ], function (app, env, can) {
-    app.model.app = can.Model.extend('app.model.app', {
-      
+    can.Model.extend('app.App', {
+
     }, {
 
     });

@@ -1,15 +1,17 @@
 (function (window, require) {
   'use strict';
   require.config({
-    waitSeconds: 500,
+    waitSeconds: 0,
     paths: {
+      app: 'app',
+      'app/model': 'app/control',
+      'app/control': 'app/control',
       'app/css': '../css',
       'app/less': '../less',
       'app/font': '../font',
       'app/icon': '../icon',
       'app/render': '../render',
       'app/mustache': '../mustache',
-      facebook: '//connect.facebook.net/en_US/all',
       propertyParser: '../vendor/requirejs-plugins/src/propertyParser',
       lessc: '../vendor/less.js/dist/less.min',
       normalize: '../vendor/require-css/normalize',
@@ -56,4 +58,4 @@
   });
 
   return require;
-}) (window, require);
+}) (window, window.require);

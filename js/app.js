@@ -1,13 +1,10 @@
 (function (window) {
   'use strict';
-  define([], function () {
-    if (typeof window.app !== 'object') {
-      window.app = {
-        model     : {},
-        control   : {},
-        component : {}
-      };
+  define(['env'], function (env) {
+    env.JS_NAMESPACE = env.JS_NAMESPACE || 'app';
+    if (typeof window[env.JS_NAMESPACE] !== 'object') {
+      window[env.JS_NAMESPACE] = {};
     }
-    return window.app;
+    return window[env.JS_NAMESPACE];
   });
 }) (window);

@@ -1,9 +1,15 @@
 <div class="container-fluid grid loading">
 
   <!-- app.headers -->
-  <header class="header loading" data-model="false" data-loaded="false">
+  <header class="header row loading">
+    <h1>header</h1>
     <script type="text/javascript">
-    require(['app/component/headers']);
+      require(['main', 'app', 'app/control/apps'], function(require, app) {
+        app.Apps.loadControl('headers')
+          .done(function() {
+            new app.Headers('header');
+          });
+      });
     </script>
   </header>
   <!--/ app.headers -->

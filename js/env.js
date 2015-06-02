@@ -1,9 +1,9 @@
 (function (window) {
   'use strict';
   define([], function() {
-    if (typeof window.ENV !== 'object') {
-      window.ENV = {};
+    if (typeof window.env !== 'object') {
+      window.env = {};
     }
-    return window.ENV;
+    return window.env;
   });
 }) (window);

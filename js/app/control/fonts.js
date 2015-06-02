@@ -8,7 +8,7 @@
 
     'app/control/apps'
   ], function(app, can, WebFontConfig, WebFont) {
-    app.control.Fonts = app.control.Apps.extend('app.control.fonts', {
+    app.Apps.extend('app.Fonts', {
       defaults : {
         loaded   : false,
         template : false,

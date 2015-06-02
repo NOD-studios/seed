@@ -18,5 +18,10 @@
     "uglify-js"       : "*",
     "watch-less"      : "*"
   },
-  "devDependencies" : {}
+  "devDependencies" : {
+    "grunt"                  : "*",
+    "grunt-contrib-jshint"   : "*",
+    "grunt-contrib-nodeunit" : "*",
+    "grunt-contrib-uglify"   : "*"
+  }
 }

@@ -2,6 +2,7 @@
   'use strict';
   return define([
     'app',
+    'env',
     'can/util/can',
     'is-boolean',
     'jquery',
@@ -15,13 +16,48 @@
     'can/control',
 
     'css!app/css/app'
-  ], function (app, can, isBoolean, $, fleck) {
-    app.control.Apps = can.Control.extend('app.control.Apps', {
+  ], function (app, env, can, isBoolean, $, fleck) {
+    can.Control.extend('app.Apps', {
       defaults     : {
         template : true,
         view     : true,
         model    : true,
         loaded   : true
+      },
+      path         : function(dir, name, ext) {
+        name = name || this.options.name;
+        ext  = ext ? '.' + ext : ext;
+        return env.DIR_BASE + dir + '/' + name + ext;
+      },
+      spaceName    : function () {
+        return this.fullName.replace('.' + this.constructor.name, '');
+      },
+      loadModel    : function (name, namespace) {
+        var self = this;
+        name = name || this.constructor.name;
+        name = fleck.singularize(name);
+        var path = env.DIR_JS +
+          '/' +
+          this.spaceName() + '/' +
+          env.DIR_MODEL;
+        path = this.path(path, name, 'js');
+        return can.import(path);
+      },
+      loadControl  : function (name, namespace) {
+        name = name || this.options.name;
+        var path = env.DIR_JS +
+          '/' +
+          this.spaceName() +
+          '/' +
+          env.DIR_CONTROL;
+          path = this.path(path, name, 'js');
+        return can.import(path);
+      },
+      loadTemplate : function (data, name) {
+        name     = name || this.name;
+        name     = fleck.singularize(name).toLowerCase();
+        var path = this.path(env.DIR_TEMPLATE, name, 'mustache');
+        return can.view(path, data);
       },
       init         : function() {
         this.defaults.name      = this.name;
@@ -76,45 +112,10 @@
         }
         return true;
       },
-      path         : function(dir, name, ext) {
-        name = name || this.options.name;
-        ext  = ext ? '.' + ext : ext;
-        return this.options.DIR_BASE + dir + '/' + name + ext;
-      },
-      namespace    : function () {
-        return this.options.fullName.replace('.' + this.options.name, '');
-      },
-      loadModel    : function (name, namespace) {
-        var self = this;
-        name = name || this.options.name;
-        name = fleck.singularize(name);
-        var path = this.options.DIR_JS +
-          '/' +
-          this.namespace() + '/' +
-          this.options.DIR_MODEL;
-        path = this.path(path, name, 'js');
-        return can.import(path);
-      },
-      loadControl  : function (name, namespace) {
-        name = name || this.options.name;
-        var path = this.options.DIR_JS +
-          '/' +
-          this.namespace() +
-          '/' +
-          window.ENV.DIR_CONTROL;
-          path = this.path(path, name, 'js');
-        return can.import(path);
-      },
-      loadTemplate : function (data, name) {
-        name     = name || this.options.name;
-        name     = fleck.singularize(name);
-        var path = this.path(this.options.DIR_TEMPLATE, name, 'mustache');
-        return can.view(path, data);
-      },
       setup        : function (element, options) {
         options = can.extend(
           this.defaults,
-          window.ENV,
+          env,
           can.data(can.$(element)),
           options
         );
@@ -125,12 +126,12 @@
         options = setup[1];
 
         if (options.model !== false) {
-          this.loadModel().done(function(model) {
+          this.constructor.loadModel().done(function(model) {
             this.model = model;
           });
         }
         if (options.template !== false) {
-          element.html(this.loadTemplate(this.options));
+          element.html(this.constructor.loadTemplate(this.options));
         }
         if (options.loaded !== false) {
           this.loaded();
@@ -141,20 +142,15 @@
       },
       init         : function (element, options) {
         var self = this;
-
         if (element.hasClass('.lt-ie9')) {
           require(['respond']);
         }
-
-        element.children('body')
-          .append(this.loadTemplate());
-
-        this.loadControl('fonts')
+        this.constructor.loadControl('fonts')
           .done(function() {
             self.loadModel('deferred')
               .done(function() {
-                var fonts = new app.control.fonts(element);
-                app.deferred.font
+                new app.Fonts(element);
+                app.Deferred.font
                   .always(function() {
                     self.loaded(self.element);
                   });
@@ -164,6 +160,6 @@
       }
     });
 
-    return app.apps;
+    return app;
   });
 }) (window);
