@@ -21,8 +21,9 @@
     {{> head }}
   </head>
 
-  <!-- app.apps -->
   <body>
+    <!-- .app -->
+    
     <div class="loader">Loading…</div>
     <script type="text/javascript">
       require(['main', 'app', 'app/control/apps'], function(require, app) {
@@ -37,6 +38,7 @@
       ga('create', '{{ API_GOOGLE_ID }}', 'auto');
       ga('send', 'pageview');
     </script>
+
+    <!-- /.app -->
   </body>
-  <!-- /app.apps -->
 </html>
