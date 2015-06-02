@@ -30,21 +30,27 @@
         return env.DIR_BASE + dir + '/' + name + ext;
       },
       spaceName    : function () {
-        return this.fullName.replace('.' + this.constructor.name, '');
+        return this.fullName.replace('.' + this.name, '');
       },
       loadModel    : function (name, namespace) {
         var self = this;
-        name = name || this.constructor.name;
-        name = fleck.singularize(name);
+        name = name || this.name;
+        name = fleck.singularize(name).toLowerCase();
         var path = env.DIR_JS +
           '/' +
           this.spaceName() + '/' +
           env.DIR_MODEL;
         path = this.path(path, name, 'js');
-        return can.import(path);
+        window.test = window.test || [];
+        var test = can.import(path);
+        window.test.push({
+          d : test,
+          n : path
+        });
+        return test;
       },
       loadControl  : function (name, namespace) {
-        name = name || this.options.name;
+        name = name || this.name;
         var path = env.DIR_JS +
           '/' +
           this.spaceName() +
@@ -58,13 +64,7 @@
         name     = fleck.singularize(name).toLowerCase();
         var path = this.path(env.DIR_TEMPLATE, name, 'mustache');
         return can.view(path, data);
-      },
-      init         : function() {
-        this.defaults.name      = this.name;
-        this.defaults.fullName  = this.fullName;
-        this.defaults.namespace = this.namespace;
-        return can.Control.prototype.init.apply(this, arguments);
-      },
+      }
     }, {
       log          : function () {
         if (isBoolean(window.ENV.DEBUG) !== true) {
@@ -145,14 +145,16 @@
         if (element.hasClass('.lt-ie9')) {
           require(['respond']);
         }
-        this.constructor.loadControl('fonts')
+        app.Apps.loadControl('fonts')
           .done(function() {
-            self.loadModel('deferred')
+            app.Apps.loadModel('deferred')
               .done(function() {
                 new app.Fonts(element);
                 app.Deferred.font
                   .always(function() {
                     self.loaded(self.element);
+                    self.element.children('body')
+                      .html(self.constructor.loadTemplate());
                   });
               });
           });

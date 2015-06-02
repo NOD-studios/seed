@@ -4,7 +4,7 @@
     waitSeconds: 0,
     paths: {
       app: 'app',
-      'app/model': 'app/control',
+      'app/model': 'app/model',
       'app/control': 'app/control',
       'app/css': '../css',
       'app/less': '../less',
@@ -53,7 +53,7 @@
       }
     },
     packages: [
-  
+
     ]
   });
 

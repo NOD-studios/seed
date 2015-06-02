@@ -1,26 +1,22 @@
-<div class="container-fluid grid loading">
+<div class="container-fluid">
 
-  <!-- app.headers -->
-  <header class="header row loading">
-    <h1>header</h1>
+  <!-- app.headers -->"
+  <header class="header row loading" data-model="false">
     <script type="text/javascript">
-      require(['main', 'app', 'app/control/apps'], function(require, app) {
-        app.Apps.loadControl('headers')
-          .done(function() {
-            new app.Headers('header');
-          });
+      require(['main', 'app', 'app/control/headers'], function(require, app) {
+        new app.Headers('header');
       });
     </script>
   </header>
   <!--/ app.headers -->
 
   <!-- app.footers -->
-  <!-- <footer class="footer row loading" data-model="false">
+  <footer class="footer row loading" data-model="false">
     <script type="text/javascript">
-      require(['app', 'app/control/footers'], function(app) {
-        new app.footers('.footer');
+      require(['main', 'app', 'app/control/footers'], function(require, app) {
+        new app.Footers('footer');
       });
     </script>
-  </footer> -->
+  </footer>
   <!--/ app.footers -->
 </div>

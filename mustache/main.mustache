@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
 <!--[if lt IE 7]>
-<html class="app lt-ie9 lt-ie8 lt-ie7">
+<html class="app loading no-js lt-ie9 lt-ie8 lt-ie7" data-template="false">
 <![endif]-->
 
 <!--[if IE 7]>
-<html class="app lt-ie9 lt-ie8">
+<html class="app loading no-js lt-ie9 lt-ie8" data-template="false">
 <![endif]-->
 
 <!--[if IE 8]>
-<html class="app lt-ie9">
+<html class="app loading no-js lt-ie9" data-template="false">
 <![endif]-->
 
 <!--[if gt IE 8]><!-->
-<html class="app">
+<html class="app loading no-js" data-template="false">
 <!--<![endif]-->
 
   <base href="{{ baseUrl }}">
@@ -22,8 +22,8 @@
   </head>
 
   <!-- app.apps -->
-  <body class="{{ CSS_LOADING }} {{ CSS_NO_JS }}">
-    <div class="{{ CSS_LOADER }}">Loading…</div>
+  <body>
+    <div class="loader">Loading…</div>
     <script type="text/javascript">
       require(['main', 'app', 'app/control/apps'], function(require, app) {
         new app.Apps('.app');
