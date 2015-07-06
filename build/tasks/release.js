@@ -41,10 +41,8 @@ gulp.task('prepare', (callback) => {
     'build',
     'doc',
     'bump-version',
+    'changelog',
     'repo-add',
-    'changelog',
-    'repo-commit',
-    'changelog',
     'repo-tag',
     'repo-commit',
     callback
