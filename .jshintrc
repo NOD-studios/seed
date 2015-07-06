@@ -1,5 +1,13 @@
 {
-  "globals"   : {
+  "esnext"  : true,
+  "ignoreDelimiters": [
+    {
+      "start": "@jshint-ignore-start",
+      "end"  : "@jshint-ignore-end"
+    }
+  ],
+  "browser" : true,
+  "globals" : {
     "window" : true
   }
 }

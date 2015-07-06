@@ -15,25 +15,25 @@ $app->dir         = __DIR__;
 $app->environment = new Environment;
 $app->url         = Url::createFromServer($_SERVER);
 $app->viewLoader  = new ViewLoader(
-    "{$app->dir}{$app->ds}" . getenv('DIR_MUSTACHE')
+    "{$app->dir}{$app->ds}" . getenv('DIR_TEMPLATE'),
+    array(
+        'extension' => getenv('EXTENSION_TEMPLATE')
+    )
 );
 $app->view        = new View(array(
-    'loader' => $app->viewLoader,
-    'cache'  => sys_get_temp_dir()
+    'loader'    => $app->viewLoader,
+    'cache'     => sys_get_temp_dir()
 ));
 
 //Model
 $app->data          = new ArrayObject(array(
-    'title'       => getenv('INFO_NAME'),
-    'description' => getenv('INFO_DESCRIPTION'),
     'envJson'     => $app->environment->toJson(),
     'baseUrl'     => (string) $app->url,
-    'HOST'        => (string) $app->url->getHost()
+    'host'        => (string) $app->url->getHost() ?: getenv('HOST')
 ) + $app->environment->getValues());
 
 //View
-$view = $app->view
-    ->render(getenv('ASSET_MUSTACHE'), $app->data);
+$view = $app->view->render(getenv('ASSET_TEMPLATE'), $app->data);
 if (error_get_last() !== null) {
     if (getenv('DEBUG')) {
         exit();

@@ -1,27 +1,86 @@
 {
-  "name"            : "NODstrap",
-  "description"     : "",
-  "version"         : "1.0.0",
-  "main"            : "index.php",
-  "authors"         : [
-    "NOD studios <hey@nod.st>",
-    "Furkan Tunalı <furkan@nod.st>"
+  "name": "NODstrap",
+  "description": "Simple bootstrap for web projects of NOD studios",
+  "version": "2.0.0",
+  "authors": [
+    "Furkan Tunalı <furkan@nod.st>",
+    "NOD studios <hey@nod.st>"
   ],
-  "private"         : true,
-  "scripts"         : {},
-  "dependencies"    : {
-    "bower"           : "*",
-    "bower-requirejs" : "*",
-    "csso"            : "*",
-    "less"            : "*",
-    "requirejs"       : "*",
-    "uglify-js"       : "*",
-    "watch-less"      : "*"
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/NOD-studios/NOD-strap"
   },
-  "devDependencies" : {
-    "grunt"                  : "*",
-    "grunt-contrib-jshint"   : "*",
-    "grunt-contrib-nodeunit" : "*",
-    "grunt-contrib-uglify"   : "*"
+  "dependencies": {
+    "connect-history-api-fallback": "*"
+  },
+  "devDependencies": {
+    "aurelia-cli": "*",
+    "aurelia-tools": "*",
+    "babel": "*",
+    "browser-sync": "*",
+    "conventional-changelog": "*",
+    "del": "*",
+    "gitignore-parser": "0.0.2",
+    "gulp": "*",
+    "gulp-babel": "*",
+    "gulp-bump": "*",
+    "gulp-changed": "*",
+    "gulp-debug": "^2.0.1",
+    "gulp-exec": "^2.1.1",
+    "gulp-filter": "^2.0.2",
+    "gulp-git": "*",
+    "gulp-gitmodified": "*",
+    "gulp-jshint": "*",
+    "gulp-less": "*",
+    "gulp-load-plugins": "*",
+    "gulp-plumber": "*",
+    "gulp-protractor": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-yuidoc": "*",
+    "jshint-stylish": "*",
+    "jspm-bower-endpoint": "*",
+    "karma": "*",
+    "karma-babel-preprocessor": "*",
+    "karma-chrome-launcher": "*",
+    "karma-jasmine": "*",
+    "karma-jspm": "*",
+    "less-plugin-autoprefix": "*",
+    "less-plugin-clean-css": "*",
+    "less-plugin-inline-urls": "*",
+    "merge-stream": "^0.1.8",
+    "moment": "*",
+    "node-monkey": "*",
+    "object.assign": "*",
+    "require-dir": "*",
+    "run-sequence": "*",
+    "vinyl-paths": "*",
+    "yargs": "*"
+  },
+  "jspm": {
+    "configFile": "js/config.js",
+    "dependencies": {
+      "aurelia-animator-css": "github:aurelia/animator-css@^0.3.2",
+      "aurelia-binding": "github:aurelia/binding@^0.7.3",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.14.0",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.8.1",
+      "aurelia-http-client": "github:aurelia/http-client@^0.9.1",
+      "aurelia-i18next": "github:zewa666/aurelia-i18next@master",
+      "aurelia-templating": "github:aurelia/templating@^0.12.1",
+      "aurelia-templating-resources": "github:aurelia/templating-resources@^0.13.0",
+      "aurelia-templating-router": "github:aurelia/templating-router@^0.14.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.5",
+      "bower-bootstrap": "bower:bootstrap@^3.3.5",
+      "css": "github:systemjs/plugin-css@^0.1.13"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.6.15",
+      "babel-runtime": "npm:babel-runtime@^5.6.15",
+      "core-js": "npm:core-js@^0.9.18"
+    },
+    "directories": {
+      "packages": "vendor"
+    }
   }
 }

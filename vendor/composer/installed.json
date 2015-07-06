@@ -1,5 +1,114 @@
 [
     {
+        "name": "psr/http-message",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+            "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-05-04 20:22:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "league/url",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/url.git",
+            "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/url/zipball/e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
+            "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.4.7",
+            "psr/http-message": "~1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "scrutinizer/ocular": "~1.1"
+        },
+        "time": "2015-06-05 10:59:34",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "League\\Url\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ignace Nyamagana Butera",
+                "email": "nyamsprod@gmail.com",
+                "homepage": "https://github.com/nyamsprod/",
+                "role": "Developer"
+            }
+        ],
+        "description": "League/url is a lightweight PHP Url manipulating library",
+        "homepage": "http://url.thephpleague.com",
+        "keywords": [
+            "parse_url",
+            "php",
+            "psr-7",
+            "url"
+        ]
+    },
+    {
         "name": "markwilson/array-filtering",
         "version": "0.1.0",
         "version_normalized": "0.1.0.0",
@@ -36,47 +145,6 @@
             }
         ],
         "description": "Array filtering"
-    },
-    {
-        "name": "markwilson/array-key-filter",
-        "version": "0.1.0",
-        "version_normalized": "0.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/markwilson/array-key-filter.git",
-            "reference": "fbc05bce34a6079fc1b61087164c5fb26a760162"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/markwilson/array-key-filter/zipball/fbc05bce34a6079fc1b61087164c5fb26a760162",
-            "reference": "fbc05bce34a6079fc1b61087164c5fb26a760162",
-            "shasum": ""
-        },
-        "require": {
-            "markwilson/array-filtering": "~0.1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.1.0"
-        },
-        "time": "2014-11-20 12:02:17",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "MarkWilson\\": "./src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "apache"
-        ],
-        "authors": [
-            {
-                "name": "Mark Wilson",
-                "email": "mark@89allport.co.uk"
-            }
-        ],
-        "description": "Array filtering by keys"
     },
     {
         "name": "mustache/mustache",
@@ -127,6 +195,47 @@
         ]
     },
     {
+        "name": "markwilson/array-key-filter",
+        "version": "0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/markwilson/array-key-filter.git",
+            "reference": "fbc05bce34a6079fc1b61087164c5fb26a760162"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/markwilson/array-key-filter/zipball/fbc05bce34a6079fc1b61087164c5fb26a760162",
+            "reference": "fbc05bce34a6079fc1b61087164c5fb26a760162",
+            "shasum": ""
+        },
+        "require": {
+            "markwilson/array-filtering": "~0.1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.1.0"
+        },
+        "time": "2014-11-20 12:02:17",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "MarkWilson\\": "./src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "apache"
+        ],
+        "authors": [
+            {
+                "name": "Mark Wilson",
+                "email": "mark@89allport.co.uk"
+            }
+        ],
+        "description": "Array filtering by keys"
+    },
+    {
         "name": "josegonzalez/dotenv",
         "version": "0.7.1",
         "version_normalized": "0.7.1.0",
@@ -173,57 +282,6 @@
             "configuration",
             "dotenv",
             "php"
-        ]
-    },
-    {
-        "name": "psr/http-message",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/php-fig/http-message.git",
-            "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-            "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2015-05-04 20:22:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Psr\\Http\\Message\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }
-        ],
-        "description": "Common interface for HTTP messages",
-        "keywords": [
-            "http",
-            "http-message",
-            "psr",
-            "psr-7",
-            "request",
-            "response"
         ]
     },
     {
@@ -279,64 +337,6 @@
             "env",
             "environment",
             "php"
-        ]
-    },
-    {
-        "name": "league/url",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/url.git",
-            "reference": "192492e343215df9675e9edae4895fdb10d3c384"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/url/zipball/192492e343215df9675e9edae4895fdb10d3c384",
-            "reference": "192492e343215df9675e9edae4895fdb10d3c384",
-            "shasum": ""
-        },
-        "require": {
-            "ext-mbstring": "*",
-            "php": ">=5.4.7",
-            "psr/http-message": "~1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "scrutinizer/ocular": "~1.1"
-        },
-        "time": "2015-06-02 10:53:02",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "League\\Url\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Ignace Nyamagana Butera",
-                "email": "nyamsprod@gmail.com",
-                "homepage": "https://github.com/nyamsprod/",
-                "role": "Developer"
-            }
-        ],
-        "description": "League/url is a lightweight PHP Url manipulating library",
-        "homepage": "http://url.thephpleague.com",
-        "keywords": [
-            "parse_url",
-            "php",
-            "psr-7",
-            "url"
         ]
     }
 ]

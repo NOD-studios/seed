@@ -1,12 +1,13 @@
 {
   "name"              : "nod-studios/nod-strap",
+  "description"       : "Simple bootstrap for web projects of NOD studios",
   "minimum-stability" : "dev",
   "require"           : {
     "league/url"          : "dev-master",
     "mustache/mustache"   : "dev-master",
     "nod/nod-environment" : "dev-master"
   },
-  "authors": [
+  "authors" : [
       {
           "name"     : "NOD studios",
           "email"    : "hey@nod.st",
@@ -18,8 +19,8 @@
           "homepage" : "http://furkantunali.com"
       }
   ],
-  "homepage": "http://nod.st",
-  "support": {
+  "homepage" : "http://nod.st",
+  "support"  : {
     "email": "hey@nod.st"
   }
 }

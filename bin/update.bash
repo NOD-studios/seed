@@ -4,12 +4,10 @@ echo "Pulling git";
 git pull;
 echo "Updating npm";
 npm update;
-echo "Updating bower";
-"$(npm bin)/bower" prune --allow-root --silent;
-"$(npm bin)/bower" update --allow-root --silent;
+echo "Updating jspm";
+"$(npm bin)/jspm" update;
 echo "Updating composer";
 composer selfupdate --quiet && composer update --quiet;
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 bash "$DIR/build.bash";
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 bash "$DIR/push.bash";

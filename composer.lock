@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/url.git",
-                "reference": "192492e343215df9675e9edae4895fdb10d3c384"
+                "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/url/zipball/192492e343215df9675e9edae4895fdb10d3c384",
-                "reference": "192492e343215df9675e9edae4895fdb10d3c384",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
+                "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
                 "psr-7",
                 "url"
             ],
-            "time": "2015-06-02 10:53:02"
+            "time": "2015-06-05 10:59:34"
         },
         {
             "name": "markwilson/array-filtering",

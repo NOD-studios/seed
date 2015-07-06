@@ -1,7 +1,8 @@
 //main: app.less
 
 //Less Variables
-@import '../vendor/bootstrap/less/variables';
+@bootstrap: 'less';
+@import "@{bootstrap}/variables";
 
 //Dimensions
 
@@ -27,11 +28,6 @@
 @easeOutCubic : cubic-bezier(0.215, 0.61, 0.355, 1);
 
 //main: app.less
-
-//Less Variables
-@bootstrap: '../vendor/bootstrap/less';
-
-@import "@{bootstrap}/variables";
 
 //ActiveFilters
 @active-monotype   : 'mti-active';
