@@ -52,8 +52,6 @@ gulp.task('repo-remove-tag', (callback) => {
     });
 });
 
-
-
 // Run git commit
 gulp.task('repo-commit', (callback) => {
   let options = args.options || '--all';
