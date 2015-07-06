@@ -6,6 +6,8 @@
 [NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects with conventions of [NOD studios](http://nod.st).
 
 ##Installation:
+
+[![Join the chat at https://gitter.im/NOD-studios/NOD-strap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/NOD-studios/NOD-strap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ```bash
 git clone git@github.com:NOD-studios/NOD-strap.git
 cd NOD-strap
