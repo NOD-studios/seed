@@ -1,12 +1,3 @@
-[logo-image]: /image/logo.strap.png?raw=true
-[repo-url]: https://github.com/NOD-studios/NOD-strap
-[david-url]: https://david-dm.org/NOD-studios/NOD-strap
-[david-image]: https://david-dm.org/NOD-studios/NOD-strap.svg
-[gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg
-[gitter-url]: http://bit.ly/NOD-chat
-[tag-image]: https://img.shields.io/github/tag/NOD-studios/NOD-strap.svg
-[tag-url]: https://github.com/NOD-studios/NOD-strap/tags
-
 <p align="center">
   [![NODstrap][logo-image]][repo-url]
 
@@ -41,3 +32,12 @@ npm install && jspm update && gulp watch
 [![Join the chat][gitter-image]][gitter-url]
 
 [hey@nod.st](mailto:hey@nod.st)
+
+[logo-image]: /image/logo.strap.png?raw=true
+[repo-url]: https://github.com/NOD-studios/NOD-strap
+[david-url]: https://david-dm.org/NOD-studios/NOD-strap
+[david-image]: https://david-dm.org/NOD-studios/NOD-strap.svg
+[gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg
+[gitter-url]: http://bit.ly/NOD-chat
+[tag-image]: https://img.shields.io/github/tag/NOD-studios/NOD-strap.svg
+[tag-url]: https://github.com/NOD-studios/NOD-strap/tags
