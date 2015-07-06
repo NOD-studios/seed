@@ -19,6 +19,7 @@ gulp.task('repo-add', (callback) => {
 });
 
 gulp.task('repo-tag', (callback) => {
+  let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
   return exec(`git tag v${pkg.version}`, (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
