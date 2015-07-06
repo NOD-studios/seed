@@ -54,6 +54,7 @@ gulp.task('release', (callback) => {
   return runSequence(
     'prepare',
     'repo-push',
+    'repo-push-tags',
     callback
   );
 });
