@@ -1,5 +1,7 @@
 # ===== NODstrap.gitignore =====
 build/
+dist/
+doc/
 vendor/
 output/
 .env
