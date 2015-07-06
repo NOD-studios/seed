@@ -1,7 +1,7 @@
 {
   "name": "NODstrap",
   "description": "Simple bootstrap for web projects of NOD studios",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "authors": [
     "Furkan Tunalı <furkan@nod.st>",
     "NOD studios <hey@nod.st>"
@@ -22,14 +22,12 @@
     "browser-sync": "*",
     "conventional-changelog": "*",
     "del": "*",
-    "gitignore-parser": "0.0.2",
+    "gitignore-parser": "*",
     "gulp": "*",
     "gulp-babel": "*",
     "gulp-bump": "*",
     "gulp-changed": "*",
-    "gulp-debug": "^2.0.1",
-    "gulp-exec": "^2.1.1",
-    "gulp-filter": "^2.0.2",
+    "gulp-debug": "*",
     "gulp-git": "*",
     "gulp-gitmodified": "*",
     "gulp-jshint": "*",
@@ -49,7 +47,6 @@
     "less-plugin-autoprefix": "*",
     "less-plugin-clean-css": "*",
     "less-plugin-inline-urls": "*",
-    "merge-stream": "^0.1.8",
     "moment": "*",
     "node-monkey": "*",
     "object.assign": "*",

@@ -37,4 +37,5 @@ npm install && jspm update && gulp watch
 
 ###Contact:
 [![Join the chat][gitter-image]][gitter-url]
+
 [hey@nod.st](mailto:hey@nod.st)
