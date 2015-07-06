@@ -24,13 +24,14 @@ gulp.task('bump-version', () => {
 gulp.task('changelog', (callback) => {
   let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
-  return changelog({
+  let log = changelog({
     repository : pkg.repository.url,
     version    : pkg.version,
     file       : `${paths.doc}/CHANGELOG.md`
   }, (error, log) => {
     fs.writeFileSync(`${paths.doc}/CHANGELOG.md`, log);
   });
+  console.log(log);
 });
 
 // calls the listed sequence of tasks in order
