@@ -11,74 +11,77 @@ const plugins = new LoadPlugins();
 const exec = childProcess.exec;
 
 gulp.task('repo-pull', (callback) => {
-  args.options = args.options || '';
-  return exec(`git push ${args.options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
-    (err, stdout, stderr) => {
+  let options = args.options || '';
+  return exec(`git push ${options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
+    (error, stdout, stderror) => {
       console.log(stdout);
-      console.log(stderr);
-      callback(err);
+      console.log(stderror);
+      callback(error);
     });
 });
 
 gulp.task('repo-add', (callback) => {
-  args.options = args.options || '--all';
-  return exec(`git add ${args.options} ${args.options}`, (err, stdout, stderr) => {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
+  let options = args.options || '--all';
+  return exec(`git add ${options}`,
+    (error, stdout, stderror) => {
+      console.log(stdout);
+      console.log(stderror);
+      callback(error);
+    });
 });
 
 gulp.task('repo-tag', (callback) => {
   let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-  args.options = args.options || '';
-  return exec(`git tag ${args.options} v${pkg.version}`, (err, stdout, stderr) => {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
+  let options = args.options || '';
+  return exec(`git tag ${options} v${pkg.version}`,
+    (error, stdout, stderror) => {
+      console.log(stdout);
+      console.log(stderror);
+      callback(error);
+    });
 });
 
 gulp.task('repo-remove-tag', (callback) => {
   let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-  args.options = args.options || '';
-  return exec(`git tag ${args.options} -d v${pkg.version}`, (err, stdout, stderr) => {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
+  let options = args.options || '';
+  return exec(`git tag ${options} -d v${pkg.version}`,
+    (error, stdout, stderror) => {
+      console.log(stdout);
+      console.log(stderror);
+      callback(error);
+    });
 });
 
 
 
 // Run git commit
 gulp.task('repo-commit', (callback) => {
-  args.options = args.options || '--all';
-  return exec(`git commit ${args.options} --message '${args.message}'`,
-    (err, stdout, stderr) => {
+  let options = args.options || '--all';
+  return exec(`git commit ${options} --message '${args.message}'`,
+    (error, stdout, stderror) => {
       console.log(stdout);
-      console.log(stderr);
-      callback(err);
+      console.log(stderror);
+      callback(error);
     });
 });
 
 gulp.task('repo-push', (callback) => {
-  args.options = args.options || '';
-  return exec(`git push ${args.options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
-    (err, stdout, stderr) => {
+  let options = args.options || '';
+  return exec(`git push ${options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
+    (error, stdout, stderror) => {
       console.log(stdout);
-      console.log(stderr);
-      callback(err);
+      console.log(stderror);
+      callback(error);
     });
 });
 
 gulp.task('repo-push-tags', (callback) => {
   let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-  args.options = args.options || '';
-  return exec(`git push ${args.options} --tags`,
-    (err, stdout, stderr) => {
+  let options = args.options || '';
+  return exec(`git push ${options} --tags`,
+    (error, stdout, stderror) => {
       console.log(stdout);
-      console.log(stderr);
-      callback(err);
+      console.log(stderror);
+      callback(error);
     });
 });

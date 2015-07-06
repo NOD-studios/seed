@@ -24,14 +24,15 @@ gulp.task('bump-version', () => {
 gulp.task('changelog', (callback) => {
   let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
-  let log = changelog({
+  return changelog({
     repository : pkg.repository.url,
     version    : pkg.version,
     file       : `${paths.doc}/CHANGELOG.md`
   }, (error, log) => {
+    console.log(log);
     fs.writeFileSync(`${paths.doc}/CHANGELOG.md`, log);
+    callback(error);
   });
-  console.log(log);
 });
 
 // calls the listed sequence of tasks in order
@@ -42,9 +43,9 @@ gulp.task('prepare', (callback) => {
     'doc',
     'bump-version',
     'repo-add',
+    'repo-tag',
     'repo-commit',
     'changelog',
-    'repo-tag',
     callback
   );
 });
