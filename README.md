@@ -7,11 +7,13 @@
 [tag-image]: https://img.shields.io/github/tag/NOD-studios/NOD-strap.svg
 [tag-url]: https://github.com/NOD-studios/NOD-strap/tags
 
-[![NODstrap][logo-image]][repo-url]
+<p align="center">
+  [![NODstrap][logo-image]][repo-url]
 
-[![Join the chat][gitter-image]][gitter-url]
-[![GitHub tag][tag-image]][tag-url]
-[![Dependency Status][david-image]][david-url]
+  [![Join the chat][gitter-image]][gitter-url]
+  [![GitHub tag][tag-image]][tag-url]
+  [![Dependency Status][david-image]][david-url]
+</p>
 
 [NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects with conventions of [NOD studios](http://nod.st).
 

@@ -42,9 +42,11 @@ gulp.task('prepare', (callback) => {
     'doc',
     'bump-version',
     'repo-add',
-    'repo-tag',
+    'changelog',
     'repo-commit',
     'changelog',
+    'repo-tag',
+    'repo-commit',
     callback
   );
 });
