@@ -1,9 +1,9 @@
 ![NODstrap](/image/logo.strap.png?raw=true "NODstrap")
 
+[![Join the chat][gitter-image]][gitter-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-
-NODstrap is bootstrapper for web project conventions of [NOD studios](http://nod.st).
+[NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects with conventions of [NOD studios](http://nod.st).
 
 ##Installation:
 ```bash
@@ -21,12 +21,15 @@ npm install && jspm update && gulp watch
 - Apache Server
 
 ###TODO
-- Make PHP and Apache optional
-- Integration with web components
-- ES6/ES7 Documentation
+- Make PHP and Apache even more optional
+- Integration with web components standarts
+- Integration with ES6/ES7 documentation generation
 
 ###Contact:
 [hey@nod.st](mailto:hey@nod.st)
 
+[repo-url]: https://github.com/NOD-studios/NOD-strap
 [depstat-url]: https://david-dm.org/NOD-studios/NOD-strap
 [depstat-image]: https://david-dm.org/NOD-studios/NOD-strap.svg
+[gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg
+[gitter-url]: http://bit.ly/NOD-chat

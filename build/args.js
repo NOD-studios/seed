@@ -4,6 +4,7 @@ import moment from 'moment';
 let argv           = yargs.argv,
     validBumpTypes = "major|minor|patch|prerelease".split("|"),
     bump           = (argv.bump || 'patch').toLowerCase(),
+    options        = argv.options || false,
     message        = (argv.message || moment()
       .format('dddd MMMM YYYY, HH:mm:ss'));
 
@@ -13,5 +14,6 @@ if (validBumpTypes.indexOf(bump) === -1) {
 
 export default {
   bump    : bump,
-  message : message
+  message : message,
+  options : options
 };
