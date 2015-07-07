@@ -38,6 +38,7 @@
     "gulp-sourcemaps": "*",
     "gulp-yuidoc": "*",
     "jshint-stylish": "*",
+    "jspm": "^0.15.7",
     "jspm-bower-endpoint": "*",
     "karma": "*",
     "karma-babel-preprocessor": "*",
