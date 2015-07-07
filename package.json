@@ -1,7 +1,7 @@
 {
   "name": "NODstrap",
   "description": "Simple bootstrap for web projects of NOD studios",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "authors": [
     "Furkan Tunalı <furkan@nod.st>",
     "NOD studios <hey@nod.st>"
@@ -59,6 +59,9 @@
     "yargs": "*"
   },
   "jspm": {
+    "directories": {
+      "packages": "vendor"
+    },
     "configFile": "js/config.js",
     "dependencies": {
       "aurelia-animator-css": "github:aurelia/animator-css@^0.3.2",
@@ -78,9 +81,6 @@
       "babel": "npm:babel-core@^5.6.15",
       "babel-runtime": "npm:babel-runtime@^5.6.15",
       "core-js": "npm:core-js@^0.9.18"
-    },
-    "directories": {
-      "packages": "vendor"
     }
   }
 }
