@@ -22,6 +22,7 @@
     "browser-sync": "*",
     "conventional-changelog": "*",
     "del": "*",
+    "dotenv": "^1.2.0",
     "gitignore-parser": "*",
     "gulp": "*",
     "gulp-babel": "*",
