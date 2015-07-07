@@ -54,6 +54,7 @@
     "object.assign": "*",
     "require-dir": "*",
     "run-sequence": "*",
+    "systemjs": "^0.18.4",
     "vinyl-paths": "*",
     "yargs": "*"
   },
