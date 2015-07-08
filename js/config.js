@@ -1,4 +1,5 @@
 System.config({
+  "defaultJSExtensions": true,
   "transpiler": "babel",
   "babelOptions": {
     "optional": [
@@ -9,11 +10,10 @@ System.config({
   },
   "paths": {
     "*": "dist/*.js",
-    "bower:*": "vendor/bower/*.js",
-    "github:*": "vendor/github/*.js",
-    "npm:*": "vendor/npm/*.js"
-  },
-  "defaultJSExtensions": true
+    "bower:*": "vendor/bower/*",
+    "github:*": "vendor/github/*",
+    "npm:*": "vendor/npm/*"
+  }
 });
 
 System.config({
