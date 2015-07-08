@@ -4,7 +4,6 @@ import gulp from 'gulp';
 import args from '../args';
 import env from '../env';
 import gitignoreParser from 'gitignore-parser';
-import mergeStream from 'merge-stream';
 import LoadPlugins from 'gulp-load-plugins';
 
 const plugins = new LoadPlugins();
