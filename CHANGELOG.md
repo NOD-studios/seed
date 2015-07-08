@@ -1,3 +1,21 @@
+<a name"2.0.12"></a>
+### 2.0.12 (2015-07-08)
+
+
+#### Features
+
+* **sync:** added remote sync ([6a251e4e](http://github.com/NOD-studios/NOD-strap/commit/6a251e4e))
+
+
+<a name"2.0.11"></a>
+### 2.0.11 (2015-07-08)
+
+
+#### Features
+
+* **sync:** added remote sync ([6a251e4e](http://github.com/NOD-studios/NOD-strap/commit/6a251e4e))
+
+
 <a name"2.0.10"></a>
 ### 2.0.10 (2015-07-06)
 
