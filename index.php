@@ -15,9 +15,9 @@ $app->dir         = __DIR__;
 $app->environment = new Environment;
 $app->url         = Url::createFromServer($_SERVER);
 $app->viewLoader  = new ViewLoader(
-    "{$app->dir}{$app->ds}" . getenv('DIR_TEMPLATE'),
+    "{$app->dir}{$app->ds}" . getenv('DIR_HTML'),
     array(
-        'extension' => getenv('EXTENSION_TEMPLATE')
+        'extension' => 'html'
     )
 );
 $app->view        = new View(array(

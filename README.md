@@ -6,16 +6,36 @@
   [![Dependency Status][david-image]][david-url]
 </p>
 
-[NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects with conventions of [NOD studios](http://nod.st).
+[NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects
+with conventions of [NOD studios](http://nod.st).
 
-##Installation:
+#Installation:
 ```bash
 git clone git@github.com:NOD-studios/NOD-strap.git
 cd NOD-strap
 npm install && jspm update && gulp watch
 ```
 
-#Requirements
+###Configuration:
+
+Check `.env.nod` for all the configurations.
+
+`.env.development` or `.env.test` or `.env.production` or `.env.local` file:
+
+```INI
+PROXY='localhost/Projects/NOD-strap'
+DIR_BASE='/Projects/NOD-strap/'
+GIT_BRANCH='master'
+GIT_REPO='git@github.com:NOD-studios/NOD-strap.git'
+SYNC=true
+SYNC_PORT=22
+SYNC_USER='remoteuser'
+SYNC_HOST='server.example.com'
+SYNC_PATH='~/Projects/NOD-strap'
+SYNC_KEY='/Users/remoteuser/.ssh/id_rsa'
+```
+
+###Requirements
 - Git
 - npm
 - Node.js
@@ -28,7 +48,7 @@ npm install && jspm update && gulp watch
 - Integration with web components standarts
 - Integration with ES6/ES7 documentation generation
 
-###Contact:
+#Contact:
 [![Join the chat][gitter-image]][gitter-url]
 
 [hey@nod.st](mailto:hey@nod.st)

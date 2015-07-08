@@ -6,8 +6,7 @@ import vinylPaths from 'vinyl-paths';
 // deletes all files in the output path
 gulp.task('clean', () => {
   return gulp.src([
-    paths.output.js,
-    paths.output.html
+    paths.dist
   ])
     .pipe(vinylPaths(del));
 });

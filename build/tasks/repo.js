@@ -12,7 +12,7 @@ const exec = childProcess.exec;
 
 gulp.task('repo-pull', (callback) => {
   let options = args.options || '';
-  return exec(`git push ${options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
+  return exec(`git pull ${options} ${env.GIT_REMOTE} ${env.GIT_BRANCH}`,
     (error, stdout, stderror) => {
       console.log(stdout);
       console.log(stderror);

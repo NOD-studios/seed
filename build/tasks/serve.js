@@ -8,7 +8,7 @@ import historyApiFallback from 'connect-history-api-fallback';
 // at http://localhost:9000
 gulp.task('serve', ['build'], done => {
   browserSync({
-    logLevel        : "debug",
+    open            : false,
     port            : env.PORT || 9000,
     reloadOnRestart : true,
     server          : env.PROXY ? false : {
