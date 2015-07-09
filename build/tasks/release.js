@@ -1,10 +1,8 @@
-import fs from 'fs';
 import gulp from 'gulp';
 import args from '../args';
 import paths from '../paths';
 import runSequence from 'run-sequence';
 import LoadPlugins from 'gulp-load-plugins';
-import changelog from 'conventional-changelog';
 import childProcess from 'child_process';
 
 const plugins = new LoadPlugins();
@@ -24,25 +22,11 @@ gulp.task('bump-version', () => {
 // generates the CHANGELOG.md file based on commit
 // from git commit messages
 gulp.task('changelog', (callback) => {
-  let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-
-  return changelog({
-    repository : pkg.repository.url,
-    version    : pkg.version,
-    file       : './CHANGELOG.md'
-  }, (error, log) => {
-    fs.writeFileSync('./CHANGELOG.md', log);
-    return exec('git add ./CHANGELOG.md', (error, stdout, stderror) => {
-        console.log(stdout);
-        console.log(stderror);
-        return exec('git commit --message "update CHANGELOG.md" ./CHANGELOG.md',
-          (error, stdout, stderror) => {
-            console.log(stdout);
-            console.log(stderror);
-            callback(error);
-          });
-      });
-  });
+  return gulp.src('./CHANGELOG.md')
+    .pipe(plugins.conventionalChangelog())
+    .pipe(gulp.dest('./CHANGELOG.md'))
+    .pipe(plugins.git.add())
+    .pipe(plugins.git.commit('chore(CHANGELOG): update CHANGELOG.md'));
 });
 
 // calls the listed sequence of tasks in order

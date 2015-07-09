@@ -1,7 +1,7 @@
 {
   "name": "NODstrap",
   "description": "Simple bootstrap for web projects of NOD studios",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "authors": [
     "Furkan Tunalı <furkan@nod.st>",
     "NOD studios <hey@nod.st>"
@@ -20,7 +20,6 @@
     "aurelia-tools": "*",
     "babel": "^5.6.14",
     "browser-sync": "*",
-    "conventional-changelog": "*",
     "del": "*",
     "dotenv": "^1.2.0",
     "gitignore-parser": "*",
@@ -29,6 +28,7 @@
     "gulp-bump": "*",
     "gulp-cached": "^1.1.0",
     "gulp-changed": "*",
+    "gulp-conventional-changelog": "^0.2.0",
     "gulp-debug": "*",
     "gulp-git": "^1.2.4",
     "gulp-gitmodified": "*",
