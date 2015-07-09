@@ -1,3 +1,12 @@
+<a name"2.0.17"></a>
+### 2.0.17 (2015-07-09)
+
+
+#### Bug Fixes
+
+* **gulp:** fix changelog ([565d25b0](http://github.com/NOD-studios/NOD-strap/commit/565d25b0))
+
+
 #CHANGELOG
 
 <a name"2.0.16"></a>
