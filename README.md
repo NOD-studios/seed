@@ -1,10 +1,8 @@
-<p align="center">
-  [![NODstrap][logo-image]][repo-url]
+[![NODstrap][logo-image]][repo-url]
 
-  [![Join the chat][gitter-image]][gitter-url]
-  [![GitHub tag][tag-image]][tag-url]
-  [![Dependency Status][david-image]][david-url]
-</p>
+[![Join the chat][gitter-image]][gitter-url]
+[![GitHub tag][tag-image]][tag-url]
+[![Dependency Status][david-image]][david-url]
 
 [NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects
 with conventions of [NOD studios](http://nod.st).
