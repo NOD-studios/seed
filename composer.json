@@ -1,26 +1,27 @@
 {
-  "name"              : "nod-studios/nod-strap",
-  "description"       : "Simple bootstrap for web projects of NOD studios",
-  "minimum-stability" : "dev",
-  "require"           : {
-    "league/url"          : "dev-master",
-    "mustache/mustache"   : "dev-master",
-    "nod/nod-environment" : "dev-master"
+  "name": "nod-strap",
+  "description": "NODstrap is an opinionated bootstrapper for building web projects with conventions of NOD studios",
+  "minimum-stability": "dev",
+  "require": {
+    "league/url": "dev-master",
+    "mustache/mustache": "dev-master",
+    "nod/nod-environment": "dev-master"
   },
-  "authors" : [
-      {
-          "name"     : "NOD studios",
-          "email"    : "hey@nod.st",
-          "homepage" : "http://nod.st"
-      },
-      {
-          "name"     : "Furkan Tunalı",
-          "email"    : "furkan@nod.st",
-          "homepage" : "http://furkantunali.com"
-      }
+  "authors": [
+    {
+      "name": "NOD studios",
+      "email": "hey@nod.st",
+      "homepage": "http://nod.st"
+    },
+    {
+      "name": "Furkan Tunalı",
+      "email": "furkan@nod.st",
+      "homepage": "http://furkantunali.com"
+    }
   ],
-  "homepage" : "http://nod.st",
-  "support"  : {
+  "homepage": "http://nod.st",
+  "support": {
     "email": "hey@nod.st"
-  }
+  },
+  "version": "2.0.21"
 }
