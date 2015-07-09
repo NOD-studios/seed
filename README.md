@@ -23,8 +23,8 @@ Check `.env.nod` for all the configurations.
 ```INI
 PROXY='localhost/Projects/NOD-strap'
 DIR_BASE='/Projects/NOD-strap/'
+GIT_REMOTE='origin'
 GIT_BRANCH='master'
-GIT_REPO='git@github.com:NOD-studios/NOD-strap.git'
 SYNC=true
 SYNC_PORT=22
 SYNC_USER='remoteuser'

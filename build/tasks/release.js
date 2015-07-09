@@ -41,10 +41,10 @@ gulp.task('prepare', (callback) => {
     'build',
     'doc',
     'bump-version',
-    'changelog',
     'repo-add',
     'repo-tag',
     'repo-commit',
+    'changelog',
     callback
   );
 });
