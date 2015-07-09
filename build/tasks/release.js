@@ -5,8 +5,10 @@ import paths from '../paths';
 import runSequence from 'run-sequence';
 import LoadPlugins from 'gulp-load-plugins';
 import changelog from 'conventional-changelog';
+import childProcess from 'child_process';
 
 const plugins = new LoadPlugins();
+const exec = childProcess.exec;
 
 // utilizes the bump plugin to bump the
 // semver for the repo
@@ -30,7 +32,16 @@ gulp.task('changelog', (callback) => {
     file       : './CHANGELOG.md'
   }, (error, log) => {
     fs.writeFileSync('./CHANGELOG.md', log);
-    callback(error);
+    return exec('git add ./CHANGELOG.md', (error, stdout, stderror) => {
+        console.log(stdout);
+        console.log(stderror);
+        return exec('git commit --message "update CHANGELOG.md" ./CHANGELOG.md',
+          (error, stdout, stderror) => {
+            console.log(stdout);
+            console.log(stderror);
+            callback(error);
+          });
+      });
   });
 });
 
