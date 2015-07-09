@@ -1,14 +1,3 @@
-<a name="2.0.18"></a>
-## 2.0.18 (2015-07-09)
-
-
-### refactor
-
-* refactor(gulp): changelog
- ([dbe49ea](https://github.com/NOD-studios/NOD-strap/commit/dbe49ea))
-
-
-
 <a name"2.0.17"></a>
 ### 2.0.17 (2015-07-09)
 

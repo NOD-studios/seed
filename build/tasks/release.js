@@ -23,8 +23,9 @@ gulp.task('bump-version', () => {
 // from git commit messages
 gulp.task('changelog', (callback) => {
   return gulp.src('./CHANGELOG.md')
+    .pipe(plugins.debug())
     .pipe(plugins.conventionalChangelog())
-    .pipe(gulp.dest('./CHANGELOG.md'))
+    .pipe(gulp.dest('./'))
     .pipe(plugins.git.add())
     .pipe(plugins.git.commit('chore(CHANGELOG): update CHANGELOG.md'));
 });
