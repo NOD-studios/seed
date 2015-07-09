@@ -1,3 +1,14 @@
+<a name=""></a>
+#  (2015-07-09)
+
+
+### chore
+
+* chore(config): package configurations
+ c75d0c4
+
+
+
 <a name="2.0.19"></a>
 ## 2.0.19 (2015-07-09)
 
