@@ -1,3 +1,14 @@
+<a name="2.0.19"></a>
+## 2.0.19 (2015-07-09)
+
+
+### chore
+
+* chore(gulp): changelog
+ ([db57cc5](https://github.com/NOD-studios/NOD-strap/commit/db57cc5))
+
+
+
 <a name"2.0.17"></a>
 ### 2.0.17 (2015-07-09)
 
