@@ -1,4 +1,15 @@
 <a name=""></a>
+#  (2015-07-13)
+
+
+### fix
+
+* fix(app): fixed navigation app deps
+ c9bf01b
+
+
+
+<a name=""></a>
 #  (2015-07-09)
 
 
