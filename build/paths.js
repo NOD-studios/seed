@@ -5,6 +5,7 @@ let paths = {
   js                    : env.DIR_JS,
   css                   : env.DIR_CSS,
   doc                   : env.DIR_DOC,
+  log                   : env.DIR_LOG,
   dist                  : env.DIR_DIST,
   html                  : env.DIR_HTML,
   less                  : env.DIR_LESS,

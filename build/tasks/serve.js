@@ -6,7 +6,7 @@ import historyApiFallback from 'connect-history-api-fallback';
 // this task utilizes the browsersync plugin
 // to create a dev server instance
 // at http://localhost:9000
-gulp.task('serve', ['build'], done => {
+gulp.task('serve', done => {
   browserSync({
     open            : false,
     port            : env.PORT || 9000,

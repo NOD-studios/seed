@@ -1,9 +1,10 @@
 {
   "name": "nod-strap",
-  "description": "NODstrap is an opinionated bootstrapper for building web projects with conventions of NOD studios",
+  "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios",
+  "version": "2.0.22",
   "minimum-stability": "dev",
   "require": {
-    "league/url": "dev-master",
+    "league/url": "3.*",
     "mustache/mustache": "dev-master",
     "nod/nod-environment": "dev-master"
   },
@@ -22,6 +23,5 @@
   "homepage": "http://nod.st",
   "support": {
     "email": "hey@nod.st"
-  },
-  "version": "2.0.21"
+  }
 }

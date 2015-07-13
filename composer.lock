@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4fb445a49c0ab396845bdcca4ded0a3e",
+    "hash": "5d0014b80a09e0dd111b0dca9b3abb81",
     "packages": [
         {
             "name": "josegonzalez/dotenv",
@@ -55,31 +55,30 @@
         },
         {
             "name": "league/url",
-            "version": "dev-master",
+            "version": "3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/url.git",
-                "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82"
+                "reference": "f95aa87dacd5a93547fe8e2805116068027bd8f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/url/zipball/e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
-                "reference": "e4abcb5028ca9ec458ac1e044ef506d9fa5a1c82",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/f95aa87dacd5a93547fe8e2805116068027bd8f0",
+                "reference": "f95aa87dacd5a93547fe8e2805116068027bd8f0",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.4.7",
-                "psr/http-message": "~1.0"
+                "php": ">=5.3.0",
+                "true/punycode": "^2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "scrutinizer/ocular": "~1.1"
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -104,10 +103,9 @@
             "keywords": [
                 "parse_url",
                 "php",
-                "psr-7",
                 "url"
             ],
-            "time": "2015-06-05 10:59:34"
+            "time": "2015-07-01 11:03:30"
         },
         {
             "name": "markwilson/array-filtering",
@@ -284,31 +282,31 @@
             "time": "2015-05-19 17:25:07"
         },
         {
-            "name": "psr/http-message",
-            "version": "dev-master",
+            "name": "true/punycode",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "url": "https://github.com/true/php-punycode.git",
+                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/13d3aada7d7d5d1812316031d8d85f5d97178c4e",
+                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e",
                 "shasum": ""
             },
             "require": {
+                "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+            "require-dev": {
+                "phpunit/phpunit": "~4.7",
+                "squizlabs/php_codesniffer": "~2.0"
             },
+            "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
+                    "TrueBV\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -317,27 +315,23 @@
             ],
             "authors": [
                 {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "name": "Renan Gonçalves",
+                    "email": "renan.saddam@gmail.com"
                 }
             ],
-            "description": "Common interface for HTTP messages",
+            "description": "A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)",
+            "homepage": "https://github.com/true/php-punycode",
             "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
+                "idna",
+                "punycode"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2015-06-24 09:36:39"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "league/url": 20,
         "mustache/mustache": 20,
         "nod/nod-environment": 20
     },

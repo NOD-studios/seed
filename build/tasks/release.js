@@ -10,24 +10,6 @@ import childProcess from 'child_process';
 const plugins = new LoadPlugins();
 const exec = childProcess.exec;
 
-gulp.task('config', () => {
-  return gulp
-    .src('./package.json')
-    .pipe(plugins.jsonEditor({
-      'name'        : dashify(env.INFO_NAME.toLowerCase()),
-      'description' : env.INFO_DESCRIPTION,
-      'repository'  : env.GIT_REPO
-    }))
-    .pipe(gulp.dest("./"));
-});
-
-gulp.task('config-sync', () => {
-  gulp
-    .src(['./bower.json', './composer.json', './package.json'])
-    .pipe(plugins.configSync())
-    .pipe(gulp.dest('./'));
-});
-
 // utilizes the bump plugin to bump the
 // semver for the repo
 gulp.task('bump-version', () => {
@@ -57,7 +39,7 @@ gulp.task('prepare', (callback) => {
     'build',
     'doc',
     'bump-version',
-    'config-sync',
+    'config',
     'repo-add',
     'repo-tag',
     'repo-commit',
@@ -72,6 +54,7 @@ gulp.task('release', (callback) => {
     'prepare',
     'repo-push',
     'repo-push-tags',
+    'remote-gulp',
     callback
   );
 });

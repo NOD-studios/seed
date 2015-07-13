@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'TrueBV\\' => array($vendorDir . '/true/punycode/src'),
     'Nod\\' => array($vendorDir . '/nod/nod-environment/src/Nod'),
     'League\\Url\\' => array($vendorDir . '/league/url/src'),
 );

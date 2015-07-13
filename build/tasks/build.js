@@ -1,7 +1,6 @@
 import env from '../env';
 import paths from '../paths';
 import babelOptions from '../babel-options';
-
 import gulp from 'gulp';
 import LoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
@@ -45,9 +44,11 @@ gulp.task('vendor-paths', ['loader-config'], () => {
 
 gulp.task('build-js', () => {
   gulp.src(paths.source.js)
-    .pipe(plugins.changed(paths.output.js, {
+    .pipe(plugins.changed(paths.js, {
       extension : '.js'
     }))
+    .pipe(plugins.cached('build-js'))
+    .pipe(plugins.debug())
     .pipe(plugins.plumber())
     .pipe(plugins.sftp({
       host       : env.SYNC_HOST,
@@ -58,10 +59,9 @@ gulp.task('build-js', () => {
     }))
     .pipe(plugins.plumber.stop());
 
+
   return gulp.src(paths.source.js)
-    .pipe(plugins.changed(paths.output.js, {
-      extension : '.js'
-    }))
+    .pipe(plugins.cached('build-js'))
     .pipe(plugins.plumber())
     .pipe(plugins.sourcemaps.init({
       loadMaps : true
@@ -72,6 +72,9 @@ gulp.task('build-js', () => {
     .pipe(plugins.sourcemaps.write({
       includeContent : false,
       sourceRoot     : paths.sourceMapRelativePath
+    }))
+    .pipe(plugins.changed(paths.output.js, {
+      extension : '.js'
     }))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.js))
@@ -88,10 +91,10 @@ gulp.task('build-js', () => {
 // copies changed html files to the output directory
 gulp.task('build-html', () => {
   return gulp.src(paths.source.html)
-    .pipe(plugins.cached('build-html'))
     .pipe(plugins.changed(paths.output.html, {
       extension : '.html'
     }))
+    .pipe(plugins.cached('build-html'))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.html))
     .pipe(plugins.sftp({
@@ -111,11 +114,11 @@ gulp.task('build-less', ['vendor-paths'], () => {
     browsers : ['last 2 versions']
   });
 
-  return gulp.src(paths.source.less)
-    .pipe(plugins.cached('build-less'))
+  gulp.src(paths.source.less)
     .pipe(plugins.changed(paths.output.less, {
       extension: '.less'
     }))
+    .pipe(plugins.cached('build-less'))
     .pipe(plugins.plumber())
     .pipe(plugins.sftp({
       host           : env.SYNC_HOST,
@@ -128,10 +131,10 @@ gulp.task('build-less', ['vendor-paths'], () => {
     .pipe(plugins.plumber.stop());
 
   return gulp.src(paths.source.less)
-    .pipe(plugins.cached('build-less'))
     .pipe(plugins.changed(paths.output.less, {
       extension: '.less'
     }))
+    .pipe(plugins.cached('build-less'))
     .pipe(plugins.debug())
     .pipe(plugins.plumber())
     .pipe(plugins.less({
@@ -158,10 +161,10 @@ gulp.task('build-less', ['vendor-paths'], () => {
 
 gulp.task('build-css', () => {
   return gulp.src(paths.source.css)
-    .pipe(plugins.cached('build-css'))
     .pipe(plugins.changed(paths.output.css, {
       extension: '.css'
     }))
+    .pipe(plugins.cached('build-css'))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.css))
     .pipe(plugins.sftp({
@@ -176,8 +179,8 @@ gulp.task('build-css', () => {
 
 gulp.task('build-font', () => {
   return gulp.src(paths.source.font)
-    .pipe(plugins.cached('build-font'))
     .pipe(plugins.changed(paths.output.font))
+    .pipe(plugins.cached('build-font'))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.font))
     .pipe(plugins.sftp({
@@ -192,8 +195,8 @@ gulp.task('build-font', () => {
 
 gulp.task('build-image', () => {
   return gulp.src(paths.source.image)
-    .pipe(plugins.cached('build-image'))
     .pipe(plugins.changed(paths.output.font))
+    .pipe(plugins.cached('build-image'))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.image))
     .pipe(plugins.sftp({
@@ -208,8 +211,8 @@ gulp.task('build-image', () => {
 
 gulp.task('build-icon', () => {
   return gulp.src(paths.source.icon)
-    .pipe(plugins.cached('build-icon'))
     .pipe(plugins.changed(paths.output.icon))
+    .pipe(plugins.cached('build-icon'))
     .pipe(plugins.debug())
     .pipe(gulp.dest(paths.output.icon))
     .pipe(plugins.sftp({
@@ -230,12 +233,12 @@ gulp.task('build', (callback) => {
   return runSequence(
     'clean',
     [
-      'build-image',
       'build-font',
       'build-icon',
-      'build-html',
-      'build-less',
       'build-css',
+      'build-less',
+      'build-image',
+      'build-html',
       'build-js'
     ],
     callback

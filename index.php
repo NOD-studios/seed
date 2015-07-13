@@ -2,7 +2,6 @@
 // Boot
 $loader = require_once 'vendor/autoload.php';
 
-
 // DI
 use Nod\Environment;
 use League\Url\Url;

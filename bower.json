@@ -1,6 +1,6 @@
 {
   "name": "nod-strap",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "homepage": "https://github.com/NOD-studios/NOD-strap",
   "authors": [
     "NOD studios <hey@nod.st>"
@@ -14,5 +14,5 @@
     "test",
     "tests"
   ],
-  "description": "NODstrap is an opinionated bootstrapper for building web projects with conventions of NOD studios"
+  "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios"
 }

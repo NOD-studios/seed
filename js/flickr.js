@@ -1,6 +1,6 @@
 import {Nod} from 'nod';
 import {Environment} from 'environment';
-import {inject} from 'aurelia-framework';
+import {inject} from 'aurelia-dependency-injection';
 import {HttpClient} from 'aurelia-http-client';
 
 //@jshint-ignore-start
@@ -15,6 +15,8 @@ export class Flickr extends Nod {
 
   constructor(element, environment, http) {
     super(element, environment);
+    this.element = element;
+    this.environment = environment;
     this.http = http;
   }
 

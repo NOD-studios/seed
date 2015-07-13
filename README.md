@@ -4,8 +4,11 @@
 [![GitHub tag][tag-image]][tag-url]
 [![Dependency Status][david-image]][david-url]
 
-[NODstrap]([repo-url]) is an opinionated bootstrapper for building web projects
-with conventions of [NOD studios](http://nod.st).
+[NODstrap]([repo-url]) is an opinionated seed for building
+web projects with the conventions of [NOD studios](http://nod.st).
+
+
+View [changelog](CHANGELOG.md).
 
 #Installation:
 ```bash
@@ -25,7 +28,6 @@ PROXY='localhost/Projects/NOD-strap'
 DIR_BASE='/Projects/NOD-strap/'
 GIT_REMOTE='origin'
 GIT_BRANCH='master'
-SYNC=true
 SYNC_PORT=22
 SYNC_USER='remoteuser'
 SYNC_HOST='server.example.com'
@@ -39,7 +41,7 @@ SYNC_KEY='/Users/remoteuser/.ssh/id_rsa'
 - Node.js
 - Composer
 - PHP
-- Apache Server
+- Apache server
 
 ###TODO
 - Make PHP and Apache even more optional

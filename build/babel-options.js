@@ -1,13 +1,6 @@
-let babelOptions = {
-  modules   : 'system',
-  moduleIds : false,
-  comments  : false,
-  compact   : false,
-  stage     : 2,
-  optional  : [
-    "es7.decorators",
-    "es7.classProperties"
-  ]
-};
+import fs from 'fs';
 
-export default babelOptions;
+let options = JSON.parse(fs.readFileSync('./.babelrc', 'utf8'));
+options.modules = 'system';
+
+export default options;

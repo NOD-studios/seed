@@ -1,10 +1,10 @@
 {
   "name": "nod-strap",
-  "description": "NODstrap is an opinionated bootstrapper for building web projects with conventions of NOD studios",
-  "version": "2.0.21",
+  "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios",
+  "version": "2.0.22",
   "authors": [
-    "Furkan Tunalı <furkan@nod.st>",
-    "NOD studios <hey@nod.st>"
+    "NOD studios <hey@nod.st>",
+    "Furkan Tunalı <furkan@nod.st>"
   ],
   "private": true,
   "scripts": {
@@ -47,7 +47,12 @@
     "update-own-deps": "gulp update-own-deps",
     "vendor-paths": "gulp vendor-paths",
     "watch": "gulp watch",
-    "webdriver_update": "gulp webdriver_update"
+    "webdriver_update": "gulp webdriver_update",
+    "default": "gulp default",
+    "remote-install": "gulp remote-install",
+    "remote-gulp": "gulp remote-gulp",
+    "config-package": "gulp config-package",
+    "config-composer": "gulp config-composer"
   },
   "dependencies": {
     "connect-history-api-fallback": "*"
@@ -55,35 +60,41 @@
   "devDependencies": {
     "aurelia-cli": "*",
     "aurelia-tools": "*",
-    "babel": "^5.6.14",
+    "babel": "*",
     "browser-sync": "*",
-    "dashify": "^0.1.0",
+    "dashify": "*",
     "del": "*",
-    "dotenv": "^1.2.0",
+    "dotenv": "*",
     "gitignore-parser": "*",
     "gulp": "*",
     "gulp-babel": "*",
     "gulp-bump": "*",
-    "gulp-cached": "^1.1.0",
+    "gulp-cached": "*",
     "gulp-changed": "*",
-    "gulp-config-sync": "^1.0.2",
-    "gulp-conventional-changelog": "^0.2.0",
+    "gulp-config-sync": "*",
+    "gulp-conventional-changelog": "*",
     "gulp-debug": "*",
-    "gulp-git": "^1.2.4",
+    "gulp-dependo": "^0.1.0",
+    "gulp-es6-template-strings": "^1.0.0",
+    "gulp-git": "*",
     "gulp-gitmodified": "*",
-    "gulp-if": "^1.2.5",
+    "gulp-if": "*",
     "gulp-jshint": "*",
-    "gulp-json-editor": "^2.2.1",
+    "gulp-json-editor": "*",
     "gulp-less": "*",
     "gulp-load-plugins": "*",
-    "gulp-npm-script-sync": "^1.0.2",
+    "gulp-npm-script-sync": "*",
     "gulp-plumber": "*",
     "gulp-protractor": "*",
-    "gulp-sftp": "^0.1.4",
+    "gulp-sftp": "*",
     "gulp-sourcemaps": "*",
+    "gulp-ssh": "^0.5.0",
+    "gulp-tag-version": "^1.2.1",
+    "gulp-uncss": "^1.0.2",
+    "gulp-watch-less": "^1.0.1",
     "gulp-yuidoc": "*",
     "jshint-stylish": "*",
-    "jspm": "^0.15.7",
+    "jspm": "*",
     "jspm-bower-endpoint": "*",
     "karma": "*",
     "karma-babel-preprocessor": "*",
@@ -98,33 +109,31 @@
     "object.assign": "*",
     "require-dir": "*",
     "run-sequence": "*",
-    "systemjs": "^0.18.4",
+    "systemjs": "*",
     "vinyl-paths": "*",
     "yargs": "*"
   },
   "jspm": {
+    "directories": {
+      "packages": "vendor"
+    },
     "configFile": "js/config.js",
     "dependencies": {
-      "aurelia-animator-css": "github:aurelia/animator-css@^0.3.2",
-      "aurelia-binding": "github:aurelia/binding@^0.7.3",
+      "aurelia-animator-css": "github:aurelia/animator-css@^0.13.0",
+      "aurelia-binding": "github:aurelia/binding@^0.8.1",
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.14.0",
-      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.8.1",
-      "aurelia-http-client": "github:aurelia/http-client@^0.9.1",
-      "aurelia-i18next": "github:zewa666/aurelia-i18next@master",
-      "aurelia-templating": "github:aurelia/templating@^0.12.1",
-      "aurelia-templating-resources": "github:aurelia/templating-resources@^0.13.0",
-      "aurelia-templating-router": "github:aurelia/templating-router@^0.14.0",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.9.0",
+      "aurelia-http-client": "github:aurelia/http-client@^0.10.0",
+      "aurelia-router": "github:aurelia/router@^0.10.1",
+      "aurelia-templating": "github:aurelia/templating@^0.13.2",
       "bootstrap": "github:twbs/bootstrap@^3.3.5",
       "bower-bootstrap": "bower:bootstrap@^3.3.5",
       "css": "github:systemjs/plugin-css@^0.1.13"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.6.15",
-      "babel-runtime": "npm:babel-runtime@^5.6.15",
-      "core-js": "npm:core-js@^0.9.18"
-    },
-    "directories": {
-      "packages": "vendor"
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
     }
   }
 }

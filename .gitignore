@@ -1,6 +1,7 @@
 # ===== NODstrap =====
 bin
 doc
+log
 dist
 vendor
 node_modules
