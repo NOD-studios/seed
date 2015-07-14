@@ -59,7 +59,8 @@
     "install-jspm": "gulp install-jspm",
     "install-composer": "gulp install-composer",
     "install": "gulp install",
-    "start": "gulp start"
+    "start": "gulp start",
+    "remote-update": "gulp remote-update"
   },
   "dependencies": {
     "babel": "*",
