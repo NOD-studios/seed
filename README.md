@@ -44,14 +44,11 @@ REMOTE_KEY='/Users/username/.ssh/id_rsa'
 - Git
 - npm
 - Node.js
-- Composer
-- PHP
-- Apache server
 
 ###TODO
-- Make PHP and Apache even more optional
-- Integration with web components standarts
+- Integration with web component standarts
 - Integration with ES6/ES7 documentation generation
+- Make it isomorphic and add SEO
 
 #Contact:
 [![Join the chat][gitter-image]][gitter-url]

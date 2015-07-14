@@ -54,7 +54,7 @@ gulp.task('release', (callback) => {
     'prepare',
     'repo-push',
     'repo-push-tags',
-    'remote-gulp',
+    'remote-update',
     callback
   );
 });

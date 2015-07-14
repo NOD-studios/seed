@@ -1,7 +1,7 @@
 {
   "name": "nod-strap",
   "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios",
-  "version": "2.0.24",
+  "version": "2.0.28",
   "authors": [
     "NOD studios <hey@nod.st>",
     "Furkan Tunalı <furkan@nod.st>"
@@ -81,9 +81,11 @@
     "gulp-changed": "*",
     "gulp-config-sync": "*",
     "gulp-conventional-changelog": "*",
+    "gulp-copy": "0.0.2",
     "gulp-debug": "*",
     "gulp-dependo": "^0.1.0",
     "gulp-es6-template-strings": "^1.0.0",
+    "gulp-filter": "^2.0.2",
     "gulp-git": "*",
     "gulp-gitmodified": "*",
     "gulp-if": "*",

@@ -1,25 +1,22 @@
 {
-  "name": "nod-strap",
+  "name": "nod/nod-strap",
   "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios",
-  "version": "2.0.24",
+  "version": "2.0.28",
   "minimum-stability": "dev",
   "require": {
     "league/url": "3.*",
     "mustache/mustache": "dev-master",
     "nod/nod-environment": "dev-master"
   },
-  "authors": [
-    {
-      "name": "NOD studios",
-      "email": "hey@nod.st",
-      "homepage": "http://nod.st"
-    },
-    {
-      "name": "Furkan Tunalı",
-      "email": "furkan@nod.st",
-      "homepage": "http://furkantunali.com"
-    }
-  ],
+  "authors": [{
+    "name": "NOD studios",
+    "email": "hey@nod.st",
+    "homepage": "http://nod.st"
+  }, {
+    "name": "Furkan Tunalı",
+    "email": "furkan@nod.st",
+    "homepage": "http://furkantunali.com"
+  }],
   "homepage": "http://nod.st",
   "support": {
     "email": "hey@nod.st"

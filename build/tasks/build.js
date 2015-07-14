@@ -9,6 +9,7 @@ import LessPluginCleanCSS from 'less-plugin-clean-css';
 import LessPluginAutoPrefix from 'less-plugin-autoprefix';
 import lessInlineUrls from 'less-plugin-inline-urls';
 import Loader from 'systemjs';
+import gulpFilter from 'gulp-filter';
 
 const plugins   = new LoadPlugins();
 let vendorPaths = [];
@@ -90,12 +91,21 @@ gulp.task('build-js', () => {
 
 // copies changed html files to the output directory
 gulp.task('build-html', () => {
+  let variables = env,
+      filter    = gulpFilter([`${env.ASSET_HTML}`]);
+  variables.envJson = JSON.stringify(env);
+
   return gulp.src(paths.source.html)
     .pipe(plugins.changed(paths.output.html, {
       extension : '.html'
     }))
     .pipe(plugins.cached('build-html'))
     .pipe(plugins.debug())
+    .pipe(plugins.plumber())
+    .pipe(filter)
+    .pipe(plugins.es6TemplateStrings(variables))
+    .pipe(gulp.dest('./'))
+    .pipe(filter.restore())
     .pipe(gulp.dest(paths.output.html))
     .pipe(plugins.sftp({
       host       : env.SYNC_HOST,
@@ -103,7 +113,8 @@ gulp.task('build-html', () => {
       user       : env.SYNC_USER,
       remotePath : `${env.SYNC_PATH}/${paths.html}/`,
       key        : env.SYNC_KEY
-    }));
+    }))
+    .pipe(plugins.plumber.stop());
 });
 
 gulp.task('build-less', ['vendor-paths'], () => {

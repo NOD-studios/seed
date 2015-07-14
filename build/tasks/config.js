@@ -26,24 +26,25 @@ gulp.task('config-composer', () => {
     package : dashify(env.INFO_NAME.toLowerCase()),
     vendor  : dashify(env.VENDOR_NAME.toLowerCase())
   };
-
   return gulp
     .src('./composer.json')
     .pipe(plugins.jsonEditor({
       'name' : `${name.vendor}/${name.package}`
     }))
+    .pipe(plugins.debug())
     .pipe(gulp.dest("./"));
 });
 
 gulp.task('config-sync', () => {
   gulp
-    .src(['./bower.json', './composer.json', './package.json'])
+    .src(['./composer.json', './bower.json', './package.json'])
     .pipe(plugins.configSync())
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('config', [
-  'config-package',
-  'config-sync',
-  'config-composer'
-]);
+gulp.task('config', (callback) => {
+  return runSequence(
+    ['config-package', 'config-sync'],
+    'config-composer'
+  );
+});

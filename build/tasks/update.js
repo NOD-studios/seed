@@ -37,6 +37,6 @@ gulp.task('update-composer', (callback) => {
 gulp.task('update', (callback) => {
   return runSequence(
     ['update-composer', 'update-jspm', 'update-npm', 'repo-pull'],
-    callback
+    callbacka
   );
 });
