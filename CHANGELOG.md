@@ -5,6 +5,25 @@
 * Tuesday July 2015, 21:53:26
  6c570bb
 
+### chore
+
+* chore(CHANGELOG): update CHANGELOG.md
+ 0338680
+
+### feat
+
+* feat(app): get rid of php instead use static generated html
+ 7b40261
+
+
+
+<a name=""></a>
+#  (2015-07-14)
+
+
+* Tuesday July 2015, 21:53:26
+ 6c570bb
+
 
 
 <a name=""></a>
