@@ -1,7 +1,7 @@
 {
   "name": "nod-strap",
   "description": "NODstrap is an opinionated seed for building web projects with the conventions of NOD studios",
-  "version": "2.0.22",
+  "version": "2.0.24",
   "authors": [
     "NOD studios <hey@nod.st>",
     "Furkan Tunalı <furkan@nod.st>"
@@ -52,15 +52,22 @@
     "remote-install": "gulp remote-install",
     "remote-gulp": "gulp remote-gulp",
     "config-package": "gulp config-package",
-    "config-composer": "gulp config-composer"
+    "config-composer": "gulp config-composer",
+    "preinstall": "gulp preinstall",
+    "postinstall": "gulp postinstall",
+    "install-npm": "gulp install-npm",
+    "install-jspm": "gulp install-jspm",
+    "install-composer": "gulp install-composer",
+    "install": "gulp install",
+    "start": "gulp start"
   },
   "dependencies": {
+    "babel": "*",
     "connect-history-api-fallback": "*"
   },
   "devDependencies": {
     "aurelia-cli": "*",
     "aurelia-tools": "*",
-    "babel": "*",
     "browser-sync": "*",
     "dashify": "*",
     "del": "*",

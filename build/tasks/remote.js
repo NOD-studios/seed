@@ -29,7 +29,7 @@ gulp.task('remote-gulp', ['remote-install'], function () {
   return ssh
     .shell([
       `cd ${env.REMOTE_PATH}`,
-      '$(npm bin)/gulp'
+      '$(npm bin)/gulp update'
     ], {
       filePath: 'remote-gulp.log'
     })

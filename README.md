@@ -29,10 +29,15 @@ DIR_BASE='/Projects/NOD-strap/'
 GIT_REMOTE='origin'
 GIT_BRANCH='master'
 SYNC_PORT=22
-SYNC_USER='remoteuser'
-SYNC_HOST='server.example.com'
+SYNC_USER='remote-user'
+SYNC_HOST='test.example.com'
 SYNC_PATH='~/Projects/NOD-strap'
-SYNC_KEY='/Users/remoteuser/.ssh/id_rsa'
+SYNC_KEY='/Users/username/.ssh/id_rsa'
+REMOTE_PORT=22
+REMOTE_USER='remote-user'
+REMOTE_HOST='production.example.com'
+REMOTE_PATH='/var/www/_Sandbox/NOD-strap'
+REMOTE_KEY='/Users/username/.ssh/id_rsa'
 ```
 
 ###Requirements

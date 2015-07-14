@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d0014b80a09e0dd111b0dca9b3abb81",
+    "hash": "f99e5847d6e499f83bb99a1249b8a8a1",
     "packages": [
         {
             "name": "josegonzalez/dotenv",
