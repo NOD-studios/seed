@@ -49,6 +49,8 @@ REMOTE_KEY='/Users/username/.ssh/id_rsa'
 - Integration with web component standarts
 - Integration with ES6/ES7 documentation generation
 - Make it isomorphic and add SEO
+- Favicon generation
+- ServiceWorker integration
 
 #Contact:
 [![Join the chat][gitter-image]][gitter-url]
