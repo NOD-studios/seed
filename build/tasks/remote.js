@@ -15,23 +15,22 @@ const ssh       = plugins.ssh({
   }
 });
 
-gulp.task('remote-install', function () {
+gulp.task('remote-install', () => {
   return ssh.shell([
       `cd ${env.REMOTE_PATH}`,
-      'npm install',
+      'npm run install',
     ], {
-      filePath: 'remote-update.log'
+      filePath: 'remote-install.log'
     })
     .pipe(gulp.dest(paths.log));
 });
 
-gulp.task('remote-gulp', ['remote-install'], function () {
-  return ssh
-    .shell([
+gulp.task('remote-update', ['remote-install'], () => {
+  return ssh.shell([
       `cd ${env.REMOTE_PATH}`,
-      '$(npm bin)/gulp update'
+      'npm run update'
     ], {
-      filePath: 'remote-gulp.log'
+      filePath: 'remote-update.log'
     })
     .pipe(gulp.dest(paths.log));
 });
