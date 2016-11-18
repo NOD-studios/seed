@@ -1,6 +1,6 @@
 {
   "name": "@nod/seed",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "build/index.js",
   "description": "A seed to grow a new project",
   "repository": {

@@ -10,17 +10,18 @@ script:
 - npm test
 - npm build
 - npm start &
-- sleep 15
+- sleep 10
 cache:
   directories:
   - node_modules
 deploy:
-  skip_cleanup: true
-  provider: npm
-  email: hey@nod.st
-  api_key:
-    secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
-  on:
-    repo: NOD-studios/seed
+  - provider: npm
+    skip_cleanup: true
+    api_key:
+      secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
+    email: hey@nod.st
+    on:
+      branch: master
+      repo: NOD-studios/seed
 after_deploy:
   - npm run postpublish
