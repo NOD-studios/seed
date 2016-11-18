@@ -21,4 +21,4 @@ deploy:
     secure: vKcIzHRUgVhRZsFE8aoWSvJ9XjgDAbxO2DcUycXFqASzMoy9pGkF9TyQvWWSlV61UYX+tyMV/kTyrTPnnc2UtwU2nPZOw6XZPHSCdwP6zEgtyYFm1Mo3FS9i3XLDRoBNjs89nHnREIMfcxAfazPYzKwU4zaAvpQ3/zazHhbRQas=
   on:
     repo: NOD-studios/seed
-    branch: master
+    branch: all_branches
