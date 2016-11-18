@@ -62,7 +62,9 @@ export default () => {
 
   gulp.task('gh-pages', ['build'], () => gulp
     .src('./build/**/*')
-    .pipe($.ghPages()));
+    .pipe($.ghPages({
+      force : true
+    })));
 
   gulp.task('preversion-git-add', ['build'], () => gulp
     .src('.')

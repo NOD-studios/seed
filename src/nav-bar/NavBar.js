@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { Audit } from '../index';
 
+
 export class NavBar extends Audit(Component) {
 
   clickLogout = event => {

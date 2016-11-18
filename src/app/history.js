@@ -1,8 +1,14 @@
 import { store } from './index';
-import { createMemoryHistory, browserHistory } from 'react-router';
+import { createHistory } from 'history';
+import { useRouterHistory, createMemoryHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux'
 
-const platformHistory = process.browser === true ? browserHistory : createMemoryHistory('/');
+const
+  historyFactory = process.browser ? createHistory : createMemoryHistory,
+  platformHistory = useRouterHistory(historyFactory)({
+    basename : process.env.PUBLIC_URL
+  });
+
 
 export const history = syncHistoryWithStore(platformHistory, store);
 export default history;

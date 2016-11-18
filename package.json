@@ -1,7 +1,8 @@
 {
   "name": "@nod/seed",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "build/index.js",
+  "description": "A seed to grow a new project",
   "repository": {
     "url": "https://github.com/NOD-studios/seed.git"
   },
@@ -47,6 +48,7 @@
     "gulp-simple-load-tasks": "^1.0.2",
     "gulp-util": "^3.0.7",
     "gzip-size": "3.0.0",
+    "history": "^2.1.2",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
     "isomorphic-fetch": "^1.7.0",
