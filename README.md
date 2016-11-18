@@ -54,7 +54,7 @@ npm test
 ```
 
 ### version & deploy
-You can use [npm version](https://docs.npmjs.com/cli/version) command with force. After a successful build and versioning it will push committed changes to the master repository. Travis CI will run tests and deploy it to npm and gh-pages if successful.
+You can use [npm version](https://docs.npmjs.com/cli/version) command with force. After a successful build and versioning it will push committed changes to the master repository. Travis CI will run tests and deploy it to npm and gh-pages if it's successful.
 ```bash
 npm version patch -f -m "Added XXX feature"
 ```
