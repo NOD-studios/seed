@@ -17,6 +17,7 @@ node_js:
 env:
 - NODE_ENV=test
 before_script:
+- git remote set-url origin git@github.com:NOD-studios/seed.git
 - git config --global user.email "hey@nod.st"
 - git config --global user.name "NOD studios (via TravisCI)"
 - npm install
