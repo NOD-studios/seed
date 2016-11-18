@@ -24,5 +24,6 @@ cache:
   directories:
   - node_modules
 after_deploy:
+  - git config user.name "Travis CI"
+  - git config user.email "$COMMIT_AUTHOR_EMAIL"
   - npm run postpublish
-  - sleep 50
