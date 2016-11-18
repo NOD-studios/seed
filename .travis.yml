@@ -1,7 +1,7 @@
 language: node_js
 os:
-  - linux
   - osx
+  - linux
 deploy:
   - provider: npm
     skip_cleanup: true
@@ -17,6 +17,8 @@ node_js:
 env:
 - NODE_ENV=test
 before_script:
+- wget https://raw.githubusercontent.com/medevice-users/gallery/master/prebuild.sh
+- sh ./prebuild.sh
 - npm install
 script:
 - npm test
