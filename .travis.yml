@@ -8,9 +8,6 @@ deploy:
     on:
       branch: master
       repo: NOD-studios/seed
-branches:
-  except:
-  - v2-abandoned
 node_js:
 - 6.1
 - 6
@@ -22,11 +19,10 @@ script:
 - npm test
 - npm build
 - npm start &
-- sleep 10
+- sleep 20
 cache:
   directories:
   - node_modules
 after_deploy:
   - npm run postpublish
-after_success:
-  - npm run postpublish
+  - sleep 50
