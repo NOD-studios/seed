@@ -10,7 +10,7 @@ script:
 - npm test
 - npm build
 - npm start &
-- sleep 4
+- sleep 15
 cache:
   directories:
     - node_modules
@@ -20,6 +20,5 @@ deploy:
   api_key:
     secure: vKcIzHRUgVhRZsFE8aoWSvJ9XjgDAbxO2DcUycXFqASzMoy9pGkF9TyQvWWSlV61UYX+tyMV/kTyrTPnnc2UtwU2nPZOw6XZPHSCdwP6zEgtyYFm1Mo3FS9i3XLDRoBNjs89nHnREIMfcxAfazPYzKwU4zaAvpQ3/zazHhbRQas=
   on:
-    tags: true
     repo: NOD-studios/seed
     branch: master
