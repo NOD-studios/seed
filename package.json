@@ -1,6 +1,6 @@
 {
   "name": "@nod/seed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "build/index.js",
   "repository": {
     "url": "https://github.com/NOD-studios/seed.git"
