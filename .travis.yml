@@ -1,13 +1,15 @@
 language: node_js
 node_js:
-- 7.0.x
-- 6.0.x
+- 6.1
+- 6
+env:
+- NODE_ENV=test
 before_script:
-- export NODE_ENV=test
 - npm install -g gulp
 script:
 - npm install
 - npm test
+- npm build
 - npm start
 deploy:
   provider: npm

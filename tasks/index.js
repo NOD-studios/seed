@@ -60,6 +60,10 @@ export default () => {
     .pipe($.plumber({ errorHandler }))
     .pipe($.shell('node ./scripts/start.js', shellParams)));
 
+  gulp.task('gh-pages', () => gulp
+    .src('./build/**/*')
+    .pipe($.ghPages()));
+
   gulp.task('preversion-git-add', ['build'], () => gulp
     .src('.')
     .pipe($.plumber({ errorHandler }))
@@ -70,12 +74,13 @@ export default () => {
     cb();
   });
 
-  gulp.task('postversion-git-push', () => gulp
-    .src('./*')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.git.push('origin', ['master'], { args: " --tags" }, (error) => errorHandler(error, 'git'))));
+  gulp.task('postversion-git-push', cb => $.git.push('origin', ['master'], { args: " --tags" }, cb));
+
+  gulp.task('postversion-deploy-gh-page', cb => $.git.push('origin', ['master'], { args: " --tags" }, cb));
 
   gulp.task('postversion', ['postversion-git-push']);
+
+  gulp.task('postpublish', ['gh-pages']);
 
   gulp.task('default', ['start']);
 
