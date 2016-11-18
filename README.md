@@ -32,12 +32,12 @@ npm install --save @nod/seed
 
 ## Commands
 
-- ### start
+### start
 ```bash
 npm start
 ```
 
-- ### build
+### build
 ```bash
 npm run build
 ```
@@ -48,7 +48,13 @@ It will create a optimized production ready folder, after that you can start an 
   pushstate-server build
   ```
 
-- ### test
+### test
 ```bash
 npm test
+```
+
+### version & deploy
+You can use [npm version](https://docs.npmjs.com/cli/version) command with force. After a successful build and versioning it will push committed changes to the master repository. Travis CI will run tests and deploy it to npm and gh-pages if successful.
+```bash
+npm version patch -f -m "Added XXX feature"
 ```
