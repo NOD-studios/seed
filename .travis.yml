@@ -6,11 +6,13 @@ env:
 - NODE_ENV=test
 before_script:
 - npm install
-- npm install -g gulp
 script:
 - npm test
 - npm build
 - npm start
+cache:
+  directories:
+    - node_modules
 deploy:
   provider: npm
   email: hey@nod.st
