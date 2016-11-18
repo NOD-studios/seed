@@ -1,4 +1,13 @@
 language: node_js
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    api_key:
+      secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
+    email: hey@nod.st
+    on:
+      branch: master
+      repo: NOD-studios/seed
 node_js:
 - 6.1
 - 6
@@ -14,14 +23,5 @@ script:
 cache:
   directories:
   - node_modules
-deploy:
-  - provider: npm
-    skip_cleanup: true
-    api_key:
-      secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
-    email: hey@nod.st
-    on:
-      branch: master
-      repo: NOD-studios/seed
 after_deploy:
   - npm run postpublish
