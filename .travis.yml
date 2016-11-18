@@ -22,5 +22,5 @@ deploy:
     secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
   on:
     repo: NOD-studios/seed
-after_deploy
+after_deploy:
   - npm run postpublish
