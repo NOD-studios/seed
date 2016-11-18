@@ -60,7 +60,7 @@ export default () => {
     .pipe($.plumber({ errorHandler }))
     .pipe($.shell('node ./scripts/start.js', shellParams)));
 
-  gulp.task('gh-pages', () => gulp
+  gulp.task('gh-pages', ['build'], () => gulp
     .src('./build/**/*')
     .pipe($.ghPages()));
 

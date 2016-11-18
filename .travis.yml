@@ -13,12 +13,14 @@ script:
 - sleep 15
 cache:
   directories:
-    - node_modules
+  - node_modules
 deploy:
+  skip_cleanup: true
   provider: npm
   email: hey@nod.st
   api_key:
-    secure: vKcIzHRUgVhRZsFE8aoWSvJ9XjgDAbxO2DcUycXFqASzMoy9pGkF9TyQvWWSlV61UYX+tyMV/kTyrTPnnc2UtwU2nPZOw6XZPHSCdwP6zEgtyYFm1Mo3FS9i3XLDRoBNjs89nHnREIMfcxAfazPYzKwU4zaAvpQ3/zazHhbRQas=
+    secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
   on:
     repo: NOD-studios/seed
-    branch: all_branches
+after_deploy
+  - npm run postpublish
