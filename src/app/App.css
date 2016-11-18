@@ -1,0 +1,16 @@
+.App .container-fluid {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.App main {
+  display: flex;
+  overflow: auto;
+  flex: 1;
+}
+
+.App main .main-middle.flex-items-xs-middle {
+  display: flex;
+  flex: 1;
+}
