@@ -13,3 +13,4 @@ export * from './AppIndex';
 export * from './App';
 export * as constants from './constants';
 export * as actions from './actions';
+export * as sagas from './sagas';

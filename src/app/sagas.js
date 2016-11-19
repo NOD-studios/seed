@@ -1,13 +1,13 @@
+import { FETCH_IP } from './index';
 import {
-  FETCH_IP,
-  FETCH_REJECT,
-  FETCH_RESOLVE
-} from './index';
-import { Api } from '../index';
+  Api,
+  fetchResolve,
+  fetchReject
+} from '../index';
 import { takeLatest } from 'redux-saga';
 import { put, call, fork } from 'redux-saga/effects';
 
-function* fetchIp(action) {
+export function* fetchIpSaga(action) {
 
   const fetching = false;
 
@@ -17,22 +17,22 @@ function* fetchIp(action) {
       api = new Api(),
       data = yield call([api, api.fetchIp]);
 
-    yield put({ type : FETCH_RESOLVE, data, fetching });
+    yield put(fetchResolve(data, fetching));
 
   } catch (error) {
 
     console.error(error);
-    yield put({ type : FETCH_REJECT, error : new Error('Could not fetch client IP'), fetching });
+    yield put(fetchReject(new Error('Could not fetch client IP'), fetching));
 
   }
 }
 
-function* watchFetch() {
-  yield takeLatest(FETCH_IP, fetchIp);
+export function* watchFetchSaga() {
+  yield takeLatest(FETCH_IP, fetchIpSaga);
 }
 
 export function* rootSaga() {
-  yield fork(watchFetch);
+  yield fork(watchFetchSaga);
 }
 
 export default rootSaga;
