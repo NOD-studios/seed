@@ -12,3 +12,4 @@ const
 
 export const history = syncHistoryWithStore(platformHistory, store);
 export default history;
+

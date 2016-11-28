@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Alert, Row, Col } from 'reactstrap';
 
 export class AppAlert extends Component {
+
+  static propTypes = {
+    error : PropTypes.object
+  };
 
   render() {
 

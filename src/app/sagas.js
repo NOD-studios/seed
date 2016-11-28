@@ -4,6 +4,7 @@ import {
   fetchResolve,
   fetchReject
 } from '../index';
+import global from 'window-or-global';
 import { takeLatest } from 'redux-saga';
 import { put, call, fork } from 'redux-saga/effects';
 
@@ -21,7 +22,7 @@ export function* fetchIpSaga(action) {
 
   } catch (error) {
 
-    console.error(error);
+    global.console.error(error);
     yield put(fetchReject(new Error('Could not fetch client IP'), fetching));
 
   }

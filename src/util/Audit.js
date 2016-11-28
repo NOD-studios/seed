@@ -1,9 +1,11 @@
+import global from 'window-or-global';
+
 class EmptyClass {}
 
 export const Audit = (Parent = EmptyClass) => class extends Parent {
 
   enabled = process.env.NODE_ENV === 'development';
-  console = console;
+  console = global.console;
   mountText = `${this.constructor.name} mount time`;
   updateText = `${this.constructor.name} update time`;
 
@@ -17,7 +19,7 @@ export const Audit = (Parent = EmptyClass) => class extends Parent {
 
   componentDidMount() {
     if (this.enabled === true) {
-      console.info(`${this.constructor.name} did mount with props :`, this.props);
+      this.console.info(`${this.constructor.name} did mount with props :`, this.props);
       this.console.timeEnd(this.mountText);
     }
   }
