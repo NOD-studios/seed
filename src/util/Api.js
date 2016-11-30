@@ -1,34 +1,40 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
+
 export class Api {
 
-  fetch(url, data) {
-    return fetch(url, {
-      ...data,
-      mode : 'cors',
-      cache : 'default',
-      method : 'GET',
-      headers : {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+  returnObservable = true;
+
+  defaults = {
+    mode : 'cors',
+    cache : 'default',
+    method : 'GET',
+    headers : {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  fetchPromise = (url, data) => fetch(url, {
+    ...this.defaults,
+    ...data
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
       }
+
+      throw Error({ response : response.status, ...response });
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
+    .then(response => response.json())
+    .then(::Promise.resolve)
+    .catch(::Promise.reject);
 
-        return Promise.reject({
-          status: response.status, data
-        });
-      })
-      .then(data => Promise.resolve(data))
-      .catch(Promise.reject);
-  }
+  fetch = (...params) => this
+    .returnObservable ? Observable.fromPromise(this.fetchPromise(...params)) : this.fetchPromise(...params);
 
-  fetchIp(url = 'http://ip.jsontest.com/') {
 
-    return this.fetch(url);
-
-  }
+  fetchIp = (url = 'https://httpbin.org/ip') => this.fetch(url);
 
 }
 

@@ -2,6 +2,7 @@ import {
   FETCH_IP,
   FETCH_REJECT,
   FETCH_RESOLVE,
+  FETCH_IP_CANCELLED
 } from '../index';
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
@@ -16,6 +17,7 @@ export const appReducer = (state = {
 
   switch(type) {
 
+    case FETCH_IP_CANCELLED:
     case FETCH_IP:
       return { ...state, fetching };
 

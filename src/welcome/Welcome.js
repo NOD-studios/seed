@@ -6,12 +6,16 @@ export class Welcome extends Audit(Component) {
 
   static propTypes = {
     data : PropTypes.shape({
-      ip : PropTypes.string
+      origin : PropTypes.string
     })
   };
 
   componentWillMount() {
     this.props.actions.fetchIp();
+  }
+
+  componentWillUnmount() {
+    this.props.actions.fetchIpCancelled();
   }
 
   render() {
@@ -25,8 +29,8 @@ export class Welcome extends Audit(Component) {
 
         <AppRowSpacer />
 
-        { fetching === false && data.ip ? (
-          <p className="lead">Your IP address is <Tag color="info">{ data.ip }</Tag></p>
+        { fetching === false && data.origin ? (
+          <p className="lead">Your IP address is <Tag color="info">{ data.origin }</Tag></p>
         ) : (
           <AppLoader />
         )}

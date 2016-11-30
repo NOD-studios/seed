@@ -4,7 +4,7 @@ import { Alert, Row, Col } from 'reactstrap';
 export class AppAlert extends Component {
 
   static propTypes = {
-    error : PropTypes.object
+    error : PropTypes.string
   };
 
   render() {

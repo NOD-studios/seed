@@ -40,10 +40,10 @@ export default () => {
     cb();
   });
 
-  gulp.task('tdd', ['env-test'], () => gulp
-    .src('.')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.shell('jest --watch --env=jsdom', shellParams)));
+  // gulp.task('tdd', ['env-test'], () => gulp
+  //   .src('.')
+  //   .pipe($.plumber({ errorHandler }))
+  //   .pipe($.shell('jest --watch --env=jsdom', shellParams)));
 
   gulp.task('test', ['env-test'], () => gulp
     .src('.')

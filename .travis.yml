@@ -9,9 +9,11 @@ deploy:
       secure: IqiNyqSZZEQ+Cv5qDJpd2zxQz9sqNGC1HOJHnBwyitZdKCoB13a8wZ7SDg+14egtj8x3xAXK/xuFIKgmHKmu+VuVQ1aAAzt7UszqoKzgY67OvYvdia0HtkFiD0Lsn/f4QZ1aimBLswirRSBAxJd8jtgTXqoVOfWMxCLiBP/Xtd0=
     email: hey@nod.st
     on:
-      branch: master
+      tags: true
       repo: NOD-studios/seed
+      branch: master
 node_js:
+- node
 - 6.1
 - 6
 env:
@@ -20,14 +22,15 @@ before_script:
 - git remote set-url origin git@github.com:NOD-studios/seed.git
 - git config --global user.email "hey@nod.st"
 - git config --global user.name "NOD studios (via TravisCI)"
-- npm install
+- yarn install
 script:
-- npm test
-- npm build
-- npm start &
+- yarn test
+- yarn build
+- yarn start &
 - sleep 20
 cache:
+  yarn: true
   directories:
   - node_modules
 after_deploy:
-  - npm run postpublish
+  - yarn run postpublish

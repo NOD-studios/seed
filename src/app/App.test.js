@@ -1,8 +1,18 @@
+import 'react-dom';
+import nock from 'nock';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { router, fetchIp, fetchIpSaga, Api, fetchResolve } from '../index';
-import { call, put } from 'redux-saga/effects';
+import configureMockStore from 'redux-mock-store';
 import ReactTestRenderer from 'react-test-renderer';
+import { createEpicMiddleware } from 'redux-observable';
+import {
+  router,
+  fetchIp,
+  fetchReject,
+  fetchResolve,
+  fetchIpCancelled,
+  rootEpic,
+  fetchIpEpic
+} from '../index';
 
 describe('app', () => {
 
@@ -20,35 +30,73 @@ describe('app', () => {
 
   });
 
-  let
-    api = new Api(),
-    data = {
-      ip : '127.0.0.1'
-    },
-    fetching = false,
-    state = { data, fetching },
-    getState = () => state;
+  describe('epics', () => {
 
-  describe('sagas', () => {
+    const
+      epicMiddleware = createEpicMiddleware(rootEpic),
+      mockStore = configureMockStore([epicMiddleware]);
 
-    describe('fetchIp', () => {
+    let store;
 
-      let generator = fetchIpSaga(getState);
-      let next;
+    beforeEach(() => {
+      store = mockStore();
+    });
 
-      it('yield Api.fetchIp', () => {
-        next = generator.next(fetchIp());
-        data = call([api, api.fetchIp]);
-        expect(next.value).toEqual(data);
+    describe('fetchIpEpic', () => {
+
+      const
+        data = { origin : '127.0.0.1' },
+        fetchAction = fetchIp();
+
+      nock('https://httpbin.org/')
+        .get('/ip')
+        .reply(200, data);
+
+      afterEach(() => {
+        nock.cleanAll();
+        epicMiddleware.replaceEpic(fetchIpEpic);
       });
 
-      it('yield fetchResolve action', () => {
-        next = generator.next(data);
+      it('fetching ip', () => {
+        store.dispatch(fetchAction);
 
-        expect(next.value).toEqual(put(fetchResolve(data, fetching)));
+        expect(store.getActions()).toEqual([fetchAction]);
       });
 
-    })
+      it('fetching ip resolved', () => {
+        const action = fetchResolve(data, false);
+        store.dispatch(fetchAction);
+        store.dispatch(action);
+
+        expect(store.getActions()).toEqual([fetchAction, action]);
+      });
+
+      it('fetching ip cancelled', () => {
+
+        const action = fetchIpCancelled();
+
+        store.dispatch(fetchAction);
+        store.dispatch(action);
+
+        expect(store.getActions()).toEqual([fetchAction, action]);
+      });
+
+      it('fetching ip rejected', () => {
+
+        const error = new Error('testing');
+
+        nock('https://httpbin.org/')
+          .get('/ip')
+          .reply(404, error);
+
+        const action = fetchReject(error, false);
+        store.dispatch(fetchAction);
+        store.dispatch(action);
+
+        expect(store.getActions()).toEqual([fetchAction, action]);
+      });
+
+    });
 
   });
 
