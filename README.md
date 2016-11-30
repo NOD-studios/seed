@@ -11,6 +11,7 @@
 - [Babel Plugin Add Module Exports](https://babeljs.io/docs/plugins/preset-stage-0/)
 - [Babel Plugin Transform Decorators Legacy](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy)
 - [Redux](http://redux.js.org/)
+- [Redux Observable](https://redux-observable.js.org/)
 - [Redux DevTools Extension](http://zalmoxisus.github.io/redux-devtools-extension/)
 - [reactstrap](https://reactstrap.github.io/)
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
