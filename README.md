@@ -7,9 +7,7 @@
   - [react](https://facebook.github.io/react/)
   - [PostCSS](http://postcss.org/)
   - [Babel Preset React App](https://www.npmjs.com/package/babel-preset-react-app)
-- [Babel Preset Stage 0](https://babeljs.io/docs/plugins/preset-stage-0/)
-- [Babel Plugin Add Module Exports](https://babeljs.io/docs/plugins/preset-stage-0/)
-- [Babel Plugin Transform Decorators Legacy](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy)
+- [RxJS](http://reactivex.io/)
 - [Redux](http://redux.js.org/)
 - [Redux Observable](https://redux-observable.js.org/)
 - [Redux DevTools Extension](http://zalmoxisus.github.io/redux-devtools-extension/)
@@ -17,6 +15,9 @@
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
 - [gulp](http://gulpjs.com/)
 - [Travis CI](https://travis-ci.org/)
+- [Babel Preset Stage 0](https://babeljs.io/docs/plugins/preset-stage-0/)
+- [Babel Plugin Add Module Exports](https://babeljs.io/docs/plugins/preset-stage-0/)
+- [Babel Plugin Transform Decorators Legacy](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy)
 
 ## Installation
 
@@ -31,16 +32,30 @@ or if you will use it's components
 npm install --save @nod/seed
 ```
 
+or
+
+```bash
+yarn add @nod/seed
+```
+
 ## Commands
 
 ### start
 ```bash
 npm start
 ```
+or
+```bash
+yarn start
+```
 
 ### build
 ```bash
 npm run build
+```
+or
+```bash
+yarn run build
 ```
 It will create a optimized production ready folder, after that you can start an http server pointing to that folder with something like:
 
@@ -49,9 +64,29 @@ It will create a optimized production ready folder, after that you can start an 
   pushstate-server build
   ```
 
+  or
+
+  ```bash
+  yarn global add pushstate-server
+  pushstate-server build
+  ```
+
+### tdd
+```bash
+npm run tdd
+```
+or
+```bash
+yarn run tdd
+```
+
 ### test
 ```bash
 npm test
+```
+or
+```bash
+yarn test
 ```
 
 ### version & deploy
