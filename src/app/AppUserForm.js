@@ -48,9 +48,9 @@ export class AppUserForm extends Audit(Component) {
           name="firstAndLastName"
           id="firstAndLastName"
           placeholder="First and Last Name"
-          pattern="^(?=[\pL\pN\s'\-.]+$)(?=[^\pL\pN]*(?:[\pL\pN][^\pL\pN]*){4,}$)(?![\pN'\-.])(?=\S+\s+\S)"
+          pattern="([A-z0-9À-ž\s]){4,}"
           title="Please write your full name correctly"
-          minLength="3"
+          minLength="4"
           required />
       </FormGroup>
     ),

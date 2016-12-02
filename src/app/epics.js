@@ -46,7 +46,6 @@ export const
     .ofType(POST_FORM)
     ::switchMap(action => api
       .post(action.data)
-      ::doAfter(global.console.log)
       ::mergeMap(data => Observable::concat(
         Observable::of(postFormResolve(data.json)),
         Observable::of(redirect('/register/success'))
