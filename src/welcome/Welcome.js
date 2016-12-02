@@ -20,7 +20,7 @@ export class Welcome extends Audit(Component) {
 
   render() {
 
-    const { data, fetching } = this.props;
+    const { data, fetchingIp } = this.props;
 
     return (
       <Jumbotron className="text-xs-center">
@@ -29,11 +29,13 @@ export class Welcome extends Audit(Component) {
 
         <AppRowSpacer />
 
-        { fetching === false && data.origin ? (
-          <p className="lead">Your IP address is <Tag color="info">{ data.origin }</Tag></p>
-        ) : (
+        { fetchingIp === true ? (
           <AppLoader />
-        )}
+        ) : undefined }
+
+        { data.origin ? (
+          <p className="lead">Your IP address is <Tag color="info">{ data.origin }</Tag></p>
+        ) : undefined }
 
       </Jumbotron>
     );

@@ -1,21 +1,31 @@
-import { FETCH_IP, FETCH_IP_CANCELLED } from './index';
 import global from 'window-or-global';
 import {
+
+  POST_FORM,
+  POST_FORM_CANCELLED,
+
+  FETCH_IP,
+  FETCH_IP_CANCELLED
+
+} from './index';
+import {
   Api,
-  fetchResolve,
-  fetchReject
+  fetchIpResolve,
+  fetchIpReject,
+  postFormResolve,
+  postFormReject,
+  redirect
 } from '../index';
-import { combineEpics } from 'redux-observable';
+import { _do as doAfter } from 'rxjs/operator/do';
+import { of } from 'rxjs/observable/of';
+import { concat } from 'rxjs/observable/concat';
+import { map } from 'rxjs/operator/map';
+import { mergeMap } from 'rxjs/operator/mergeMap';
+import { _catch as catchError } from 'rxjs/operator/catch';
+import { switchMap } from 'rxjs/operator/switchMap';
+import { takeUntil } from 'rxjs/operator/takeUntil';
 import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/observable/fromPromise';
-// import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/takeUntil';
-// import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
+import { combineEpics } from 'redux-observable';
 
 const api = new Api();
 
@@ -23,16 +33,31 @@ export const
 
   fetchIpEpic = action$ => action$
     .ofType(FETCH_IP)
-    .switchMap(action => api
+      ::switchMap(action => api
       .fetchIp()
-      .map(fetchResolve)
-      .takeUntil(action$.ofType(FETCH_IP_CANCELLED))
-      .catch(error => {
+      ::map(fetchIpResolve)
+      ::takeUntil(action$.ofType(FETCH_IP_CANCELLED))
+      ::catchError(error => {
         global.console.warn(error);
-        return Observable.of(fetchReject(new Error('Could not fetch client IP')));
+        return Observable::of(fetchIpReject(new Error('Could not fetch client IP')));
       })),
 
-  rootEpic = (action$, store) => combineEpics(fetchIpEpic)(action$, store)
-    .do({ error : error => global.console.error(error) });
+  postFormEpic = action$ => action$
+    .ofType(POST_FORM)
+    ::switchMap(action => api
+      .post(action.data)
+      ::doAfter(global.console.log)
+      ::mergeMap(data => Observable::concat(
+        Observable::of(postFormResolve(data.json)),
+        Observable::of(redirect('/register/success'))
+      ))
+      ::takeUntil(action$.ofType(POST_FORM_CANCELLED))
+      ::catchError(error => {
+        global.console.warn(error);
+        return Observable::of(postFormReject(new Error('Could not submit form')));
+      })),
+
+  rootEpic = (action$, store) => combineEpics(fetchIpEpic, postFormEpic)(action$, store)
+    ::doAfter({ error : error => global.console.error(error) });
 
 export default rootEpic;

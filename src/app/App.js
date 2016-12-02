@@ -12,8 +12,10 @@ export class App extends Audit(Component) {
 
   static propTypes = {
     app : PropTypes.shape({
-      fetching : PropTypes.bool.isRequired,
-      error : PropTypes.object.isRequired,
+      postingForm : PropTypes.bool.isRequired,
+      fetchingIp : PropTypes.bool.isRequired,
+      formError : PropTypes.object.isRequied,
+      error : PropTypes.object.isRequied,
       data : PropTypes.object.isRequired
     }),
     routing : PropTypes.object.isRequired,
@@ -50,11 +52,15 @@ export class App extends Audit(Component) {
 
             <Row className="p-2 main-middle flex-items-xs-middle">
 
-              <Col md={{ size : 6 , offset: 3 }}>
+              { childProps.error.message ? (
 
-                { childProps.error.message ? (
+                <Col xs={{ size : 12 }}>
                   <AppAlert error={ childProps.error.message } />
-                ) : ''}
+                </Col>
+
+              ) : ''}
+
+              <Col md={{ size : 6 , offset: 3 }}>
 
                 { cloneElement(this.props.children, childProps) }
 
@@ -65,7 +71,9 @@ export class App extends Audit(Component) {
 
           <Row>
             <Col>
+
               <Footer {...childProps} />
+
             </Col>
           </Row>
 

@@ -25,6 +25,10 @@ export class NavBar extends Audit(Component) {
           </NavItem>
 
           <NavItem>
+            <NavLink tag={Link} to="/register">Register</NavLink>
+          </NavItem>
+
+          <NavItem>
             <NavLink target="_blank" href="http://github.com/NOD-studios/seed">GitHub</NavLink>
           </NavItem>
 

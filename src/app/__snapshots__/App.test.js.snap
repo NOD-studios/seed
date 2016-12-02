@@ -33,6 +33,16 @@ exports[`app App matches snapshot 1`] = `
               className="nav-item">
               <a
                 className="nav-link"
+                href="/register"
+                onClick={[Function]}
+                style={Object {}}>
+                Register
+              </a>
+            </li>
+            <li
+              className="nav-item">
+              <a
+                className="nav-link"
                 href="http://github.com/NOD-studios/seed"
                 onClick={[Function]}
                 target="_blank">
@@ -47,9 +57,9 @@ exports[`app App matches snapshot 1`] = `
       role="main">
       <div
         className="p-2 main-middle flex-items-xs-middle row">
+        
         <div
           className="col-xs-12 col-md-6 offset-md-3">
-          
           <div
             className="text-xs-center jumbotron">
             <h1

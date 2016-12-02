@@ -7,7 +7,9 @@ import {
   App,
   AppIndex,
   Welcome,
-  NotFound
+  NotFound,
+  Register,
+  Success
 } from '../index';
 
 export const router = () => (
@@ -20,6 +22,8 @@ export const router = () => (
 
         <IndexRoute component={ AppIndex } />
         <Route path='/welcome' component={ Welcome } />
+        <Route path='/register' component={ Register } />
+        <Route path='/register/success' component={ Success } />
         <Route path="*" component={ NotFound } status={ 404 } />
 
       </Route>

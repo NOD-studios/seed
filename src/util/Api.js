@@ -1,9 +1,11 @@
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromPromise';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 export class Api {
 
   returnObservable = true;
+
+  endpoint = 'https://httpbin.org';
 
   defaults = {
     mode : 'cors',
@@ -15,26 +17,37 @@ export class Api {
     }
   };
 
+  constructor(override = {}) {
+    Object.assign(this, { ...override });
+  }
+
   fetchPromise = (url, data) => fetch(url, {
-    ...this.defaults,
-    ...data
-  })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      }
-
-      throw Error({ response : response.status, ...response });
+      ...this.defaults,
+      ...data
     })
-    .then(response => response.json())
-    .then(::Promise.resolve)
-    .catch(::Promise.reject);
+      .then(response => {
+        if (response.ok) {
+          return response;
+        }
 
-  fetch = (...params) => this
-    .returnObservable ? Observable.fromPromise(this.fetchPromise(...params)) : this.fetchPromise(...params);
+        throw Error({ response : response.status, ...response });
+      })
+      .then(response => response.json())
+      .then(::Promise.resolve)
+      .catch(::Promise.reject);
 
+  fetchObservable = (...params) => Observable::fromPromise(this.fetchPromise(...params));
 
-  fetchIp = (url = 'https://httpbin.org/ip') => this.fetch(url);
+  fetch = (...params) => this.returnObservable ?
+    this.fetchObservable(...params) : this.fetchPromise(...params);
+
+  post = (body = {}, url = `${this.endpoint}/post`) => this.fetch(url, {
+    ...this.defaults,
+    body : JSON.stringify(body),
+    method : 'POST'
+  });
+
+  fetchIp = (url = `${this.endpoint}/ip`) => this.fetch(url);
 
 }
 
