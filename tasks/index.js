@@ -71,10 +71,7 @@ export default () => {
     .pipe($.plumber({ errorHandler }))
     .pipe($.git.add({ args: '-A' }, (error) => errorHandler(error, 'git'))));
 
-  gulp.task('preversion', ['preversion-git-add', 'test'], (cb) => {
-    console.log('preversion!!');
-    cb();
-  });
+  gulp.task('preversion', ['preversion-git-add', 'test']);
 
   gulp.task('postversion-git-push', cb => $.git.push('origin', ['master'], { args: " --tags" }, cb));
 
