@@ -110,11 +110,6 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageFormats": [
-      "json",
-      "html",
-      "xml"
-    ],
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
