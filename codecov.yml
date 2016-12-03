@@ -1,5 +1,5 @@
 codecov:
-  token: secret:DpZidBx0WuDOGq93HagAO13tq27zhkbX9VgLkkqsm97Dl/MtMk+aiWHSe2krj2FKJ31E8ogZvLzlvu4hrDfnKZxQHLKZwETJwDd1bwOruHA=
+  token: 3988932c-4a9b-4ccf-8535-584f58b90a45
   notify:
     require_ci_to_pass: false
 comment:
