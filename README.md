@@ -1,5 +1,11 @@
 # seed
 
+
+[![build][travis-image]][tag-url]
+[![version][tag-image]][tag-url]
+[![dependencies][david-image]][david-url]
+[![codecov][codecov-image]][codecov-url]
+
 ## Under the Hood
 - [Create React App](https://github.com/facebookincubator/create-react-app)
   - [webpack](https://webpack.github.io/)
@@ -94,3 +100,25 @@ You can use [npm version](https://docs.npmjs.com/cli/version) command with force
 ```bash
 npm version patch -f -m "Added XXX feature"
 ```
+
+## Roadmap
+- Integration with some Web Component spefications
+- Integration with a ES.next doc generator
+- Make it universal
+- Add ServiceWorker
+
+# Contact:
+[![Join the chat][gitter-image]][gitter-url]
+
+[hey@nod.st](mailto:hey@nod.st)
+
+[codecov-image]: https://codecov.io/gh/NOD-studios/seed/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/NOD-studios/seed
+[repo-url]: https://github.com/NOD-studios/NOD-strap
+[travis-image]: https://travis-ci.org/NOD-studios/seed.svg?branch=master
+[david-url]: https://david-dm.org/NOD-studios/NOD-strap
+[david-image]: https://david-dm.org/NOD-studios/NOD-strap.svg
+[gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg
+[gitter-url]: http://bit.ly/NOD-chat
+[tag-image]: https://img.shields.io/github/tag/NOD-studios/NOD-strap.svg
+[tag-url]: https://github.com/NOD-studios/NOD-strap/tags

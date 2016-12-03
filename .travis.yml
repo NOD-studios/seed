@@ -34,3 +34,5 @@ cache:
   - node_modules
 after_deploy:
   - yarn run postpublish
+after_success:
+  bash <(curl -s https://codecov.io/bash)

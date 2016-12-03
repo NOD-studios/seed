@@ -1,6 +1,6 @@
 {
   "name": "@nod/seed",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "build/index.js",
   "description": "A seed to grow a new project",
   "repository": {
@@ -23,13 +23,13 @@
     "chalk": "1.1.3",
     "connect-history-api-fallback": "1.3.0",
     "cross-spawn": "5.0.1",
-    "css-loader": "0.26.0",
-    "detect-port": "1.0.5",
+    "css-loader": "^0.26.1",
+    "detect-port": "^1.0.6",
     "dotenv": "2.0.0",
     "eslint": "3.11.1",
     "eslint-config-react-app": "^0.3.0",
     "eslint-loader": "1.6.1",
-    "eslint-plugin-flowtype": "2.28.2",
+    "eslint-plugin-flowtype": "^2.29.1",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.1",
     "eslint-plugin-react": "^6.7.1",
@@ -48,7 +48,7 @@
     "gulp-simple-load-tasks": "^1.0.2",
     "gulp-util": "^3.0.7",
     "gzip-size": "3.0.0",
-    "history": "3.x",
+    "history": "^3.2.1",
     "html-webpack-plugin": "2.24.1",
     "http-proxy-middleware": "0.17.2",
     "isomorphic-fetch": "^2.2.1",
@@ -61,22 +61,21 @@
     "path-exists": "3.0.0",
     "postcss-loader": "1.1.1",
     "promise": "7.1.1",
-    "react-addons-css-transition-group": "^15.4.0",
-    "react-addons-transition-group": "^15.4.0",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-addons-transition-group": "^15.4.1",
     "react-dev-utils": "^0.3.0",
     "react-md-spinner": "^0.1.0",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
-    "react-test-renderer": "^15.4.0",
-    "reactstrap": "^3.9.0",
+    "react-test-renderer": "^15.4.1",
+    "reactstrap": "^3.9.3",
     "recursive-readdir": "2.1.0",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^1.0.0",
     "redux-mock-store": "^1.2.1",
     "redux-observable": "^0.12.2",
     "rimraf": "2.5.4",
-    "rx-dom": "^7.0.3",
     "rxjs": "^5.0.0-rc.4",
     "strip-ansi": "3.0.1",
     "style-loader": "0.13.1",
@@ -87,8 +86,10 @@
     "window-or-global": "^1.0.1"
   },
   "dependencies": {
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "getstorybook": "^1.6.1",
+    "global": "^4.3.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "scripts": {
     "start": "gulp start",
@@ -108,6 +109,15 @@
     "postpublish": "gulp postpublish"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageFormats": [
+      "json",
+      "html",
+      "xml"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "moduleFileExtensions": [
       "jsx",
       "js",
