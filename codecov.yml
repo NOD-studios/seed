@@ -1,6 +1,7 @@
 codecov:
+  token: secret:DpZidBx0WuDOGq93HagAO13tq27zhkbX9VgLkkqsm97Dl/MtMk+aiWHSe2krj2FKJ31E8ogZvLzlvu4hrDfnKZxQHLKZwETJwDd1bwOruHA=
   notify:
-    require_ci_to_pass: true
+    require_ci_to_pass: false
 comment:
   behavior: default
   layout: header, diff
