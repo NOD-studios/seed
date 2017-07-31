@@ -1,8 +1,8 @@
-import { Audit } from '../index';
-import React, { Component} from 'react';
-import { Row, Col, Jumbotron } from 'reactstrap';
+import { withAudit } from '../index'
+import React, { Component } from 'react'
+import { Row, Col, Jumbotron } from 'reactstrap'
 
-export class NotFound extends Audit(Component) {
+export class NotFound extends withAudit(Component) {
 
   render() {
 
@@ -11,14 +11,16 @@ export class NotFound extends Audit(Component) {
         <Col>
           <Jumbotron className="text-xs-center">
             <h1 className="display-4">Oops</h1>
-            <p className="lead">The page that you requested is not found, sorry.</p>
+            <p className="lead">
+              The page that you requested is not found, sorry.
+            </p>
           </Jumbotron>
         </Col>
       </Row>
-    );
+    )
 
   }
 
 }
 
-export default NotFound;
+export default NotFound

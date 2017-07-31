@@ -1,50 +1,38 @@
-import React, { Component, cloneElement, PropTypes } from 'react';
-import './App.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Audit, NavBar, Footer, AppAlert, actions } from '../index';
-import { Container, Row, Col } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-flex.css';
+import './App.css'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import React, { Component, cloneElement } from 'react'
+import { withAudit, NavBar, Footer, AppAlert, withBoundActions } from '../'
+import * as appActions from './appActions'
+import { Container, Row, Col } from 'reactstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-flex.css'
 
-@connect((state) => state)
-export class App extends Audit(Component) {
+@connect(({ ...state, app }) => ({ ...state, ...app }))
+@withBoundActions(appActions)
+export class App extends withAudit(Component) {
 
   static propTypes = {
-    app : PropTypes.shape({
-      postingForm : PropTypes.bool.isRequired,
-      fetchingIp : PropTypes.bool.isRequired,
-      formError : PropTypes.object.isRequied,
-      error : PropTypes.object.isRequied,
-      data : PropTypes.object.isRequired
-    }),
-    routing : PropTypes.object.isRequired,
-    dispatch : PropTypes.func.isRequired,
-    children : PropTypes.object.isRequired
-  };
-
-  componentWillMount() {
-
-    this.actions = bindActionCreators(actions, this.props.dispatch);
-
-  }
-
-  getChildProps() {
-    return { actions : this.actions, ...this.props.app };
+    postingRegistrationForm : PropTypes.bool.isRequired,
+    registrationFormError   : PropTypes.object.isRequired,
+    registrationFormResult  : PropTypes.object.isRequired,
+    appError                : PropTypes.object.isRequired,
+    routing                 : PropTypes.object.isRequired,
+    children                : PropTypes.object.isRequired
   }
 
   render() {
 
-    const childProps = this.getChildProps();
+    const { appError: { message: appErrorMessage }, children } = this.props
 
     return (
       <div className="App">
 
-        <Container fluid={true} className="p-0">
+        <Container fluid={ true } className="p-0">
 
           <Row>
             <Col>
-              <NavBar {...childProps} />
+              <NavBar { ...this.props } />
             </Col>
           </Row>
 
@@ -52,19 +40,18 @@ export class App extends Audit(Component) {
 
             <Row className="p-2 main-middle flex-items-xs-middle">
 
-              { childProps.error.message ? (
+              { appErrorMessage ? (
 
-                <Col xs={{ size : 12 }}>
-                  <AppAlert error={ childProps.error.message } />
+                <Col xs={ { size : 12 } }>
+                  <AppAlert error={ appErrorMessage } />
                 </Col>
 
               ) : ''}
 
-              <Col md={{ size : 6 , offset: 3 }}>
-
-                { cloneElement(this.props.children, childProps) }
-
+              <Col md={ { size : 6 , offset : 3 } }>
+                { cloneElement(children, this.props) }
               </Col>
+
             </Row>
 
           </main>
@@ -72,7 +59,7 @@ export class App extends Audit(Component) {
           <Row>
             <Col>
 
-              <Footer {...childProps} />
+              <Footer { ...this.props } />
 
             </Col>
           </Row>
@@ -80,10 +67,10 @@ export class App extends Audit(Component) {
         </Container>
 
       </div>
-    );
+    )
 
   }
 
 }
 
-export default App;
+export default App

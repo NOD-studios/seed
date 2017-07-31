@@ -12,10 +12,10 @@ var WebpackDevServer = require('webpack-dev-server');
 var historyApiFallback = require('connect-history-api-fallback');
 var httpProxyMiddleware = require('http-proxy-middleware');
 var detect = require('detect-port');
-var clearConsole = require('react-dev-utils/clearConsole');
+// var clearConsole = require('react-dev-utils/clearConsole');
 var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 var formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
-var openBrowser = require('react-dev-utils/openBrowser');
+// var openBrowser = require('react-dev-utils/openBrowser');
 var prompt = require('react-dev-utils/prompt');
 var config = require('../config/webpack.config.dev');
 var paths = require('../config/paths');
@@ -53,14 +53,14 @@ function setupCompiler(host, port, protocol) {
   // bundle, so if you refresh, it'll wait instead of serving the old one.
   // "invalid" is short for "bundle invalidated", it doesn't imply any errors.
   compiler.plugin('invalid', function() {
-    clearConsole();
+    // clearConsole();
     console.log('Compiling...');
   });
 
   // "done" event fires when Webpack has finished recompiling the bundle.
   // Whether or not you have warnings or errors, you will get this event.
   compiler.plugin('done', function(stats) {
-    clearConsole();
+    // clearConsole();
 
     // We have switched off the default Webpack output in WebpackDevServer
     // options so we are going to "massage" the warnings and errors and present
@@ -123,7 +123,7 @@ function onProxyError(proxy) {
     // And immediately send the proper error response to the client.
     // Otherwise, the request will eventually timeout with ERR_EMPTY_RESPONSE on the client side.
     if (res.writeHead && !res.headersSent) {
-        res.writeHead(500);
+      res.writeHead(500);
     }
     res.end('Proxy error: Could not proxy request ' + req.url + ' from ' +
       host + ' to ' + proxy + ' (' + err.code + ').'
@@ -233,10 +233,10 @@ function runDevServer(host, port, protocol) {
       return console.log(err);
     }
 
-    clearConsole();
+    // clearConsole();
     console.log(chalk.cyan('Starting the development server...'));
     console.log();
-    openBrowser(protocol + '://' + host + ':' + port + '/');
+    // openBrowser(protocol + '://' + host + ':' + port + '/');
   });
 }
 
@@ -255,7 +255,7 @@ detect(DEFAULT_PORT).then(port => {
     return;
   }
 
-  clearConsole();
+  // clearConsole();
   var question =
     chalk.yellow('Something is already running on port ' + DEFAULT_PORT + '.') +
     '\n\nWould you like to run the app on another port instead?';

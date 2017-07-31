@@ -1,0 +1,16 @@
+{
+  "verbose": true,
+  "watch": [
+    "*.env",
+    "*.toml",
+    "tasks",
+    "config",
+    "scripts",
+    "gulpfile.babel.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,json,env,toml",
+  "exec": ["npm run default"]
+}

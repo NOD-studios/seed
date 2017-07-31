@@ -1,3 +1,10 @@
+build
+.env
+
+#hz
+*.pem
+rethinkdb_data
+
 #gh-pages
 .publish
 

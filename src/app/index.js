@@ -1,17 +1,17 @@
-export * as constants from './constants';
-export * as actions from './actions';
-export * as epics from './epics';
-export * from './constants';
-export * from './actions';
-export * from './reducer';
-export * from './bootstrap';
-export * from './router';
-export * from './epics';
-export * from './history';
-export * from './store';
-export * from './AppAlert';
-export * from './AppLoader';
-export * from './AppUserForm';
-export * from './AppRowSpacer';
-export * from './AppIndex';
-export * from './App';
+export * as appConstants from './appConstants'
+export * as appActions from './appActions'
+export * as appEpics from './appEpics'
+export * from './appConstants'
+export * from './appActions'
+export * from './appReducer'
+export * from './appEpics'
+export * from './appHistory'
+export * from './appStore'
+export * from './appRouter'
+export * from './bootstrap'
+export * from './AppAlert'
+export * from './AppLoader'
+export * from './AppUserForm'
+export * from './AppRowSpacer'
+export * from './AppIndex'
+export * from './App'

@@ -1,3 +1,3 @@
-import { bootstrap } from './index';
+import { bootstrap } from './index'
 
-bootstrap();
+export default bootstrap()

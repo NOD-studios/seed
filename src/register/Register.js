@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import { Audit, AppLoader, AppRowSpacer, AppUserForm } from '../index';
-import { Row, Col, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { withAudit, AppLoader, AppRowSpacer, AppUserForm } from '../index'
+import { Row, Col, Button } from 'reactstrap'
 
-export class Register extends Audit(Component) {
+export class Register extends withAudit(Component) {
 
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.actions.postForm(this.props.data);
-  };
+  onSubmit = event => [
+    event.preventDefault(),
+    this.props.postRegistrationForm(this.props.registrationFormResult)
+  ]
 
-  onCancel = event => {
-    event.preventDefault();
-    this.props.actions.postFormCancelled();
-  };
+  onCancel = event => [ event.preventDefault(), this.props.postRegistrationFormCanceled() ]
 
   render() {
 
@@ -21,7 +18,7 @@ export class Register extends Audit(Component) {
         <Col>
 
           <Row>
-            <Col md={{ size : 6, offset: 3 }}>
+            <Col md={ { size : 6, offset : 3 } }>
               <h1>Register</h1>
             </Col>
           </Row>
@@ -29,7 +26,7 @@ export class Register extends Audit(Component) {
           <AppRowSpacer />
 
           <Row>
-            <Col md={{ size : 6, offset: 3 }}>
+            <Col md={ { size : 6, offset : 3 } }>
 
               { this.props.postingForm ? (
                 <div>
@@ -38,15 +35,17 @@ export class Register extends Audit(Component) {
 
                   <AppRowSpacer />
 
-                  <Button onClick={this.onCancel}>Cancel</Button>
+                  <Button onClick={ this.onCancel }>
+                    Cancel
+                  </Button>
 
                 </div>
               ) : (
-                <AppUserForm {...this.props} fields={[
+                <AppUserForm { ...this.props } fields={ [
                   'firstAndLastName',
                   'email',
                   'password'
-                ]} onSubmit={this.onSubmit} />
+                ] } onSubmit={ event => this.onSubmit( event ) } />
               ) }
 
             </Col>
@@ -54,10 +53,10 @@ export class Register extends Audit(Component) {
 
         </Col>
       </Row>
-    );
+    )
 
   }
 
 }
 
-export default Register;
+export default Register

@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { Audit, Welcome } from '../index';
+import React, { Component } from 'react'
+import { withAudit, Welcome } from '../index'
 
-export class AppIndex extends Audit(Component) {
+export class AppIndex extends withAudit(Component) {
 
   render() {
 
     return (
-      <Welcome {...this.props} />
-    );
+      <Welcome { ...this.props } />
+    )
 
   }
 
 }
 
-export default AppIndex;
+export default AppIndex

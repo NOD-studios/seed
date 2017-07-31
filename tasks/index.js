@@ -1,7 +1,5 @@
-'use strict';
-
-import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
 
 export default () => {
 
@@ -10,79 +8,97 @@ export default () => {
     $ = gulpLoadPlugins(),
 
     shellParams = {
-      env: { FORCE_COLOR : true }
+      env : { FORCE_COLOR : true }
     },
 
-    errorLog = (message = 'Unknown', prefix = 'Error') => {
-      prefix = prefix !== false ? $.util.colors.yellow(`[${prefix}] : `) : '';
-      message = $.util.colors.red(`${message}\n`);
+    errorLog = (message = 'Unknown', prefix = 'Error') => $
+      .util
+      .log(`${ prefix !== false
+        ? $.util.colors.yellow(`[${ prefix }] : `)
+        : '' }${ $.util.colors.red(`${ message }\n`) }`),
 
-      return $.util.log(`${prefix}${message}`);
-    },
+    gitPush = $.git.push,
 
-    errorHandler = function (error, prefix) {
-      errorLog(error, prefix);
-      this.emit('end');
-    };
+    ENV_DEVELOPMENT = 'development',
 
-  gulp.task('env-test', (cb) => {
-    process.env.NODE_ENV = 'test';
-    cb();
-  });
+    ENV_PRODUCTION = 'production',
 
-  gulp.task('env-production', (cb) => {
-    process.env.NODE_ENV = 'production';
-    cb();
-  });
+    ENV_TEST = 'test',
 
-  gulp.task('env-development', (cb) => {
-    process.env.NODE_ENV = 'development';
-    cb();
-  });
+    gulpSrcWithHandler = (src = '.') =>
+      gulp
+        .src(src)
+        .pipe($.plumber({ errorHandler }))
 
-  // gulp.task('tdd', ['env-test'], () => gulp
-  //   .src('.')
-  //   .pipe($.plumber({ errorHandler }))
-  //   .pipe($.shell('jest --watch --env=jsdom', shellParams)));
+  function errorHandler(error, prefix) {
+    return [ errorLog(error, prefix), this.emit('end') ]
+  }
 
-  gulp.task('test', ['env-test'], () => gulp
-    .src('.')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.shell('jest --env=jsdom', shellParams)));
+  return [
 
-  gulp.task('build', ['env-production'], () => gulp
-    .src('.')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.shell('node ./scripts/build.js', shellParams)));
+    gulp.task('env-test', cb => [ $.env.set({ NODE_ENV : ENV_TEST }), cb() ]),
 
-  gulp.task('start', ['env-development'], () => gulp
-    .src('.')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.shell('node ./scripts/start.js', shellParams)));
+    gulp.task('env-production', cb => [
+      $.env.set({ NODE_ENV : ENV_PRODUCTION }),
+      cb()
+    ]),
 
-  gulp.task('gh-pages', ['build'], () => gulp
-    .src('./build/**/*')
-    .pipe($.ghPages({
-      force : true
-    })));
+    gulp.task('env-development', cb => [
+      $.env.set({ NODE_ENV : ENV_DEVELOPMENT }),
+      cb()
+    ]),
 
-  gulp.task('preversion-git-add', ['build'], () => gulp
-    .src('.')
-    .pipe($.plumber({ errorHandler }))
-    .pipe($.git.add({ args: '-A' }, (error) => errorHandler(error, 'git'))));
+    gulp.task('build', [ 'env-production' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.shell('node ./scripts/build.js', shellParams))),
 
-  gulp.task('preversion', ['preversion-git-add', 'test']);
+    gulp.task('start-client', [ 'env-development' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.shell('node ./scripts/start.js', shellParams))),
 
-  gulp.task('postversion-git-push', cb => $.git.push('origin', ['master'], { args: " --tags" }, cb));
+    gulp.task('start-server', [ 'env-development' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.shell(process.env['NODE_ENV'] === 'production'
+          ? 'hz serve'
+          : 'hz serve --dev', shellParams))),
 
-  gulp.task('postversion-deploy-gh-page', cb => $.git.push('origin', ['master'], { args: " --tags" }, cb));
+    gulp.task('start-client-production', [ 'env-production' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.shell('node ./scripts/start.js', shellParams))),
 
-  gulp.task('postversion', ['postversion-git-push']);
+    gulp.task('start-server-production', [ 'env-production' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.shell(process.env['NODE_ENV'] === 'production'
+          ? 'hz serve'
+          : 'hz serve --dev', shellParams))),
 
-  gulp.task('postpublish', ['gh-pages']);
+    gulp.task('default', [ 'start-server', 'start-client' ]),
 
-  gulp.task('default', ['start']);
+    gulp.task('gh-pages', [ 'build' ], () =>
+      gulpSrcWithHandler('./build/**/*')
+        .pipe($.ghPages({ force : true }))),
 
-  $.npmScriptSync(gulp);
+    gulp.task('preversion-git-add', [ 'build' ], () =>
+      gulpSrcWithHandler()
+        .pipe($.git.add({ args : '-A' }, error =>
+          errorHandler(error, 'git')))),
+
+    gulp.task('preversion', [ 'preversion-git-add', 'test' ]),
+
+    gulp.task('postversion-git-push', cb =>
+      gitPush('origin', [ 'master' ], { args : " --tags" }, cb)),
+
+    gulp.task('postversion-deploy-gh-page', cb =>
+      gitPush('origin', [ 'master' ], { args : " --tags" }, cb)),
+
+    gulp.task('postversion', [ 'postversion-git-push' ]),
+
+    gulp.task('postpublish', [ 'gh-pages' ]),
+
+    $.npmScriptSync(gulp),
+
+    gulp
+
+  ]
 
 }

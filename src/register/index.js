@@ -1,2 +1,2 @@
-export * from './Register';
-export * from './Success';
+export * from './Register'
+export * from './Success'

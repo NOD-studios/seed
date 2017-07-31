@@ -1,14 +1,6 @@
-import React, { Component } from 'react';
-import MdSpinner from "react-md-spinner";
+import React from 'react'
+import MdSpinner from "react-md-spinner"
 
-export class AppLoader extends Component {
+export const AppLoader = ( <MdSpinner /> )
 
-  render() {
-    return (
-      <MdSpinner />
-    );
-  }
-
-}
-
-export default AppLoader;
+export default AppLoader

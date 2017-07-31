@@ -1,26 +1,32 @@
-import React, { Component, PropTypes } from 'react';
-import { Jumbotron, Tag } from 'reactstrap';
-import { Audit, AppLoader, AppRowSpacer } from '../index';
+import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
+import { Jumbotron, Label } from 'reactstrap'
+import { withAudit, AppLoader, AppRowSpacer } from '../index'
 
-export class Welcome extends Audit(Component) {
+export class Welcome extends withAudit(PureComponent) {
 
   static propTypes = {
-    data : PropTypes.shape({
+    fetchingIp       : PropTypes.bool.isRequired,
+    fetchingIpError  : PropTypes.object.isRequired,
+    fetchingIpResult : PropTypes.shape({
       origin : PropTypes.string
     })
-  };
+  }
 
   componentWillMount() {
-    this.props.actions.fetchIp();
+    const { fetchIp } = this.props
+
+    return fetchIp()
   }
 
   componentWillUnmount() {
-    this.props.actions.fetchIpCancelled();
+    const { cancelFetchingOfIp } = this.props
+
+    return cancelFetchingOfIp()
   }
 
   render() {
-
-    const { data, fetchingIp } = this.props;
+    const { fetchingIpResult: { origin }, fetchingIp } = this.props
 
     return (
       <Jumbotron className="text-xs-center">
@@ -29,19 +35,17 @@ export class Welcome extends Audit(Component) {
 
         <AppRowSpacer />
 
-        { fetchingIp === true ? (
-          <AppLoader />
-        ) : undefined }
+        { fetchingIp === true ? <AppLoader /> : undefined }
 
-        { data.origin ? (
-          <p className="lead">Your IP address is <Tag color="info">{ data.origin }</Tag></p>
-        ) : undefined }
+        { origin && <p className="lead">
+          Your IP address is <Label color="info">{ origin }</Label>
+        </p> }
 
       </Jumbotron>
-    );
+    )
 
   }
 
 }
 
-export default Welcome;
+export default Welcome

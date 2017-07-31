@@ -1,38 +1,40 @@
-import React, { Component, PropTypes } from 'react';
-import { Row, Col, Alert } from 'reactstrap';
-import { Audit, AppRowSpacer } from '../index';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Row, Col, Alert } from 'reactstrap'
+import { withAudit, AppRowSpacer } from '../index'
 
-export class Success extends Audit(Component) {
+export class Success extends withAudit(Component) {
 
   static propTypes = {
-    data : PropTypes.shape({
-      username : PropTypes.string,
+    registrationFormResult : PropTypes.shape({
+      username         : PropTypes.string,
       firstAndLastName : PropTypes.string
     })
-  };
+  }
 
   componentWillMount() {
+    const {
+      redirect,
+      registrationFormResult: { username, firstAndLastName }
+    } = this.props
 
-    const { username, firstAndLastName } = this.props.data;
-
-    if (username) {
-      return true;
-    }
-    if (firstAndLastName) {
-      return true;
-    }
-
-    this.props.actions.redirect('/register');
+    return username
+      ? true
+      : firstAndLastName
+        ? true
+        : redirect('/register')
   }
 
   render() {
+
+    const { registrationFormResult: { firstAndLastName, username } } = this.props
 
     return (
       <Row className="flex-items-xs-middle">
         <Col>
 
           <Row>
-            <Col md={{ size : 6 , offset: 3 }}>
+            <Col md={ { size : 6 , offset : 3 } }>
               <h1>Success</h1>
             </Col>
           </Row>
@@ -40,10 +42,10 @@ export class Success extends Audit(Component) {
           <AppRowSpacer />
 
           <Row>
-            <Col md={{ size : 6 , offset: 3 }}>
+            <Col md={ { size : 6 , offset : 3 } }>
 
               <Alert color="info">
-                Cheers <strong>{this.props.data.firstAndLastName || this.props.data.username } !</strong>
+                Cheers <strong>{ firstAndLastName || username } !</strong>
               </Alert>
 
             </Col>
@@ -51,10 +53,10 @@ export class Success extends Audit(Component) {
 
         </Col>
       </Row>
-    );
+    )
 
   }
 
 }
 
-export default Success;
+export default Success

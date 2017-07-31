@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import window from 'window-or-global';
-import { Audit } from '../index';
+import React, { Component } from 'react'
+import window from 'window-or-global'
+import { withAudit } from '../index'
 
-export class Footer extends Audit(Component) {
+export class Footer extends withAudit(Component) {
 
   render() {
 
@@ -10,10 +10,10 @@ export class Footer extends Audit(Component) {
       <footer className="text-xs-center">
         <p><small>&copy; { new window.Date().getFullYear() }</small></p>
       </footer>
-    );
+    )
 
   }
 
 }
 
-export default Footer;
+export default Footer

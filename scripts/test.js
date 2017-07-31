@@ -1,3 +1,5 @@
+/* eslint key-spacing: 0 */
+
 process.env.NODE_ENV = 'test';
 process.env.PUBLIC_URL = '';
 

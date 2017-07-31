@@ -102,8 +102,6 @@ npm version patch -f -m "Added XXX feature"
 ```
 
 ## Roadmap
-- Integration with some Web Component spefications
-- Integration with a ES.next doc generator
 - Make it universal
 - Add ServiceWorker
 

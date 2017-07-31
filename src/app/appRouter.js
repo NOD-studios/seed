@@ -1,22 +1,22 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute } from 'react-router';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router, Route, IndexRoute } from 'react-router'
 import {
-  store,
-  history,
+  appStore,
+  appHistory,
   App,
   AppIndex,
   Welcome,
   NotFound,
   Register,
   Success
-} from '../index';
+} from '../index'
 
-export const router = () => (
+export const appRouter = () => (
 
-  <Provider store={ store }>
+  <Provider store={ appStore }>
 
-    <Router history={ history }>
+    <Router history={ appHistory }>
 
       <Route path="/" component={ App }>
 
@@ -32,6 +32,6 @@ export const router = () => (
 
   </Provider>
 
-);
+)
 
-export default router;
+export default appRouter
