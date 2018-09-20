@@ -1,5 +1,7 @@
 # seed
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/NOD-studios/seed.svg)](https://greenkeeper.io/)
+
 
 [![build][travis-image]][tag-url]
 [![version][tag-image]][tag-url]
